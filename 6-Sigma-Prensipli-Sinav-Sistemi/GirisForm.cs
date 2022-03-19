@@ -23,22 +23,56 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            string user = txtKullaniciAdi.Text;
-            string pass = txtSifre.Text;
-            int id;
-            
             con = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
             cmd = new SqlCommand();
             con.Open();
             cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM dbo.Users where UserName='" + user + "' AND Password='" + pass + "'";
+            kullaniciAdiKontrolVeGiris();
+            con.Close();
+        }
+
+        private void btnKayitOl_Click(object sender, EventArgs e)
+        {
+            GirisForm.ActiveForm.Hide();
+            KayitForm kForm = new KayitForm();
+            kForm.ShowDialog();
+        }
+
+        private void GirisForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        public void kullaniciAdiKontrolVeGiris()
+        {
+            if (txtKullaniciAdi.Text != "" && txtSifre.Text != "")
+            {
+                cmd.CommandText = "SELECT UserName FROM dbo.Users where UserName='" + txtKullaniciAdi.Text + "'";
+                dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    dr.Close();
+                    giris();
+                }
+                else
+                {
+                    MessageBox.Show("Girilen kullanıcı adı bulunamamıştır.\nLütfen tekrar deneyiniz.\nKaydınız bulunmuyor ise Kayıt Ol butonu ile kayıt olabilirsiniz.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurunuz.");
+            }
+            
+        }
+
+        public void giris()
+        {
+            string user = txtKullaniciAdi.Text;
+            string pass = txtSifre.Text;
+            cmd.CommandText = "SELECT UserName, Password, UserTypeID FROM dbo.Users where UserName='" + user + "' AND Password='" + pass + "'";
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
@@ -54,21 +88,17 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                         break;
                     case 3:
                         AdminForm aForm = new AdminForm();
-                        this.Hide();
-                        aForm.Show();
+                        GirisForm.ActiveForm.Hide();
+                        aForm.ShowDialog();
                         break;
                     default:
                         break;
                 }
-
             }
             else
             {
-                MessageBox.Show("Kullanıcı adı veya şifre yanlış.\nLütfen tekrar deneyiniz.");
+                MessageBox.Show("Hatalı şifre girdiniz. Lütfen tekrar deneyiniz.");
             }
-            con.Close();
-            
-
         }
     }
 }

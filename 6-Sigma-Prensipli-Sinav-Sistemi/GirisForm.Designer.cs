@@ -35,7 +35,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.txtKullaniciAdi = new System.Windows.Forms.TextBox();
             this.txtSifre = new System.Windows.Forms.TextBox();
             this.btnKayitOl = new System.Windows.Forms.Button();
-            this.btnSifremiUnuttum = new System.Windows.Forms.Button();
+            this.lblSifremiUnuttum = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnGiris
@@ -88,31 +88,33 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnKayitOl.TabIndex = 5;
             this.btnKayitOl.Text = "Kayıt Ol";
             this.btnKayitOl.UseVisualStyleBackColor = true;
+            this.btnKayitOl.Click += new System.EventHandler(this.btnKayitOl_Click);
             // 
-            // btnSifremiUnuttum
+            // lblSifremiUnuttum
             // 
-            this.btnSifremiUnuttum.Location = new System.Drawing.Point(292, 246);
-            this.btnSifremiUnuttum.Name = "btnSifremiUnuttum";
-            this.btnSifremiUnuttum.Size = new System.Drawing.Size(140, 23);
-            this.btnSifremiUnuttum.TabIndex = 6;
-            this.btnSifremiUnuttum.Text = "Şifremi Unuttum";
-            this.btnSifremiUnuttum.UseVisualStyleBackColor = true;
+            this.lblSifremiUnuttum.AutoSize = true;
+            this.lblSifremiUnuttum.Location = new System.Drawing.Point(315, 247);
+            this.lblSifremiUnuttum.Name = "lblSifremiUnuttum";
+            this.lblSifremiUnuttum.Size = new System.Drawing.Size(81, 13);
+            this.lblSifremiUnuttum.TabIndex = 6;
+            this.lblSifremiUnuttum.TabStop = true;
+            this.lblSifremiUnuttum.Text = "Şifremi Unuttum";
             // 
-            // Form1
+            // GirisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnSifremiUnuttum);
+            this.Controls.Add(this.lblSifremiUnuttum);
             this.Controls.Add(this.btnKayitOl);
             this.Controls.Add(this.txtSifre);
             this.Controls.Add(this.txtKullaniciAdi);
             this.Controls.Add(this.lblSifre);
             this.Controls.Add(this.lblKullaniciAdi);
             this.Controls.Add(this.btnGiris);
-            this.Name = "Form1";
+            this.Name = "GirisForm";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GirisForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,7 +128,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.TextBox txtKullaniciAdi;
         private System.Windows.Forms.TextBox txtSifre;
         private System.Windows.Forms.Button btnKayitOl;
-        private System.Windows.Forms.Button btnSifremiUnuttum;
+        private System.Windows.Forms.LinkLabel lblSifremiUnuttum;
     }
 }
 
