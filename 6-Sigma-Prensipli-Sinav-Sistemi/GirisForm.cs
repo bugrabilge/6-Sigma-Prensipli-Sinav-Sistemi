@@ -65,7 +65,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             {
                 MessageBox.Show("Lütfen tüm alanları doldurunuz.");
             }
-            
         }
 
         public void giris()
@@ -99,6 +98,13 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             {
                 MessageBox.Show("Hatalı şifre girdiniz. Lütfen tekrar deneyiniz.");
             }
+        }
+
+        private void lblSifremiUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SifreKurtarmaForm sForm = new SifreKurtarmaForm();
+            GirisForm.ActiveForm.Hide();
+            sForm.ShowDialog();
         }
     }
 }

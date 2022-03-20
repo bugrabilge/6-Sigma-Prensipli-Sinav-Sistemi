@@ -99,6 +99,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.lblSifremiUnuttum.TabIndex = 6;
             this.lblSifremiUnuttum.TabStop = true;
             this.lblSifremiUnuttum.Text = "Şifremi Unuttum";
+            this.lblSifremiUnuttum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSifremiUnuttum_LinkClicked);
             // 
             // GirisForm
             // 

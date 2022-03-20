@@ -41,9 +41,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void KayitForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            GirisForm gForm = new GirisForm();
-            gForm.ShowDialog();
+            formGecis();
         }
 
         public void VerileriKayitEt()
@@ -63,9 +61,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Kayıt İşleminiz Başarıyla Gerçekleşmiştir!");
-            KayitForm.ActiveForm.Hide();
+            formGecis();
+        }
+
+        private void formGecis()
+        {
+            this.Hide();
             GirisForm gForm = new GirisForm();
             gForm.ShowDialog();
         }
+
     }
 }
