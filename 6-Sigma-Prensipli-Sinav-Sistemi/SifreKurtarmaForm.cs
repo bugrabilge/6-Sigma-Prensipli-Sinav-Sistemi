@@ -30,7 +30,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             cmd.Connection = con;
             if (txtKullaniciAdi.Text !="" && txtCevap.Text != "")
             {
-                cevapKontrol();
+                cevaplariKontrolEt();
             }
             else
             {
@@ -39,7 +39,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             con.Close();
         }
 
-        public void cevapKontrol()
+        public void cevaplariKontrolEt()
         {
             string girilenKullaniciAdi = txtKullaniciAdi.Text;
             string girilenCevap = txtCevap.Text;

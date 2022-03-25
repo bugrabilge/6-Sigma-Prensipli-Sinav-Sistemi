@@ -34,7 +34,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     }
                     else
                     {
-                        VerileriKayitEt();
+                        verileriVeritabaninaKayitEt();
+                        break;
                     }
                 }
             }
@@ -45,7 +46,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             formGecis.formlarArasıGecisYap(this, "girisForm");
         }
 
-        public void VerileriKayitEt()
+        public void verileriVeritabaninaKayitEt()
         {
             con = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
             cmd = new SqlCommand();

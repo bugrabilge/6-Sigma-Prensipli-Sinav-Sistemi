@@ -106,6 +106,9 @@
     <EmbeddedResource Include="SifreKurtarmaForm.resx">
       <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SSorumluForm.resx">
+      <DependentUpon>SSorumluForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
