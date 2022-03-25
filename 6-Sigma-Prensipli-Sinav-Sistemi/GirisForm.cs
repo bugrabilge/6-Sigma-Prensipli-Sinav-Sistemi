@@ -35,9 +35,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            GirisForm.ActiveForm.Hide();
-            KayitForm kForm = new KayitForm();
-            kForm.ShowDialog();
+            formGecis.formlarArasıGecisYap(this, "kayitForm");
         }
 
         private void GirisForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -80,16 +78,14 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 switch (dr["UserTypeID"])
                 {
                     case 1:
-                        MessageBox.Show("Öğrenci Girişi");
+                        formGecis.formlarArasıGecisYap(this, "ogrenciForm");
                         break;
                     case 2:
-                        MessageBox.Show("Öğretmen Girişi");
+                        formGecis.formlarArasıGecisYap(this, "sSorumluForm");
                         break;
                     case 3:
-                        AdminForm aForm = new AdminForm();
-                        GirisForm.ActiveForm.Hide();
-                        aForm.ShowDialog();
-                        break;
+                        formGecis.formlarArasıGecisYap(this, "adminForm");
+                        break;                       
                     default:
                         break;
                 }
@@ -102,9 +98,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void lblSifremiUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            SifreKurtarmaForm sForm = new SifreKurtarmaForm();
-            GirisForm.ActiveForm.Hide();
-            sForm.ShowDialog();
+            formGecis.formlarArasıGecisYap(this, "sifreKurtarmaForm");
         }
     }
 }

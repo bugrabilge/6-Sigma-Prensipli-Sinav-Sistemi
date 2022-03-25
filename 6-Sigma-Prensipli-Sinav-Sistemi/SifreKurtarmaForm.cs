@@ -50,7 +50,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             {
                 sifre = dr["Password"].ToString();
                 MessageBox.Show("Cevabınız doğru! Şifreniz : " + sifre + "\nGiriş yapabilirsiniz.");
-                formGecis();
+                formGecis.formlarArasıGecisYap(this, "girisForm");
             }
             else
             {
@@ -60,14 +60,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void SifreKurtarmaForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            formGecis();         
-        }
-
-        private void formGecis()
-        {
-            SifreKurtarmaForm.ActiveForm.Hide();
-            GirisForm gForm = new GirisForm();
-            gForm.ShowDialog();
+            formGecis.formlarArasıGecisYap(this, "girisForm");
         }
     }
 }

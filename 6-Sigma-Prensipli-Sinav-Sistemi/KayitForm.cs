@@ -15,6 +15,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
     {
         SqlConnection con;
         SqlCommand cmd;
+        
         public KayitForm()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void KayitForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            formGecis();
+            formGecis.formlarArasıGecisYap(this, "girisForm");
         }
 
         public void VerileriKayitEt()
@@ -49,7 +50,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             con = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
             cmd = new SqlCommand();
             con.Open();
-            cmd.Connection = con;
+            cmd.Connection = con;         
             cmd.CommandText = "insert into dbo.Users(UserName, Name, Surname, Mail, Password, SecurityAnswer, UserTypeID) " +
                                             "values('" + txtKullaniciAdi.Text + "','" +
                                                          txtAd.Text + "','" +
@@ -61,15 +62,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Kayıt İşleminiz Başarıyla Gerçekleşmiştir!");
-            formGecis();
+            formGecis.formlarArasıGecisYap(this, "girisForm");
         }
-
-        private void formGecis()
-        {
-            this.Hide();
-            GirisForm gForm = new GirisForm();
-            gForm.ShowDialog();
-        }
-
     }
 }
