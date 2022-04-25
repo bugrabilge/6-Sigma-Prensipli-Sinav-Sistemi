@@ -29,6 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtSoruGovde = new System.Windows.Forms.TextBox();
             this.txtDogruCevap = new System.Windows.Forms.TextBox();
             this.txtYanlisCevap1 = new System.Windows.Forms.TextBox();
@@ -53,6 +54,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.lblUniteNo = new System.Windows.Forms.Label();
             this.lblKonuNo = new System.Windows.Forms.Label();
             this.btnCikisYap = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picSoruResmi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -275,6 +277,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnCikisYap.UseVisualStyleBackColor = true;
             this.btnCikisYap.Click += new System.EventHandler(this.btnCikisYap_Click);
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.ımageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // SSorumluForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,5 +348,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.Label lblUniteNo;
         private System.Windows.Forms.Label lblKonuNo;
         private System.Windows.Forms.Button btnCikisYap;
+        private System.Windows.Forms.ImageList ımageList1;
     }
 }

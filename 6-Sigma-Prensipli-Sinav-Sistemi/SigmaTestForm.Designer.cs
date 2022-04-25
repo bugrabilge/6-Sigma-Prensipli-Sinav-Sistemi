@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class AdminForm
+    partial class SigmaTestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.grpSoru = new System.Windows.Forms.GroupBox();
-            this.lblE = new System.Windows.Forms.Label();
-            this.btnE = new System.Windows.Forms.Button();
             this.lblSoruGovde = new System.Windows.Forms.Label();
             this.lblA = new System.Windows.Forms.Label();
             this.lblB = new System.Windows.Forms.Label();
@@ -43,27 +40,19 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnB = new System.Windows.Forms.Button();
             this.btnA = new System.Windows.Forms.Button();
             this.picSoruResmi = new System.Windows.Forms.PictureBox();
-            this.btnSiradaki = new System.Windows.Forms.Button();
-            this.btnOnayla = new System.Windows.Forms.Button();
-            this.btnReddet = new System.Windows.Forms.Button();
+            this.btnAyarlar = new System.Windows.Forms.Button();
             this.btnCikis = new System.Windows.Forms.Button();
+            this.btnBasla = new System.Windows.Forms.Button();
+            this.lblE = new System.Windows.Forms.Label();
+            this.btnE = new System.Windows.Forms.Button();
+            this.lblSayi = new System.Windows.Forms.Label();
             this.grpSoru.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSoruResmi)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(113, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Admin Paneli";
-            // 
             // grpSoru
             // 
+            this.grpSoru.Controls.Add(this.lblSayi);
             this.grpSoru.Controls.Add(this.lblE);
             this.grpSoru.Controls.Add(this.btnE);
             this.grpSoru.Controls.Add(this.lblSoruGovde);
@@ -76,30 +65,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.grpSoru.Controls.Add(this.btnB);
             this.grpSoru.Controls.Add(this.btnA);
             this.grpSoru.Controls.Add(this.picSoruResmi);
-            this.grpSoru.Location = new System.Drawing.Point(31, 32);
+            this.grpSoru.Location = new System.Drawing.Point(46, 24);
             this.grpSoru.Name = "grpSoru";
             this.grpSoru.Size = new System.Drawing.Size(657, 414);
-            this.grpSoru.TabIndex = 5;
+            this.grpSoru.TabIndex = 4;
             this.grpSoru.TabStop = false;
-            this.grpSoru.Text = "Onay Bekleyen Sorular";
-            // 
-            // lblE
-            // 
-            this.lblE.AutoSize = true;
-            this.lblE.Location = new System.Drawing.Point(61, 390);
-            this.lblE.Name = "lblE";
-            this.lblE.Size = new System.Drawing.Size(60, 13);
-            this.lblE.TabIndex = 9;
-            this.lblE.Text = "E seçeneği";
-            // 
-            // btnE
-            // 
-            this.btnE.Location = new System.Drawing.Point(24, 385);
-            this.btnE.Name = "btnE";
-            this.btnE.Size = new System.Drawing.Size(31, 23);
-            this.btnE.TabIndex = 10;
-            this.btnE.Text = "E)";
-            this.btnE.UseVisualStyleBackColor = true;
+            this.grpSoru.Text = "Başarılar";
             // 
             // lblSoruGovde
             // 
@@ -191,75 +162,83 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.picSoruResmi.TabIndex = 1;
             this.picSoruResmi.TabStop = false;
             // 
-            // btnSiradaki
+            // btnAyarlar
             // 
-            this.btnSiradaki.Location = new System.Drawing.Point(708, 83);
-            this.btnSiradaki.Name = "btnSiradaki";
-            this.btnSiradaki.Size = new System.Drawing.Size(75, 46);
-            this.btnSiradaki.TabIndex = 6;
-            this.btnSiradaki.Text = "Sıradaki Soru";
-            this.btnSiradaki.UseVisualStyleBackColor = true;
-            this.btnSiradaki.Click += new System.EventHandler(this.btnSiradaki_Click);
-            // 
-            // btnOnayla
-            // 
-            this.btnOnayla.Location = new System.Drawing.Point(708, 171);
-            this.btnOnayla.Name = "btnOnayla";
-            this.btnOnayla.Size = new System.Drawing.Size(75, 23);
-            this.btnOnayla.TabIndex = 7;
-            this.btnOnayla.Text = "Onayla";
-            this.btnOnayla.UseVisualStyleBackColor = true;
-            this.btnOnayla.Click += new System.EventHandler(this.btnOnayla_Click);
-            // 
-            // btnReddet
-            // 
-            this.btnReddet.Location = new System.Drawing.Point(708, 214);
-            this.btnReddet.Name = "btnReddet";
-            this.btnReddet.Size = new System.Drawing.Size(75, 23);
-            this.btnReddet.TabIndex = 8;
-            this.btnReddet.Text = "Reddet";
-            this.btnReddet.UseVisualStyleBackColor = true;
-            this.btnReddet.Click += new System.EventHandler(this.btnReddet_Click);
+            this.btnAyarlar.Location = new System.Drawing.Point(713, 378);
+            this.btnAyarlar.Name = "btnAyarlar";
+            this.btnAyarlar.Size = new System.Drawing.Size(75, 23);
+            this.btnAyarlar.TabIndex = 6;
+            this.btnAyarlar.Text = "Ayarlar";
+            this.btnAyarlar.UseVisualStyleBackColor = true;
             // 
             // btnCikis
             // 
-            this.btnCikis.Location = new System.Drawing.Point(708, 386);
+            this.btnCikis.Location = new System.Drawing.Point(713, 407);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(75, 23);
-            this.btnCikis.TabIndex = 9;
+            this.btnCikis.TabIndex = 5;
             this.btnCikis.Text = "Çıkış Yap";
             this.btnCikis.UseVisualStyleBackColor = true;
-            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
-            // AdminForm
+            // btnBasla
+            // 
+            this.btnBasla.Location = new System.Drawing.Point(713, 38);
+            this.btnBasla.Name = "btnBasla";
+            this.btnBasla.Size = new System.Drawing.Size(75, 23);
+            this.btnBasla.TabIndex = 7;
+            this.btnBasla.Text = "Teste Başla!";
+            this.btnBasla.UseVisualStyleBackColor = true;
+            this.btnBasla.Click += new System.EventHandler(this.btnBasla_Click);
+            // 
+            // lblE
+            // 
+            this.lblE.AutoSize = true;
+            this.lblE.Location = new System.Drawing.Point(61, 390);
+            this.lblE.Name = "lblE";
+            this.lblE.Size = new System.Drawing.Size(60, 13);
+            this.lblE.TabIndex = 9;
+            this.lblE.Text = "E seçeneği";
+            // 
+            // btnE
+            // 
+            this.btnE.Location = new System.Drawing.Point(24, 385);
+            this.btnE.Name = "btnE";
+            this.btnE.Size = new System.Drawing.Size(31, 23);
+            this.btnE.TabIndex = 10;
+            this.btnE.Text = "E)";
+            this.btnE.UseVisualStyleBackColor = true;
+            // 
+            // lblSayi
+            // 
+            this.lblSayi.AutoSize = true;
+            this.lblSayi.Location = new System.Drawing.Point(21, 19);
+            this.lblSayi.Name = "lblSayi";
+            this.lblSayi.Size = new System.Drawing.Size(27, 13);
+            this.lblSayi.TabIndex = 11;
+            this.lblSayi.Text = "Sayı";
+            // 
+            // SigmaTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBasla);
+            this.Controls.Add(this.btnAyarlar);
             this.Controls.Add(this.btnCikis);
-            this.Controls.Add(this.btnReddet);
-            this.Controls.Add(this.btnOnayla);
-            this.Controls.Add(this.btnSiradaki);
             this.Controls.Add(this.grpSoru);
-            this.Controls.Add(this.label1);
-            this.Name = "AdminForm";
-            this.Text = "AdminForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminForm_FormClosing);
-            this.Load += new System.EventHandler(this.AdminForm_Load);
+            this.Name = "SigmaTestForm";
+            this.Text = "TestEkraniForm";
+            this.Load += new System.EventHandler(this.SigmaTestForm_Load);
             this.grpSoru.ResumeLayout(false);
             this.grpSoru.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSoruResmi)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grpSoru;
-        private System.Windows.Forms.Label lblE;
-        private System.Windows.Forms.Button btnE;
         private System.Windows.Forms.Label lblSoruGovde;
         private System.Windows.Forms.Label lblA;
         private System.Windows.Forms.Label lblB;
@@ -270,9 +249,11 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.Button btnB;
         private System.Windows.Forms.Button btnA;
         private System.Windows.Forms.PictureBox picSoruResmi;
-        private System.Windows.Forms.Button btnSiradaki;
-        private System.Windows.Forms.Button btnOnayla;
-        private System.Windows.Forms.Button btnReddet;
+        private System.Windows.Forms.Button btnAyarlar;
         private System.Windows.Forms.Button btnCikis;
+        private System.Windows.Forms.Button btnBasla;
+        private System.Windows.Forms.Label lblE;
+        private System.Windows.Forms.Button btnE;
+        private System.Windows.Forms.Label lblSayi;
     }
 }

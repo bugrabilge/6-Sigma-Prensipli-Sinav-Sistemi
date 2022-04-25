@@ -52,6 +52,11 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="dbSigmaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSigmaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="formGecis.cs" />
     <Compile Include="GirisForm.cs">
       <SubType>Form</SubType>
@@ -85,6 +90,12 @@
     <Compile Include="SSorumluForm.Designer.cs">
       <DependentUpon>SSorumluForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SigmaTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SigmaTestForm.Designer.cs">
+      <DependentUpon>SigmaTestForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KayitForm.resx">
       <DependentUpon>KayitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OgrenciForm.resx">
+      <DependentUpon>OgrenciForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +123,20 @@
     <EmbeddedResource Include="SSorumluForm.resx">
       <DependentUpon>SSorumluForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SigmaTestForm.resx">
+      <DependentUpon>SigmaTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dbSigmaDataSet.xsc">
+      <DependentUpon>dbSigmaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbSigmaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbSigmaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbSigmaDataSet.xss">
+      <DependentUpon>dbSigmaDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

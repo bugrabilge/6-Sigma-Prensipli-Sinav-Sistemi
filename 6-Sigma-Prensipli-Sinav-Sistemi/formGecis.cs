@@ -43,6 +43,11 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     kapatılacakFormIsmi.Hide();
                     girisForm.Show();
                     break;
+                case "sigmaTestForm":
+                    SigmaTestForm sigmaForm = new SigmaTestForm();
+                    kapatılacakFormIsmi.Hide();
+                    sigmaForm.Show();
+                    break;
                 default:
                     break;
             }

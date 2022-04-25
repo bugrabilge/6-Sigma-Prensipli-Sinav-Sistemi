@@ -16,5 +16,20 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             InitializeComponent();
         }
+
+        private void btnSigma_Click(object sender, EventArgs e)
+        {
+            formGecis.formlarArasıGecisYap(this, "sigmaTestForm");
+        }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            formGecis.formlarArasıGecisYap(this, "girisForm");
+        }
+
+        private void OgrenciForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

@@ -108,9 +108,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             con.Open();
             cmd.Connection = con;
             cmd.CommandText = "insert into dbo.Questions (QuestionText, SectionID, UnitID, PicturePath, PictureWidth, PictureHeight, RightAnswer, " +
-                "WrongAnswer1, WrongAnswer2, WrongAnswer3, WrongAnswer4,QuestionStatus) " +
+                "WrongAnswer1, WrongAnswer2, WrongAnswer3, WrongAnswer4,QuestionStatus, TrueCount) " +
                 "values (@soruText, @konuID, @uniteID, @resimYolu, @resimGenisligi, @resimYuksekligi, @dogruCevap," +
-                "@yanlisCevap1, @yanlisCevap2, @yanlisCevap3, @yanlisCevap4, @soruDurumu )";
+                "@yanlisCevap1, @yanlisCevap2, @yanlisCevap3, @yanlisCevap4, @soruDurumu, @dogruSayisi )";
             cmd.Parameters.AddWithValue("@soruText", txtSoruGovde.Text);
             cmd.Parameters.AddWithValue("@konuID", txtKonuNo.Text);
             cmd.Parameters.AddWithValue("@uniteID", txtUniteNo.Text);
@@ -132,6 +132,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             cmd.Parameters.AddWithValue("@yanlisCevap3", txtYanlisCevap3.Text);
             cmd.Parameters.AddWithValue("@yanlisCevap4", txtYanlisCevap4.Text);
             cmd.Parameters.AddWithValue("@soruDurumu", 0);
+            cmd.Parameters.AddWithValue("@dogruSayisi", 0);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -145,6 +146,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     ctl.Text = String.Empty;
                 }
             }
+            picSoruResmi.Image = null;
+            picSoruResmi.ImageLocation = null;
+            
         }
 
         private void btnCikisYap_Click(object sender, EventArgs e)
