@@ -77,13 +77,13 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
                 switch (dr["UserTypeID"])
                 {
-                    case 1:
+                    case 1: // ogrenci girisi
                         formGecis.formlarArasıGecisYap(this, "ogrenciForm");
                         break;
-                    case 2:
+                    case 2: // sinav sorumlusu girisi
                         formGecis.formlarArasıGecisYap(this, "sSorumluForm");
                         break;
-                    case 3:
+                    case 3: // admin girisi
                         formGecis.formlarArasıGecisYap(this, "adminForm");
                         break;                       
                     default:

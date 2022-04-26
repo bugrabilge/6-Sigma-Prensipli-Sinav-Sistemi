@@ -43,7 +43,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnGiris.Location = new System.Drawing.Point(269, 205);
             this.btnGiris.Name = "btnGiris";
             this.btnGiris.Size = new System.Drawing.Size(75, 23);
-            this.btnGiris.TabIndex = 0;
+            this.btnGiris.TabIndex = 2;
             this.btnGiris.Text = "Giriş";
             this.btnGiris.UseVisualStyleBackColor = true;
             this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
@@ -71,21 +71,21 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.txtKullaniciAdi.Location = new System.Drawing.Point(292, 67);
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
             this.txtKullaniciAdi.Size = new System.Drawing.Size(100, 20);
-            this.txtKullaniciAdi.TabIndex = 3;
+            this.txtKullaniciAdi.TabIndex = 0;
             // 
             // txtSifre
             // 
             this.txtSifre.Location = new System.Drawing.Point(292, 106);
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(100, 20);
-            this.txtSifre.TabIndex = 4;
+            this.txtSifre.TabIndex = 1;
             // 
             // btnKayitOl
             // 
             this.btnKayitOl.Location = new System.Drawing.Point(366, 205);
             this.btnKayitOl.Name = "btnKayitOl";
             this.btnKayitOl.Size = new System.Drawing.Size(75, 23);
-            this.btnKayitOl.TabIndex = 5;
+            this.btnKayitOl.TabIndex = 3;
             this.btnKayitOl.Text = "Kayıt Ol";
             this.btnKayitOl.UseVisualStyleBackColor = true;
             this.btnKayitOl.Click += new System.EventHandler(this.btnKayitOl_Click);
@@ -96,7 +96,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.lblSifremiUnuttum.Location = new System.Drawing.Point(315, 247);
             this.lblSifremiUnuttum.Name = "lblSifremiUnuttum";
             this.lblSifremiUnuttum.Size = new System.Drawing.Size(81, 13);
-            this.lblSifremiUnuttum.TabIndex = 6;
+            this.lblSifremiUnuttum.TabIndex = 4;
             this.lblSifremiUnuttum.TabStop = true;
             this.lblSifremiUnuttum.Text = "Şifremi Unuttum";
             this.lblSifremiUnuttum.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSifremiUnuttum_LinkClicked);
