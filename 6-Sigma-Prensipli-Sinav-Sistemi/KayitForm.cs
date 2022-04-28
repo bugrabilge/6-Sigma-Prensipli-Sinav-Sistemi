@@ -13,9 +13,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public partial class KayitForm : Form
     {
-        SqlConnection con;
-        SqlCommand cmd;
-        
         public KayitForm()
         {
             InitializeComponent();
@@ -23,6 +20,17 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnKayit_Click(object sender, EventArgs e)
         {
+            Kayit kayit = new Kayit();
+            kayit.KayitOlanKullaniciAdi = txtKullaniciAdi.Text;
+            kayit.KayitOlanSifre = txtSifre.Text;
+            kayit.Ad = txtAd.Text;
+            kayit.Soyad = txtSoyad.Text;
+            kayit.Mail = txtMail.Text;
+            kayit.GuvenlikSorusuCevabi = txtGuvenlikCevap.Text;
+            kayit.KullaniciTuru = cmbKullaniciTuru.SelectedIndex + 1;
+            
+            
+            
             foreach (Control ctl in this.Controls)
             {
                 if (ctl is TextBox)
@@ -34,7 +42,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     }
                     else
                     {
-                        verileriVeritabaninaKayitEt();
+                        kayit.verileriVeritabaninaKayitEt();
+                        formGecis.formlarArasıGecisYap(this, "girisForm");
                         break;
                     }
                 }
@@ -46,24 +55,5 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             formGecis.formlarArasıGecisYap(this, "girisForm");
         }
 
-        public void verileriVeritabaninaKayitEt()
-        {
-            con = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
-            cmd = new SqlCommand();
-            con.Open();
-            cmd.Connection = con;         
-            cmd.CommandText = "insert into dbo.Users(UserName, Name, Surname, Mail, Password, SecurityAnswer, UserTypeID) " +
-                                            "values('" + txtKullaniciAdi.Text + "','" +
-                                                         txtAd.Text + "','" +
-                                                         txtSoyad.Text + "','" +
-                                                         txtMail.Text + "','" +
-                                                         txtSifre.Text + "','" +
-                                                         txtGuvenlikCevap.Text + "','" +
-                                                         (cmbKullaniciTuru.SelectedIndex + 1) + "')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Kayıt İşleminiz Başarıyla Gerçekleşmiştir!");
-            formGecis.formlarArasıGecisYap(this, "girisForm");
-        }
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,12 +59,14 @@
       <DependentUpon>dbSigmaDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="formGecis.cs" />
+    <Compile Include="Giris.cs" />
     <Compile Include="GirisForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GirisForm.Designer.cs">
       <DependentUpon>GirisForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kayit.cs" />
     <Compile Include="KayitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +87,7 @@
     <Compile Include="SifreKurtarmaForm.Designer.cs">
       <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Soru.cs" />
     <Compile Include="SSorumluForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +100,7 @@
     <Compile Include="SigmaTestForm.Designer.cs">
       <DependentUpon>SigmaTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="veriTabaniBaglanti.cs" />
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -14,9 +14,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
     public partial class GirisForm : Form
     {
-        SqlConnection con;
-        SqlCommand cmd;
-        SqlDataReader dr;
 
         public GirisForm()
         {
@@ -25,12 +22,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            con = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
-            cmd = new SqlCommand();
-            con.Open();
-            cmd.Connection = con;
-            kullaniciAdiKontrolVeGiris();
-            con.Close();
+
+            Giris giris = new Giris();
+            giris.kullaniciAdiKontrolVeGiris(txtKullaniciAdi.Text, txtSifre.Text, this);
         }
 
         private void btnKayitOl_Click(object sender, EventArgs e)
@@ -42,59 +36,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             Environment.Exit(0);
         }
-
-        public void kullaniciAdiKontrolVeGiris()
-        {
-            if (txtKullaniciAdi.Text != "" && txtSifre.Text != "")
-            {
-                cmd.CommandText = "SELECT UserName FROM dbo.Users where UserName='" + txtKullaniciAdi.Text + "'";
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    dr.Close();
-                    giris();
-                }
-                else
-                {
-                    MessageBox.Show("Girilen kullanıcı adı bulunamamıştır.\nLütfen tekrar deneyiniz.\nKaydınız bulunmuyor ise Kayıt Ol butonu ile kayıt olabilirsiniz.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Lütfen tüm alanları doldurunuz.");
-            }
-        }
-
-        public void giris()
-        {
-            string user = txtKullaniciAdi.Text;
-            string pass = txtSifre.Text;
-            cmd.CommandText = "SELECT UserName, Password, UserTypeID FROM dbo.Users where UserName='" + user + "' AND Password='" + pass + "'";
-            dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                MessageBox.Show("Giriş Başarılı!\nYönlendiriliyorsunuz.");
-
-                switch (dr["UserTypeID"])
-                {
-                    case 1: // ogrenci girisi
-                        formGecis.formlarArasıGecisYap(this, "ogrenciForm");
-                        break;
-                    case 2: // sinav sorumlusu girisi
-                        formGecis.formlarArasıGecisYap(this, "sSorumluForm");
-                        break;
-                    case 3: // admin girisi
-                        formGecis.formlarArasıGecisYap(this, "adminForm");
-                        break;                       
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Hatalı şifre girdiniz. Lütfen tekrar deneyiniz.");
-            }
-        }
+        
 
         private void lblSifremiUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
