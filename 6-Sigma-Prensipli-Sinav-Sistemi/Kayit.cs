@@ -8,89 +8,19 @@ using System.Windows.Forms;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public class Kayit
+    public class Kayit : LoginHareketleri
     {
-        private string kayitOlanKullaniciAdi;
-
-        private string kayitOlanSifre;
-        
-        private string ad;
-        
-        private string soyad;
-        
-        private string mail;
-        
-        private string guvenlikSorusuCevabi;
-        
-        private int kullaniciTuru;
-        
-        private veriTabaniBaglanti veriTabani;
-        
-        public string KayitOlanKullaniciAdi
-        {
-            get { return kayitOlanKullaniciAdi; }
-            set { kayitOlanKullaniciAdi = value; }
-        }
-
-
-        public string KayitOlanSifre
-        {
-            get { return kayitOlanSifre; }
-            set { kayitOlanSifre = value; }
-        }
-
-
-        public string Ad
-        {
-            get { return ad; }
-            set { ad = value; }
-        }
-
-
-        public string Soyad
-        {
-            get { return soyad; }
-            set { soyad = value; }
-        }
-
-
-        public string Mail
-        {
-            get { return mail; }
-            set { mail = value; }
-        }
-
-
-        public string GuvenlikSorusuCevabi
-        {
-            get { return guvenlikSorusuCevabi; }
-            set { guvenlikSorusuCevabi = value; }
-        }
-
-
-        public int KullaniciTuru
-        {
-            get { return kullaniciTuru; }
-            set { kullaniciTuru = value; }
-        }
-
-
-        public veriTabaniBaglanti VeriTabani
-        {
-            get { return veriTabani; }
-            set { veriTabani = value; }
-        }
-
-
-        public Kayit()
-        {
-            veriTabaniBaglanti vt = new veriTabaniBaglanti();
-            this.VeriTabani = vt;
-        }
+        public string KayitOlanKullaniciAdi { get; set; }
+        public string KayitOlanSifre { get; set; }
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
+        public string Mail { get; set; }
+        public string GuvenlikSorusuCevabi { get; set; }
+        public int KullaniciTuru { get; set; }
 
         public void verileriVeritabaninaKayitEt()
         {
-            VeriTabani.Komut.CommandText = "insert into dbo.Users(UserName, Name, Surname, Mail, Password, SecurityAnswer, UserTypeID) " +
+            Veritabani.Komut.CommandText = "insert into dbo.Users(UserName, Name, Surname, Mail, Password, SecurityAnswer, UserTypeID) " +
                                             "values('" + KayitOlanKullaniciAdi + "','" +
                                                          Ad + "','" +
                                                          Soyad + "','" +
@@ -98,8 +28,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                                                          KayitOlanSifre + "','" +
                                                          GuvenlikSorusuCevabi + "','" +
                                                          KullaniciTuru + "')";
-            VeriTabani.Komut.ExecuteNonQuery();
-            VeriTabani.baglantiyiKes();
+            Veritabani.Komut.ExecuteNonQuery();
+            Veritabani.baglantiyiKes();
             MessageBox.Show("Kayıt İşleminiz Başarıyla Gerçekleşmiştir!");
         }
 

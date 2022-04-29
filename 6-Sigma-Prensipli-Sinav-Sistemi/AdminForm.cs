@@ -21,27 +21,31 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         Admin admin = new Admin();
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            admin.siradakiSoru();
-            formaYansit();
+            admin.IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(0);
+            soruBilgileriniFormaYansit();
         }
 
 
         private void btnSiradaki_Click(object sender, EventArgs e)
         {
-            admin.siradakiSoru();
-            formaYansit();
+            admin.IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(0);
+            soruBilgileriniFormaYansit();
+            if (!admin.IslemYapilacakSoru.siradaSoruVarMi)
+            {
+                MessageBox.Show("Onay Bekleyen Soru Bulunmamaktadır.\nÇıkış Yapabilirsiniz.");
+            }
         }
 
         private void btnOnayla_Click(object sender, EventArgs e)
         {
             admin.soruyuOnayla();
-            formaYansit();
+            soruBilgileriniFormaYansit();
         }
 
         private void btnReddet_Click(object sender, EventArgs e)
         {
             admin.soruyuReddet();
-            formaYansit();
+            soruBilgileriniFormaYansit();
         }
 
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -53,23 +57,23 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             formGecis.formlarArasıGecisYap(this, "girisForm");
         }
-        public void formaYansit()
+        public void soruBilgileriniFormaYansit()
         {
-            if (admin.siradaSoruVarMi)
+            if (admin.IslemYapilacakSoru.siradaSoruVarMi)
             {
                 grpSoru.Visible = true;
-                lblSoruGovde.Text = admin.KontrolEdilecekSoru.Govde;
-                lblA.Text = admin.KontrolEdilecekSoru.DogruCevap;
-                lblB.Text = admin.KontrolEdilecekSoru.YanlisCevap1;
-                lblC.Text = admin.KontrolEdilecekSoru.YanlisCevap2;
-                lblD.Text = admin.KontrolEdilecekSoru.YanlisCevap3;
-                lblE.Text = admin.KontrolEdilecekSoru.YanlisCevap4;
-                if (admin.KontrolEdilecekSoru.ResimYolu != null)
+                lblSoruGovde.Text = admin.IslemYapilacakSoru.Govde;
+                lblA.Text = admin.IslemYapilacakSoru.DogruCevap;
+                lblB.Text = admin.IslemYapilacakSoru.YanlisCevap1;
+                lblC.Text = admin.IslemYapilacakSoru.YanlisCevap2;
+                lblD.Text = admin.IslemYapilacakSoru.YanlisCevap3;
+                lblE.Text = admin.IslemYapilacakSoru.YanlisCevap4;
+                if (admin.IslemYapilacakSoru.ResimYolu != null)
                 {
                     picSoruResmi.Visible = true;
-                    picSoruResmi.ImageLocation = admin.KontrolEdilecekSoru.ResimYolu;
-                    picSoruResmi.Height = admin.KontrolEdilecekSoru.ResimYuksekligi;
-                    picSoruResmi.Width = admin.KontrolEdilecekSoru.ResimGenisligi;
+                    picSoruResmi.ImageLocation = admin.IslemYapilacakSoru.ResimYolu;
+                    picSoruResmi.Height = admin.IslemYapilacakSoru.ResimYuksekligi;
+                    picSoruResmi.Width = admin.IslemYapilacakSoru.ResimGenisligi;
                 }
                 else
                 {
@@ -79,8 +83,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             else
             {
                 grpSoru.Visible = false;
-            }
-                       
+            }                      
         }
     }
 }

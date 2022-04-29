@@ -142,7 +142,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.cmbKullaniciTuru.FormattingEnabled = true;
             this.cmbKullaniciTuru.Items.AddRange(new object[] {
             "Öğrenci",
-            "Sınav Sorumlusu"});
+            "Sınav Sorumlusu",
+            "Admin"});
             this.cmbKullaniciTuru.Location = new System.Drawing.Point(365, 257);
             this.cmbKullaniciTuru.Name = "cmbKullaniciTuru";
             this.cmbKullaniciTuru.Size = new System.Drawing.Size(121, 21);

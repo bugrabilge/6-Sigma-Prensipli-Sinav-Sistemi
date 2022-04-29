@@ -17,16 +17,11 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             InitializeComponent();
         }
-
+        
         private void btnResimYukle_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dosya = new OpenFileDialog();
-            dosya.Filter = "Resim Dosyası |*.jpg;*.nef;*.png";
-            dosya.Title = "Eklemek istediğiniz resmi seçiniz.";
-            dosya.ShowDialog();
-            string dosyaYolu = dosya.FileName;
-            picSoruResmi.ImageLocation = dosyaYolu;
-            _ = (picSoruResmi.ImageLocation == null) ? btnArttır.Enabled = btnAzalt.Enabled = false : btnArttır.Enabled = btnAzalt.Enabled = true;
+            SinavSorumlusu ss = new SinavSorumlusu();
+            ss.resimYukle(picSoruResmi, btnArttır, btnAzalt);
         }
 
         private void btnArttır_Click(object sender, EventArgs e)
@@ -55,19 +50,17 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         public void resimGenislikDegistir(string islem)
         {
-            Size boyut = picSoruResmi.Size;
-            _ = (islem == "+") ? boyut.Width += 5 : boyut.Width -= 5;
-            picSoruResmi.Size = boyut;
+            SinavSorumlusu ss = new SinavSorumlusu();
+            ss.resimGenislikDegistir(islem, picSoruResmi);
         }
 
         public void resimYukseklikDegistir(string islem)
         {
-            Size boyut = picSoruResmi.Size;
-            _ = (islem == "+") ? boyut.Height += 5 : boyut.Height -= 5;
-            picSoruResmi.Size = boyut;
+            SinavSorumlusu ss = new SinavSorumlusu();
+            ss.resimYukseklikDegistir(islem, picSoruResmi);
         }
 
-        private void SSorumluForm_Load(object sender, EventArgs e)
+        public void SSorumluForm_Load(object sender, EventArgs e)
         {
             btnArttır.Enabled = btnAzalt.Enabled = false;
         }
@@ -79,6 +72,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnSoruyuGonder_Click(object sender, EventArgs e)
         {
+            
             foreach (Control ctl in this.Controls)
             {
                 if (ctl is TextBox)
@@ -90,7 +84,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     }
                     else
                     {
-                        soruVerileriniVeritabanınaIsle();
+                        SinavSorumlusu ss = new SinavSorumlusu();
+                        girilenVerileriNesneyeAta(ss);
+                        //soruVerileriniVeritabanınaIsle();
+                        ss.soruVerileriniVeritabanınaIsle();
                         MessageBox.Show("Sorunuz Gönderildi.\nAdmin onayından sonra sistemde gözükecektir.");
                         textboxlarıTemizle();
                         break;
@@ -99,42 +96,19 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }       
         }
 
-        public void soruVerileriniVeritabanınaIsle()
+        private void girilenVerileriNesneyeAta(SinavSorumlusu ss)
         {
-            SqlConnection con;
-            SqlCommand cmd;
-            con = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
-            cmd = new SqlCommand();
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "insert into dbo.Questions (QuestionText, SectionID, UnitID, PicturePath, PictureWidth, PictureHeight, RightAnswer, " +
-                "WrongAnswer1, WrongAnswer2, WrongAnswer3, WrongAnswer4,QuestionStatus, TrueCount) " +
-                "values (@soruText, @konuID, @uniteID, @resimYolu, @resimGenisligi, @resimYuksekligi, @dogruCevap," +
-                "@yanlisCevap1, @yanlisCevap2, @yanlisCevap3, @yanlisCevap4, @soruDurumu, @dogruSayisi )";
-            cmd.Parameters.AddWithValue("@soruText", txtSoruGovde.Text);
-            cmd.Parameters.AddWithValue("@konuID", txtKonuNo.Text);
-            cmd.Parameters.AddWithValue("@uniteID", txtUniteNo.Text);
-            if (picSoruResmi.ImageLocation != null)
-            {
-                cmd.Parameters.AddWithValue("@resimYolu", picSoruResmi.ImageLocation);
-                cmd.Parameters.AddWithValue("@resimGenisligi", picSoruResmi.Size.Width);
-                cmd.Parameters.AddWithValue("@resimYuksekligi", picSoruResmi.Size.Height);
-            }
-            else
-            {
-                cmd.Parameters.AddWithValue("@resimYolu", DBNull.Value);
-                cmd.Parameters.AddWithValue("@resimGenisligi", DBNull.Value);
-                cmd.Parameters.AddWithValue("@resimYuksekligi", DBNull.Value);
-            }
-            cmd.Parameters.AddWithValue("@dogruCevap", txtDogruCevap.Text);
-            cmd.Parameters.AddWithValue("@yanlisCevap1", txtYanlisCevap1.Text);
-            cmd.Parameters.AddWithValue("@yanlisCevap2", txtYanlisCevap2.Text);
-            cmd.Parameters.AddWithValue("@yanlisCevap3", txtYanlisCevap3.Text);
-            cmd.Parameters.AddWithValue("@yanlisCevap4", txtYanlisCevap4.Text);
-            cmd.Parameters.AddWithValue("@soruDurumu", 0);
-            cmd.Parameters.AddWithValue("@dogruSayisi", 0);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            ss.IslemYapilacakSoru.Govde = txtSoruGovde.Text;
+            ss.IslemYapilacakSoru.SectionID = Convert.ToInt32(txtKonuNo.Text);
+            ss.IslemYapilacakSoru.UnitID = Convert.ToInt32(txtUniteNo.Text);
+            ss.IslemYapilacakSoru.ResimYolu = picSoruResmi.ImageLocation;
+            ss.IslemYapilacakSoru.ResimGenisligi = picSoruResmi.Size.Width;
+            ss.IslemYapilacakSoru.ResimYuksekligi = picSoruResmi.Size.Height;
+            ss.IslemYapilacakSoru.DogruCevap = txtDogruCevap.Text;
+            ss.IslemYapilacakSoru.YanlisCevap1 = txtYanlisCevap1.Text;
+            ss.IslemYapilacakSoru.YanlisCevap2 = txtYanlisCevap2.Text;
+            ss.IslemYapilacakSoru.YanlisCevap3 = txtYanlisCevap3.Text;
+            ss.IslemYapilacakSoru.YanlisCevap4 = txtYanlisCevap4.Text;
         }
 
         public void textboxlarıTemizle()
@@ -148,6 +122,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }
             picSoruResmi.Image = null;
             picSoruResmi.ImageLocation = null;
+            btnArttır.Enabled = false;
+            btnAzalt.Enabled = false;
             
         }
 

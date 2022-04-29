@@ -10,50 +10,30 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public class veriTabaniBaglanti
     {
-        private SqlConnection baglanti;
-        private SqlCommand komut;
-        private SqlDataReader veriOkuyucu;
-        
-        public SqlConnection Baglanti
-        {
-            get { return baglanti; }
-            set { baglanti = value; }
-        }
-
-
-        public SqlCommand Komut
-        {
-            get { return komut; }
-            set { komut = value; }
-        }
-
-        public SqlDataReader VeriOkuyucu
-        {
-            get { return veriOkuyucu; }
-            set { veriOkuyucu = value; }
-        }  
+        public SqlConnection Baglanti { get; set; }
+        public SqlCommand Komut { get; set; }
+        public SqlDataReader VeriOkuyucu { get; set; }
 
         public veriTabaniBaglanti()
         {
-            this.baglanti = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
-            this.komut = new SqlCommand();
-            baglanti.Open();
-            this.komut.Connection = baglanti;
+            this.Baglanti = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
+            this.Komut = new SqlCommand();
+            Baglanti.Open();
+            this.Komut.Connection = Baglanti;
         }
 
         public void baglantiyiKes()
         {
-            baglanti.Close();
+            Baglanti.Close();
         }
 
-        public void kontrolEtVeYeniBaglantiAc()
+        public void baglantiYoksaYeniBaglantiAc()
         {
             if (Baglanti != null && Baglanti.State == ConnectionState.Closed)
             {
-                baglanti.Open();
-                this.komut.Connection = baglanti;
-            }
-            
+                Baglanti.Open();
+                this.Komut.Connection = Baglanti;
+            }   
         }
     }
 }

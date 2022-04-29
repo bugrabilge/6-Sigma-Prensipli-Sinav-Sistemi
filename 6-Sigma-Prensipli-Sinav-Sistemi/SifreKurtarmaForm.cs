@@ -24,6 +24,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnGonder_Click(object sender, EventArgs e)
         {
+            /*
             con = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
             cmd = new SqlCommand();
             con.Open();
@@ -37,8 +38,13 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 MessageBox.Show("Lütfen tüm alanları doldurunuz.");
             }
             con.Close();
+            */
+
+            SifreKurtarma sifreKurtarma = new SifreKurtarma();
+            sifreKurtarma.cevaplariKontrolEtVeSonucVer(txtKullaniciAdi.Text, txtCevap.Text, this);
         }
 
+        /*
         public void cevaplariKontrolEt()
         {
             string girilenKullaniciAdi = txtKullaniciAdi.Text;
@@ -57,6 +63,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 MessageBox.Show("Girilen Kullanıcı adı veya girilen cevap yanlıştır.\nLütfen tekrar deneyiniz.");
             }
         }
+        */
 
         private void SifreKurtarmaForm_FormClosing(object sender, FormClosingEventArgs e)
         {

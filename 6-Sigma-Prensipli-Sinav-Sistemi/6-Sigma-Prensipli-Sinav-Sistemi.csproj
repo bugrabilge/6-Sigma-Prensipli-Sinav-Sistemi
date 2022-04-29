@@ -73,6 +73,9 @@
     <Compile Include="KayitForm.Designer.cs">
       <DependentUpon>KayitForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Kullanici.cs" />
+    <Compile Include="LoginHareketleri.cs" />
+    <Compile Include="Ogrenci.cs" />
     <Compile Include="OgrenciForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,12 +84,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SifreKurtarma.cs" />
     <Compile Include="SifreKurtarmaForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SifreKurtarmaForm.Designer.cs">
       <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SinavSorumlusu.cs" />
     <Compile Include="Soru.cs" />
     <Compile Include="SSorumluForm.cs">
       <SubType>Form</SubType>
@@ -100,6 +105,7 @@
     <Compile Include="SigmaTestForm.Designer.cs">
       <DependentUpon>SigmaTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestIslemleri.cs" />
     <Compile Include="veriTabaniBaglanti.cs" />
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>

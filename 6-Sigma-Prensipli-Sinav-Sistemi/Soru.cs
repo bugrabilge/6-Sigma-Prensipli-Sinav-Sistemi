@@ -10,14 +10,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
     public class Soru
     {
         public int ID { get; set; }
-        
-        private string govde;
-
-        private string dogruCevap;
-        private string yanlisCevap1;
-        private string yanlisCevap2;
-        private string yanlisCevap3;
-        private string yanlisCevap4;
+        public string Govde { get; set; }
+        public string DogruCevap { get; set; }
+        public string YanlisCevap1 { get; set; }
+        public string YanlisCevap2 { get; set; }
+        public string YanlisCevap3 { get; set; }
+        public string YanlisCevap4 { get; set; }
 
         private veriTabaniBaglanti Veritabani;
 
@@ -33,56 +31,35 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             veriTabaniBaglanti vt = new veriTabaniBaglanti();
             this.Veritabani = vt;
         }
-        public string Govde
-        {
-            get { return govde; }
-            set { govde = value; }
-        }
-        public string DogruCevap
-        {
-            get { return dogruCevap; }
-            set { dogruCevap = value; }
-        }
-
-
-        public string YanlisCevap1
-        {
-            get { return yanlisCevap1; }
-            set { yanlisCevap1 = value; }
-        }
-
-
-        public string YanlisCevap2
-        {
-            get { return yanlisCevap2; }
-            set { yanlisCevap2 = value; }
-        }
-
-
-        public string YanlisCevap3
-        {
-            get { return yanlisCevap3; }
-            set { yanlisCevap3 = value; }
-        }
-
-
-        public string YanlisCevap4
-        {
-            get { return yanlisCevap4; }
-            set { yanlisCevap4 = value; }
-        }
-
 
         public string ResimYolu { get; set; }
         public int ResimYuksekligi { get; set; }
         public int ResimGenisligi { get; set; }
-
+        public bool siradaSoruVarMi;
         public GroupBox Grup { get; set; }
 
-        public void secenekleriVeBilgileriAta(int id)
+        public void siradakiSoruBilgileriniCekVeAta(int questionStatus)
         {
+            Veritabani.baglantiYoksaYeniBaglantiAc();
+            siradaSoruVarMi = false;
+            Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionStatus = '" + questionStatus + "' ORDER BY NEWID()";
+            Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
+
+            if (Veritabani.VeriOkuyucu.Read())
+            {
+                secenekleriVeBilgileriAta(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
+                siradaSoruVarMi = true;
+            }
+
+            Veritabani.baglantiyiKes();
+
+        }
+
+        private void secenekleriVeBilgileriAta(int id)
+        {           
             this.ID = id;
-            Veritabani.kontrolEtVeYeniBaglantiAc();
+            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.VeriOkuyucu.Close();
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionID = '" + this.ID + "'";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
 
@@ -115,6 +92,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }
             Veritabani.baglantiyiKes();
         }
+
+
 
         private string govdeSatirUzunlugunuLimitle(string govde, int maksimumUzunluk)
         {

@@ -10,61 +10,28 @@ using System.Windows.Forms;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public class Admin
+    public class Admin : Kullanici
     {
-        private veriTabaniBaglanti Veritabani { get; set; }
-
-        public Soru KontrolEdilecekSoru { get; set; }
-
-        public bool siradaSoruVarMi;
-
-        public Admin()
-        {
-            veriTabaniBaglanti vt = new veriTabaniBaglanti();
-            Soru soru = new Soru();
-            this.Veritabani = vt;
-            this.KontrolEdilecekSoru = soru;
-        }
-
-        public void siradakiSoru()
-        {
-            Veritabani.kontrolEtVeYeniBaglantiAc();
-            siradaSoruVarMi = false;
-            Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionStatus = 0 ORDER BY NEWID()";
-            Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
-
-            while (Veritabani.VeriOkuyucu.Read())
-            {
-                KontrolEdilecekSoru.secenekleriVeBilgileriAta(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
-                siradaSoruVarMi = true;
-            }
-
-            Veritabani.baglantiyiKes();
-
-            if (!siradaSoruVarMi)
-            {
-                MessageBox.Show("Onay Bekleyen Soru Bulunmamaktadır.\nÇıkış Yapabilirsiniz.");
-            }
-        }
-
         public void soruyuOnayla()
         {
-            Veritabani.kontrolEtVeYeniBaglantiAc();
-            Veritabani.Komut.CommandText = "UPDATE dbo.Questions SET QuestionStatus = 1 WHERE QuestionID ='" + KontrolEdilecekSoru.ID + "'";
+            Veritabani.baglantiYoksaYeniBaglantiAc();
+            // Soru admin tarafindan onaylanirsa, QuestionStatus'u 1 yapıyoruz ve testlerde kullanilabilir hale geliyor
+            Veritabani.Komut.CommandText = "UPDATE dbo.Questions SET QuestionStatus = 1 WHERE QuestionID ='" + IslemYapilacakSoru.ID + "'";
             Veritabani.Komut.ExecuteNonQuery();
             MessageBox.Show("Soru, soru havuzuna eklenmiştir.");
             Veritabani.baglantiyiKes();
-            siradakiSoru();
+            IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(0);
         }
 
         public void soruyuReddet()
         {
-            Veritabani.kontrolEtVeYeniBaglantiAc();
-            Veritabani.Komut.CommandText = "DELETE FROM dbo.Questions WHERE QuestionID ='" + KontrolEdilecekSoru.ID + "'";
+            Veritabani.baglantiYoksaYeniBaglantiAc();
+            // Soru admin tarafindan reddedilirse veritabanindan siliniyor.
+            Veritabani.Komut.CommandText = "DELETE FROM dbo.Questions WHERE QuestionID ='" + IslemYapilacakSoru.ID + "'";
             Veritabani.Komut.ExecuteNonQuery();
             MessageBox.Show("Soru silinmiştir.");
             Veritabani.baglantiyiKes();
-            siradakiSoru();
+            IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(0);
         }
     }
 }

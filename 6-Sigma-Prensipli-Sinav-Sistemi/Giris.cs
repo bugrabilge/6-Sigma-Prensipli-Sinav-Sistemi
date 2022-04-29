@@ -8,24 +8,9 @@ using System.Windows.Forms;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public class Giris
+    public class Giris : LoginHareketleri
     {
-        private veriTabaniBaglanti veritabani;
-
-
-        public veriTabaniBaglanti Veritabani
-        {
-            get { return veritabani; }
-            set { veritabani = value; }
-        }
         public int girisYapanKullaniciID { get; set; }
-
-
-        public Giris()
-        {
-            veriTabaniBaglanti vt = new veriTabaniBaglanti();
-            veritabani = vt;
-        }
         
         public void kullaniciAdiKontrolVeGiris(string kullaniciAdi, string sifre, Form kapatilacakFormIsmi)
         {
@@ -33,7 +18,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             {
                 Veritabani.Komut.CommandText = "SELECT UserName FROM dbo.Users where UserName='" + kullaniciAdi + "'";
                 Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
-                if (Veritabani.VeriOkuyucu.Read())
+                if (Veritabani.VeriOkuyucu.Read()) // Kullanici adinin bulunup bulunmadigina bakiyoruz, bulunuyorsa sifre kontrolu yapıp giris yapıyoruz
                 {
                     Veritabani.VeriOkuyucu.Close();
                     girisYap(kullaniciAdi, sifre, kapatilacakFormIsmi);
@@ -55,7 +40,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             
             Veritabani.Komut.CommandText = "SELECT UserName, Password, UserTypeID, UserID FROM dbo.Users where UserName='" + kullaniciAdi + "' AND Password='" + sifre + "'";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
-            if (Veritabani.VeriOkuyucu.Read())
+            if (Veritabani.VeriOkuyucu.Read()) // Kullanici adi ve sifre veritabani ile eslesiyorsa, kullanici türüne gore sayfasina yonlendiriyoruz
             {
                 MessageBox.Show("Giriş Başarılı!\nYönlendiriliyorsunuz.");
 
