@@ -19,10 +19,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         }
 
         Admin admin = new Admin();
+        
         private void AdminForm_Load(object sender, EventArgs e)
         {
             admin.IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(0);
             soruBilgileriniFormaYansit();
+
         }
 
 
@@ -57,33 +59,21 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             formGecis.formlarArasıGecisYap(this, "girisForm");
         }
-        public void soruBilgileriniFormaYansit()
+
+         public void soruBilgileriniFormaYansit()
         {
             if (admin.IslemYapilacakSoru.siradaSoruVarMi)
             {
                 grpSoru.Visible = true;
-                lblSoruGovde.Text = admin.IslemYapilacakSoru.Govde;
-                lblA.Text = admin.IslemYapilacakSoru.DogruCevap;
-                lblB.Text = admin.IslemYapilacakSoru.YanlisCevap1;
-                lblC.Text = admin.IslemYapilacakSoru.YanlisCevap2;
-                lblD.Text = admin.IslemYapilacakSoru.YanlisCevap3;
-                lblE.Text = admin.IslemYapilacakSoru.YanlisCevap4;
-                if (admin.IslemYapilacakSoru.ResimYolu != null)
-                {
-                    picSoruResmi.Visible = true;
-                    picSoruResmi.ImageLocation = admin.IslemYapilacakSoru.ResimYolu;
-                    picSoruResmi.Height = admin.IslemYapilacakSoru.ResimYuksekligi;
-                    picSoruResmi.Width = admin.IslemYapilacakSoru.ResimGenisligi;
-                }
-                else
-                {
-                    picSoruResmi.Visible = false;
-                }
+                Label[] seceneklerArray = { lblA, lblB, lblC, lblD, lblE };
+                TestIslemleri testIslemleri = new TestIslemleri();
+                testIslemleri.soruyuFormaRandomSeceneklerleYansıt(admin.IslemYapilacakSoru, lblSoruGovde, seceneklerArray, picSoruResmi);
             }
             else
             {
                 grpSoru.Visible = false;
-            }                      
+            }
         }
+       
     }
 }

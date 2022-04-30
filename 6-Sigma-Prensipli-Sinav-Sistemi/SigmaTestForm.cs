@@ -32,7 +32,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             
             ogrenci.IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(1);
             Label[] seceneklerArray = { lblA, lblB, lblC, lblD, lblE };
-            testIslemleri.soruyuFormaRandomSeceneklerleYansıt(ogrenci.IslemYapilacakSoru, lblSoruGovde, seceneklerArray);
+            testIslemleri.soruyuFormaRandomSeceneklerleYansıt(ogrenci.IslemYapilacakSoru, lblSoruGovde, seceneklerArray, picSoruResmi);
         }
 
         private void SigmaTestForm_Load(object sender, EventArgs e)
@@ -53,30 +53,35 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void btnA_Click(object sender, EventArgs e)
         {
             testIslemleri.dogruYanlisKontroluYap(ogrenci, lblA);
+            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblA);
             siradakiSoru();
         }
 
         private void btnB_Click(object sender, EventArgs e)
         {
             testIslemleri.dogruYanlisKontroluYap(ogrenci, lblB);
+            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblB);
             siradakiSoru();
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
             testIslemleri.dogruYanlisKontroluYap(ogrenci, lblC);
+            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblC);
             siradakiSoru();
         }
 
         private void btnD_Click(object sender, EventArgs e)
         {
             testIslemleri.dogruYanlisKontroluYap(ogrenci, lblD);
+            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblD);
             siradakiSoru();
         }
 
         private void btnE_Click(object sender, EventArgs e)
         {
             testIslemleri.dogruYanlisKontroluYap(ogrenci, lblE);
+            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblE);
             siradakiSoru();
         }
     }

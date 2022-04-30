@@ -74,7 +74,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 this.SectionID = Convert.ToInt32(Veritabani.VeriOkuyucu["SectionID"]);
                 this.UnitID = Convert.ToInt32(Veritabani.VeriOkuyucu["UnitID"]);
                 this.KabulDurumu = Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionStatus"]);
-                this.DogruYapilmaSayisi = Convert.ToInt32(Veritabani.VeriOkuyucu["TrueCount"]);
 
                 if (Veritabani.VeriOkuyucu["PicturePath"] != DBNull.Value)
                 {

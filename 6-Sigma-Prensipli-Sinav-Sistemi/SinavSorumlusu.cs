@@ -40,9 +40,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             Veritabani.baglantiYoksaYeniBaglantiAc();
             Veritabani.Komut.CommandText = "insert into dbo.Questions (QuestionText, SectionID, UnitID, PicturePath, PictureWidth, PictureHeight, RightAnswer, " +
-                "WrongAnswer1, WrongAnswer2, WrongAnswer3, WrongAnswer4,QuestionStatus, TrueCount) " +
+                "WrongAnswer1, WrongAnswer2, WrongAnswer3, WrongAnswer4,QuestionStatus) " +
                 "values (@soruText, @konuID, @uniteID, @resimYolu, @resimGenisligi, @resimYuksekligi, @dogruCevap," +
-                "@yanlisCevap1, @yanlisCevap2, @yanlisCevap3, @yanlisCevap4, @soruDurumu, @dogruSayisi )";
+                "@yanlisCevap1, @yanlisCevap2, @yanlisCevap3, @yanlisCevap4, @soruDurumu )";
             Veritabani.Komut.Parameters.AddWithValue("@soruText", IslemYapilacakSoru.Govde);
             Veritabani.Komut.Parameters.AddWithValue("@konuID", IslemYapilacakSoru.SectionID);
             Veritabani.Komut.Parameters.AddWithValue("@uniteID", IslemYapilacakSoru.UnitID);
@@ -64,7 +64,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Veritabani.Komut.Parameters.AddWithValue("@yanlisCevap3", IslemYapilacakSoru.YanlisCevap3);
             Veritabani.Komut.Parameters.AddWithValue("@yanlisCevap4", IslemYapilacakSoru.YanlisCevap4);
             Veritabani.Komut.Parameters.AddWithValue("@soruDurumu", 0);
-            Veritabani.Komut.Parameters.AddWithValue("@dogruSayisi", 0);
             Veritabani.Komut.ExecuteNonQuery();
             Veritabani.baglantiyiKes();
         }
