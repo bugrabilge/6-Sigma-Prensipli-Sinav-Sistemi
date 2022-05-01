@@ -20,7 +20,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnKayit_Click(object sender, EventArgs e)
         {
-            Kayit kayit = new Kayit();
+            Kayit kayit = new Kayit(); // formda girilen bilgiler veritabanina islenirken kullanilmak uzere kayıt nesnesine ataniyor
             kayit.KayitOlanKullaniciAdi = txtKullaniciAdi.Text;
             kayit.KayitOlanSifre = txtSifre.Text;
             kayit.Ad = txtAd.Text;
@@ -42,7 +42,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     }
                     else
                     {
-                        kayit.verileriVeritabaninaKayitEt();
+                        kayit.verileriVeritabaninaKayitEt(); // kayıt nesnesi uzerinden bilgiler veritabanina isleniyor
                         formGecis.formlarArasıGecisYap(this, "girisForm");
                         break;
                     }

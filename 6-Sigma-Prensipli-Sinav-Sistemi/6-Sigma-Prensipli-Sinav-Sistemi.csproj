@@ -91,6 +91,7 @@
     <Compile Include="SifreKurtarmaForm.Designer.cs">
       <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SigmaTest.cs" />
     <Compile Include="SinavSorumlusu.cs" />
     <Compile Include="Soru.cs" />
     <Compile Include="SSorumluForm.cs">

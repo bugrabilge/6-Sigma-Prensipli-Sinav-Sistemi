@@ -37,9 +37,14 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public int ResimGenisligi { get; set; }
         public bool siradaSoruVarMi;
         public GroupBox Grup { get; set; }
-
-        public void siradakiSoruBilgileriniCekVeAta(int questionStatus)
+        
+        
+        public void siradakiSoruBilgileriniCekVeAta(int questionStatus) 
         {
+            /* QuestionStatus = 0 -> Henuz admin tarafindan onaylanmamis sorular
+            * QuestionStatus = 1 -> Admin tarafindan onaylanip soru havuzuna eklenmis sorular
+            * QuestionStatus = 2 -> 6 kez üst üste bilinip test havuzundan cikarilmis sorular
+            */
             Veritabani.baglantiYoksaYeniBaglantiAc();
             siradaSoruVarMi = false;
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionStatus = '" + questionStatus + "' ORDER BY NEWID()";
@@ -55,11 +60,11 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         }
 
-        private void secenekleriVeBilgileriAta(int id)
+        public void secenekleriVeBilgileriAta(int id)
         {           
             this.ID = id;
             Veritabani.baglantiYoksaYeniBaglantiAc();
-            Veritabani.VeriOkuyucu.Close();
+            //Veritabani.VeriOkuyucu.Close();
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionID = '" + this.ID + "'";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
 
@@ -95,7 +100,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
 
         private string govdeSatirUzunlugunuLimitle(string govde, int maksimumUzunluk)
-        {
+        {   // Sorunun govdesi istenen uzunluga gore alt satira gecirilerek return ediliyor
             int index = 0;
             string yeniGovde = null;
             if (index + maksimumUzunluk < govde.Length)

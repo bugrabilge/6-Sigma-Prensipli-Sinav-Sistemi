@@ -10,7 +10,23 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
     {
         public int DogruSayisi { get; set; }
         public int YanlisSayisi { get; set; }
-        public int TestteCozduguSoruSayisi { get; set; }
+        public int TestteCozecegiSoruSayisi { get; set; }
+        public List<int> TestteCozecegiSorularinIDleri { get; set; }
+
+        public Ogrenci()
+        {
+            TestteCozecegiSorularinIDleri = new List<int>();
+        }
+
+        public void cozulecekSorularinIDleriniCek(List<int> sigmaSorulari)
+        {
+            if (sigmaSorulari.Count>0)
+            {
+                TestteCozecegiSorularinIDleri.AddRange(sigmaSorulari);
+                sigmaSorulari.Clear();
+            }
+            TestteCozecegiSoruSayisi = TestteCozecegiSorularinIDleri.Count;
+        }
 
     }
 }

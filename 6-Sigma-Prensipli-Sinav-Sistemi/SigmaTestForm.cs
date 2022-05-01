@@ -17,29 +17,54 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             InitializeComponent();
         }
-        
         Ogrenci ogrenci = new Ogrenci();
-        TestIslemleri testIslemleri = new TestIslemleri();
-        
+        SigmaTest sigma = new SigmaTest();
+
+        private void SigmaTestForm_Load(object sender, EventArgs e)
+        {        
+            sigma.bugunSorulacakSorulariCek();
+            ogrenci.cozulecekSorularinIDleriniCek(sigma.bugunSorulacakSorular);
+        }
         private void btnBasla_Click(object sender, EventArgs e)
         {
             siradakiSoru();          
             btnBasla.Enabled = false;
         }
 
-        public void siradakiSoru()
+        private void btnA_Click(object sender, EventArgs e)
         {
-            
-            ogrenci.IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(1);
-            Label[] seceneklerArray = { lblA, lblB, lblC, lblD, lblE };
-            testIslemleri.soruyuFormaRandomSeceneklerleYansıt(ogrenci.IslemYapilacakSoru, lblSoruGovde, seceneklerArray, picSoruResmi);
+            sigma.dogruYanlisKontroluYap(ogrenci, lblA);
+            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblA);
+            siradakiSoru();
         }
 
-        private void SigmaTestForm_Load(object sender, EventArgs e)
+        private void btnB_Click(object sender, EventArgs e)
         {
-            
+            sigma.dogruYanlisKontroluYap(ogrenci, lblB);
+            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblB);
+            siradakiSoru();
         }
 
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            sigma.dogruYanlisKontroluYap(ogrenci, lblC);
+            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblC);
+            siradakiSoru();
+        }
+
+        private void btnD_Click(object sender, EventArgs e)
+        {
+            sigma.dogruYanlisKontroluYap(ogrenci, lblD);
+            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblD);
+            siradakiSoru();
+        }
+
+        private void btnE_Click(object sender, EventArgs e)
+        {
+            sigma.dogruYanlisKontroluYap(ogrenci, lblE);
+            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblE);
+            siradakiSoru();
+        }
         private void SigmaTestForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
@@ -50,39 +75,16 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             formGecis.formlarArasıGecisYap(this, "girisForm");
         }
 
-        private void btnA_Click(object sender, EventArgs e)
+        public void siradakiSoru()
         {
-            testIslemleri.dogruYanlisKontroluYap(ogrenci, lblA);
-            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblA);
-            siradakiSoru();
-        }
-
-        private void btnB_Click(object sender, EventArgs e)
-        {
-            testIslemleri.dogruYanlisKontroluYap(ogrenci, lblB);
-            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblB);
-            siradakiSoru();
-        }
-
-        private void btnC_Click(object sender, EventArgs e)
-        {
-            testIslemleri.dogruYanlisKontroluYap(ogrenci, lblC);
-            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblC);
-            siradakiSoru();
-        }
-
-        private void btnD_Click(object sender, EventArgs e)
-        {
-            testIslemleri.dogruYanlisKontroluYap(ogrenci, lblD);
-            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblD);
-            siradakiSoru();
-        }
-
-        private void btnE_Click(object sender, EventArgs e)
-        {
-            testIslemleri.dogruYanlisKontroluYap(ogrenci, lblE);
-            testIslemleri.sigmaIslemleri(ogrenci.IslemYapilacakSoru, lblE);
-            siradakiSoru();
+            Label[] seceneklerArray = { lblA, lblB, lblC, lblD, lblE };
+            while (ogrenci.TestteCozecegiSorularinIDleri.Count > 0)
+            {
+                ogrenci.IslemYapilacakSoru.secenekleriVeBilgileriAta(ogrenci.TestteCozecegiSorularinIDleri[0]);
+                ogrenci.TestteCozecegiSorularinIDleri.RemoveAt(0);
+                break;
+            }
+            sigma.soruyuFormaRandomSeceneklerleYansıt(ogrenci.IslemYapilacakSoru, lblSoruGovde, seceneklerArray, picSoruResmi);
         }
     }
 }
