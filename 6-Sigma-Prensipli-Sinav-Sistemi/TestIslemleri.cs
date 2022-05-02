@@ -11,11 +11,13 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public class TestIslemleri
     {
+        public int KullaniciID { get; set; }
         public veriTabaniBaglanti Veritabani { get; set; }
         public TestIslemleri()
         {
             veriTabaniBaglanti vt = new veriTabaniBaglanti();
             this.Veritabani = vt;
+            this.KullaniciID = Giris.girisYapanKullaniciID;
         }
         public void soruyuFormaRandomSeceneklerleYansıt(Soru soru, Label lblGovde, Label[] seceneklerArray , PictureBox box)
         {
@@ -64,6 +66,21 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 ogrenci.YanlisSayisi++;
                 MessageBox.Show("yanlis");               
             }          
-        }      
+        }
+        
+        public void testEkraniniGizle(Label[] labellar, Button[] butonlar, PictureBox box)
+        {
+            foreach (Label l in labellar)
+            {
+                l.Visible = !l.Visible;
+            }
+
+            foreach (Button b in butonlar)
+            {
+                b.Visible = !b.Visible;
+            }
+
+            box.Visible = !box.Visible;
+        }
     }
 }

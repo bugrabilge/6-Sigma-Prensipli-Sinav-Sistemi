@@ -30,7 +30,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void InitializeComponent()
         {
             this.btnCikis = new System.Windows.Forms.Button();
-            this.btnAyarlar = new System.Windows.Forms.Button();
             this.btnSigma = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblHosgeldin = new System.Windows.Forms.Label();
@@ -47,15 +46,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnCikis.Text = "Çıkış Yap";
             this.btnCikis.UseVisualStyleBackColor = true;
             this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
-            // 
-            // btnAyarlar
-            // 
-            this.btnAyarlar.Location = new System.Drawing.Point(700, 375);
-            this.btnAyarlar.Name = "btnAyarlar";
-            this.btnAyarlar.Size = new System.Drawing.Size(75, 23);
-            this.btnAyarlar.TabIndex = 1;
-            this.btnAyarlar.Text = "Ayarlar";
-            this.btnAyarlar.UseVisualStyleBackColor = true;
             // 
             // btnSigma
             // 
@@ -113,7 +103,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Controls.Add(this.lblHosgeldin);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSigma);
-            this.Controls.Add(this.btnAyarlar);
             this.Controls.Add(this.btnCikis);
             this.Name = "OgrenciForm";
             this.Text = "OgrenciForm";
@@ -126,7 +115,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         #endregion
 
         private System.Windows.Forms.Button btnCikis;
-        private System.Windows.Forms.Button btnAyarlar;
         private System.Windows.Forms.Button btnSigma;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblHosgeldin;

@@ -48,6 +48,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     kapatılacakFormIsmi.Hide();
                     sigmaForm.Show();
                     break;
+                case "ayarlar":
+                    AyarlarForm ayarlarForm = new AyarlarForm();
+                    ayarlarForm.ShowDialog();
+                    break;
                 default:
                     break;
             }

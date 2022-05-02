@@ -53,6 +53,12 @@
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AyarlarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AyarlarForm.Designer.cs">
+      <DependentUpon>AyarlarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="dbSigmaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,6 +81,12 @@
     </Compile>
     <Compile Include="Kullanici.cs" />
     <Compile Include="LoginHareketleri.cs" />
+    <Compile Include="NormalTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NormalTestForm.Designer.cs">
+      <DependentUpon>NormalTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ogrenci.cs" />
     <Compile Include="OgrenciForm.cs">
       <SubType>Form</SubType>
@@ -111,11 +123,17 @@
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AyarlarForm.resx">
+      <DependentUpon>AyarlarForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GirisForm.resx">
       <DependentUpon>GirisForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KayitForm.resx">
       <DependentUpon>KayitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NormalTestForm.resx">
+      <DependentUpon>NormalTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OgrenciForm.resx">
       <DependentUpon>OgrenciForm.cs</DependentUpon>

@@ -16,7 +16,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             InitializeComponent();
         }
-
         private void btnSigma_Click(object sender, EventArgs e)
         {
             formGecis.formlarArasıGecisYap(this, "sigmaTestForm");

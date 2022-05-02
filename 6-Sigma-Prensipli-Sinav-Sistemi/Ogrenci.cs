@@ -12,6 +12,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public int YanlisSayisi { get; set; }
         public int TestteCozecegiSoruSayisi { get; set; }
         public List<int> TestteCozecegiSorularinIDleri { get; set; }
+        public List<int> SigmaSorulmaSikliklari { get; set; }
 
         public Ogrenci()
         {
@@ -23,10 +24,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             if (sigmaSorulari.Count>0)
             {
                 TestteCozecegiSorularinIDleri.AddRange(sigmaSorulari);
-                sigmaSorulari.Clear();
             }
             TestteCozecegiSoruSayisi = TestteCozecegiSorularinIDleri.Count;
         }
 
+        
+
+        public void sigmaSorularininSorulmaSikliklariniDegistir()
+        {
+
+        }
     }
 }

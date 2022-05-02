@@ -10,7 +10,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public class Giris : LoginHareketleri
     {
-        public int girisYapanKullaniciID { get; set; }
+        public static int girisYapanKullaniciID { get; set; }
         
         public void kullaniciAdiKontrolVeGiris(string kullaniciAdi, string sifre, Form kapatilacakFormIsmi)
         {

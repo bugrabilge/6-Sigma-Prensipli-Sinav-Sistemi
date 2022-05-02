@@ -11,13 +11,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public class SigmaTest : TestIslemleri
     {
-        public Soru soru { get; set; }
         public List<int> bugunSorulacakSorular { get; set; }
+        public List<int> bilinenSorununSorulmaSikligi { get; set; }
 
         public SigmaTest()
         {
             //this.soru = ogrencininSorusu;
             bugunSorulacakSorular = new List<int>();
+            bilinenSorununSorulmaSikligi = new List<int>();
+            sigmaSorularininSorulmaSikliklariniCek();
         }
 
         public void sigmaCevabaGoreVeritabaniIslemleriniYap(Soru soru, Label secenek)
@@ -81,12 +83,21 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Veritabani.Komut.CommandText = "insert into dbo.SigmaDates (QuestionID, FirstTime, SecondTime, ThirdTime, FourthTime, FifthTime, SixthTime) " +
                 "values (@soruID, @ilk, @ikinci, @ucuncu, @dorduncu, @besinci, @altinci)";
             Veritabani.Komut.Parameters.AddWithValue("@soruID", soruID);
+            /*
             Veritabani.Komut.Parameters.AddWithValue("@ilk", DateTime.Now.AddDays(1));
             Veritabani.Komut.Parameters.AddWithValue("@ikinci", DateTime.Now.AddDays(7));
             Veritabani.Komut.Parameters.AddWithValue("@ucuncu", DateTime.Now.AddMonths(1));
             Veritabani.Komut.Parameters.AddWithValue("@dorduncu", DateTime.Now.AddMonths(3));
             Veritabani.Komut.Parameters.AddWithValue("@besinci", DateTime.Now.AddMonths(6));
             Veritabani.Komut.Parameters.AddWithValue("@altinci", DateTime.Now.AddYears(1));
+            */
+
+            Veritabani.Komut.Parameters.AddWithValue("@ilk", DateTime.Now.AddDays(bilinenSorununSorulmaSikligi[0]));
+            Veritabani.Komut.Parameters.AddWithValue("@ikinci", DateTime.Now.AddDays(bilinenSorununSorulmaSikligi[1]));
+            Veritabani.Komut.Parameters.AddWithValue("@ucuncu", DateTime.Now.AddDays(bilinenSorununSorulmaSikligi[2]));
+            Veritabani.Komut.Parameters.AddWithValue("@dorduncu", DateTime.Now.AddDays(bilinenSorununSorulmaSikligi[3]));
+            Veritabani.Komut.Parameters.AddWithValue("@besinci", DateTime.Now.AddDays(bilinenSorununSorulmaSikligi[4]));
+            Veritabani.Komut.Parameters.AddWithValue("@altinci", DateTime.Now.AddDays(bilinenSorununSorulmaSikligi[5]));
         }
 
         public void bugunSorulacakSorulariCek()
@@ -125,11 +136,44 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Veritabani.Komut.CommandText = "SELECT QuestionID FROM dbo.Questions WHERE QuestionStatus = '" + 1 + "' ORDER BY NEWID()";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
             int sayac=0;
-            while (Veritabani.VeriOkuyucu.Read() && !bugunSorulacakSorular.Contains(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"])) && sayac < 10)
+            while (Veritabani.VeriOkuyucu.Read())
             {
-                bugunSorulacakSorular.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
-                sayac++;
+                if (!bugunSorulacakSorular.Contains(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"])) && sayac < 10)
+                {
+                    bugunSorulacakSorular.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
+                    sayac++;
+                }               
             }
+            Veritabani.baglantiyiKes();
+        }
+
+        public void sigmaSorularininSorulmaSikliklariniCek()
+        {
+            bilinenSorununSorulmaSikligi.Clear();
+            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.Komut.CommandText = "SELECT First, Second, Third, Fourth, Fifth, Sixth FROM UsersSigmaFrequency WHERE UserID='" + KullaniciID + "'";
+            Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
+            if (Veritabani.VeriOkuyucu.Read())
+            {
+                if (bilinenSorununSorulmaSikligi.Count != 0)
+                {
+                    bilinenSorununSorulmaSikligi.Clear();
+                }
+                bilinenSorununSorulmaSikligi.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["First"]));
+                bilinenSorununSorulmaSikligi.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["Second"]));
+                bilinenSorununSorulmaSikligi.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["Third"]));
+                bilinenSorununSorulmaSikligi.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["Fourth"]));
+                bilinenSorununSorulmaSikligi.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["Fifth"]));
+                bilinenSorununSorulmaSikligi.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["Sixth"]));
+            }
+            Veritabani.baglantiyiKes();
+        }
+
+        public void soruCikmaSikliginiDegistir(List<int> yeniSorulmaSikligi)
+        {
+            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.Komut.CommandText = "UPDATE dbo.UsersSigmaFrequency SET First = '" + yeniSorulmaSikligi[0] + "' ,Second = '" + yeniSorulmaSikligi[1] + "' ,Third = '" + yeniSorulmaSikligi[2] + "' ,Fourth = '"+ yeniSorulmaSikligi[3] + "' ,Fifth = '" + yeniSorulmaSikligi[4] + "', Sixth = '" + yeniSorulmaSikligi[5] + "' WHERE UserID ='" + KullaniciID + "'";
+            Veritabani.Komut.ExecuteNonQuery();
             Veritabani.baglantiyiKes();
         }
     }

@@ -29,6 +29,13 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                                                          GuvenlikSorusuCevabi + "','" +
                                                          KullaniciTuru + "')";
             Veritabani.Komut.ExecuteNonQuery();
+            if (KullaniciTuru == 1) // Kayıt olan kisi ogrenci ise Sigma Algoritmasinin sorulma sıklıklarında kullanmak icin veritabanina idsi ekleniyor
+            {
+            Veritabani.Komut.CommandText = "INSERT INTO dbo.UsersSigmaFrequency(UserID) " +
+                                            "SELECT UserID FROM dbo.Users " +
+                                            "WHERE UserName = '" + KayitOlanKullaniciAdi + "'";
+            }
+            Veritabani.Komut.ExecuteNonQuery();
             Veritabani.baglantiyiKes();
             MessageBox.Show("Kayıt İşleminiz Başarıyla Gerçekleşmiştir!");
         }
