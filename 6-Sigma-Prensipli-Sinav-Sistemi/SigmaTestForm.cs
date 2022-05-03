@@ -24,7 +24,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             testinGorunurlugunuDegistir();
             sigma.bugunSorulacakSorulariCek();
             ogrenci.cozulecekSorularinIDleriniCek(sigma.bugunSorulacakSorular);
-            d=ogrenci.TestteCozecegiSoruSayisi;
+            //d=ogrenci.TestteCozecegiSoruSayisi;
+            d = 1;
         }
         private void btnBasla_Click(object sender, EventArgs e)
         {
@@ -131,7 +132,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             {
                 timer.Enabled = false;
                 timer.Stop();
-                MessageBox.Show("Süreniz Doldu!");
+                MessageBox.Show("Süreniz Doldu!\nDoğru Sayınız :" + ogrenci.DogruSayisi + "\nYanlış sayınız :"+ ogrenci.YanlisSayisi);
+                testinGorunurlugunuDegistir();
             }
             lblGeriSayim.Text = string.Format("{0}:{1}", d, s.ToString().PadLeft(2, '0'));
         }
