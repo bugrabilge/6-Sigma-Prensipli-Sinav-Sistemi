@@ -45,15 +45,17 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.lblSoruGovde = new System.Windows.Forms.Label();
             this.btnE = new System.Windows.Forms.Button();
             this.lblE = new System.Windows.Forms.Label();
-            this.lblSayi = new System.Windows.Forms.Label();
+            this.lblSoruNo = new System.Windows.Forms.Label();
             this.lblGeriSayim = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btnAnaliz = new System.Windows.Forms.Button();
+            this.btnOgrenciEkraninaDon = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picSoruResmi)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAyarlar
             // 
-            this.btnAyarlar.Location = new System.Drawing.Point(713, 378);
+            this.btnAyarlar.Location = new System.Drawing.Point(633, 373);
             this.btnAyarlar.Name = "btnAyarlar";
             this.btnAyarlar.Size = new System.Drawing.Size(75, 23);
             this.btnAyarlar.TabIndex = 6;
@@ -63,7 +65,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // btnCikis
             // 
-            this.btnCikis.Location = new System.Drawing.Point(713, 407);
+            this.btnCikis.Location = new System.Drawing.Point(633, 402);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(75, 23);
             this.btnCikis.TabIndex = 5;
@@ -73,7 +75,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // btnBasla
             // 
-            this.btnBasla.Location = new System.Drawing.Point(713, 24);
+            this.btnBasla.Location = new System.Drawing.Point(633, 32);
             this.btnBasla.Name = "btnBasla";
             this.btnBasla.Size = new System.Drawing.Size(75, 23);
             this.btnBasla.TabIndex = 7;
@@ -194,21 +196,21 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.lblE.TabIndex = 9;
             this.lblE.Text = "E seçeneği";
             // 
-            // lblSayi
+            // lblSoruNo
             // 
-            this.lblSayi.AutoSize = true;
-            this.lblSayi.Location = new System.Drawing.Point(40, 29);
-            this.lblSayi.Name = "lblSayi";
-            this.lblSayi.Size = new System.Drawing.Size(27, 13);
-            this.lblSayi.TabIndex = 11;
-            this.lblSayi.Text = "Sayı";
+            this.lblSoruNo.AutoSize = true;
+            this.lblSoruNo.Location = new System.Drawing.Point(40, 29);
+            this.lblSoruNo.Name = "lblSoruNo";
+            this.lblSoruNo.Size = new System.Drawing.Size(16, 13);
+            this.lblSoruNo.TabIndex = 11;
+            this.lblSoruNo.Text = "1)";
             // 
             // lblGeriSayim
             // 
             this.lblGeriSayim.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblGeriSayim.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblGeriSayim.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblGeriSayim.Location = new System.Drawing.Point(713, 84);
+            this.lblGeriSayim.Location = new System.Drawing.Point(633, 79);
             this.lblGeriSayim.Name = "lblGeriSayim";
             this.lblGeriSayim.Size = new System.Drawing.Size(75, 38);
             this.lblGeriSayim.TabIndex = 12;
@@ -220,13 +222,35 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // btnAnaliz
+            // 
+            this.btnAnaliz.Location = new System.Drawing.Point(294, 222);
+            this.btnAnaliz.Name = "btnAnaliz";
+            this.btnAnaliz.Size = new System.Drawing.Size(123, 44);
+            this.btnAnaliz.TabIndex = 13;
+            this.btnAnaliz.Text = "Testin Analizini Gör";
+            this.btnAnaliz.UseVisualStyleBackColor = true;
+            this.btnAnaliz.Click += new System.EventHandler(this.btnAnaliz_Click);
+            // 
+            // btnOgrenciEkraninaDon
+            // 
+            this.btnOgrenciEkraninaDon.Location = new System.Drawing.Point(633, 310);
+            this.btnOgrenciEkraninaDon.Name = "btnOgrenciEkraninaDon";
+            this.btnOgrenciEkraninaDon.Size = new System.Drawing.Size(75, 57);
+            this.btnOgrenciEkraninaDon.TabIndex = 14;
+            this.btnOgrenciEkraninaDon.Text = "Öğrenci Ekranına Dön";
+            this.btnOgrenciEkraninaDon.UseVisualStyleBackColor = true;
+            this.btnOgrenciEkraninaDon.Click += new System.EventHandler(this.btnOgrenciEkraninaDon_Click);
+            // 
             // SigmaTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(728, 456);
+            this.Controls.Add(this.btnOgrenciEkraninaDon);
+            this.Controls.Add(this.btnAnaliz);
             this.Controls.Add(this.lblGeriSayim);
-            this.Controls.Add(this.lblSayi);
+            this.Controls.Add(this.lblSoruNo);
             this.Controls.Add(this.lblE);
             this.Controls.Add(this.btnBasla);
             this.Controls.Add(this.btnE);
@@ -268,8 +292,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.Label lblSoruGovde;
         private System.Windows.Forms.Button btnE;
         private System.Windows.Forms.Label lblE;
-        private System.Windows.Forms.Label lblSayi;
+        private System.Windows.Forms.Label lblSoruNo;
         private System.Windows.Forms.Label lblGeriSayim;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btnAnaliz;
+        private System.Windows.Forms.Button btnOgrenciEkraninaDon;
     }
 }

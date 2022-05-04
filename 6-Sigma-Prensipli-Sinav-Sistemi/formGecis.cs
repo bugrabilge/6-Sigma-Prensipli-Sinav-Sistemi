@@ -52,6 +52,11 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     AyarlarForm ayarlarForm = new AyarlarForm();
                     ayarlarForm.ShowDialog();
                     break;
+                case "normalTestForm":
+                    HazirlikTestForm normalForm = new HazirlikTestForm();
+                    kapatılacakFormIsmi.Hide();
+                    normalForm.Show();
+                    break;
                 default:
                     break;
             }

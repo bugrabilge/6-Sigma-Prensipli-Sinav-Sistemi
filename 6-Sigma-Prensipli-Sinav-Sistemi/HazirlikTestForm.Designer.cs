@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class NormalTestForm
+    partial class HazirlikTestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblSayi = new System.Windows.Forms.Label();
+            this.lblSoruNo = new System.Windows.Forms.Label();
             this.lblE = new System.Windows.Forms.Label();
             this.btnE = new System.Windows.Forms.Button();
             this.lblSoruGovde = new System.Windows.Forms.Label();
@@ -42,17 +42,20 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnB = new System.Windows.Forms.Button();
             this.btnD = new System.Windows.Forms.Button();
             this.btnC = new System.Windows.Forms.Button();
+            this.btnOgrenciEkraninaDon = new System.Windows.Forms.Button();
+            this.btnBasla = new System.Windows.Forms.Button();
+            this.btnCikis = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picSoruResmi)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblSayi
+            // lblSoruNo
             // 
-            this.lblSayi.AutoSize = true;
-            this.lblSayi.Location = new System.Drawing.Point(52, 29);
-            this.lblSayi.Name = "lblSayi";
-            this.lblSayi.Size = new System.Drawing.Size(27, 13);
-            this.lblSayi.TabIndex = 24;
-            this.lblSayi.Text = "Sayı";
+            this.lblSoruNo.AutoSize = true;
+            this.lblSoruNo.Location = new System.Drawing.Point(52, 29);
+            this.lblSoruNo.Name = "lblSoruNo";
+            this.lblSoruNo.Size = new System.Drawing.Size(27, 13);
+            this.lblSoruNo.TabIndex = 24;
+            this.lblSoruNo.Text = "Sayı";
             // 
             // lblE
             // 
@@ -71,6 +74,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnE.TabIndex = 23;
             this.btnE.Text = "E)";
             this.btnE.UseVisualStyleBackColor = true;
+            this.btnE.Click += new System.EventHandler(this.btnE_Click);
             // 
             // lblSoruGovde
             // 
@@ -125,6 +129,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnA.TabIndex = 14;
             this.btnA.Text = "A)";
             this.btnA.UseVisualStyleBackColor = true;
+            this.btnA.Click += new System.EventHandler(this.btnA_Click);
             // 
             // lblD
             // 
@@ -143,6 +148,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnB.TabIndex = 15;
             this.btnB.Text = "B)";
             this.btnB.UseVisualStyleBackColor = true;
+            this.btnB.Click += new System.EventHandler(this.btnB_Click);
             // 
             // btnD
             // 
@@ -152,6 +158,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnD.TabIndex = 18;
             this.btnD.Text = "D)";
             this.btnD.UseVisualStyleBackColor = true;
+            this.btnD.Click += new System.EventHandler(this.btnD_Click);
             // 
             // btnC
             // 
@@ -161,13 +168,47 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnC.TabIndex = 17;
             this.btnC.Text = "C)";
             this.btnC.UseVisualStyleBackColor = true;
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
-            // NormalTestForm
+            // btnOgrenciEkraninaDon
+            // 
+            this.btnOgrenciEkraninaDon.Location = new System.Drawing.Point(713, 331);
+            this.btnOgrenciEkraninaDon.Name = "btnOgrenciEkraninaDon";
+            this.btnOgrenciEkraninaDon.Size = new System.Drawing.Size(75, 57);
+            this.btnOgrenciEkraninaDon.TabIndex = 29;
+            this.btnOgrenciEkraninaDon.Text = "Öğrenci Ekranına Dön";
+            this.btnOgrenciEkraninaDon.UseVisualStyleBackColor = true;
+            this.btnOgrenciEkraninaDon.Click += new System.EventHandler(this.btnOgrenciEkraninaDon_Click);
+            // 
+            // btnBasla
+            // 
+            this.btnBasla.Location = new System.Drawing.Point(713, 24);
+            this.btnBasla.Name = "btnBasla";
+            this.btnBasla.Size = new System.Drawing.Size(75, 23);
+            this.btnBasla.TabIndex = 27;
+            this.btnBasla.Text = "Teste Başla!";
+            this.btnBasla.UseVisualStyleBackColor = true;
+            this.btnBasla.Click += new System.EventHandler(this.btnBasla_Click);
+            // 
+            // btnCikis
+            // 
+            this.btnCikis.Location = new System.Drawing.Point(713, 394);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(75, 23);
+            this.btnCikis.TabIndex = 25;
+            this.btnCikis.Text = "Çıkış Yap";
+            this.btnCikis.UseVisualStyleBackColor = true;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
+            // 
+            // HazirlikTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblSayi);
+            this.Controls.Add(this.btnOgrenciEkraninaDon);
+            this.Controls.Add(this.btnBasla);
+            this.Controls.Add(this.btnCikis);
+            this.Controls.Add(this.lblSoruNo);
             this.Controls.Add(this.lblE);
             this.Controls.Add(this.btnE);
             this.Controls.Add(this.lblSoruGovde);
@@ -180,8 +221,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Controls.Add(this.btnB);
             this.Controls.Add(this.btnD);
             this.Controls.Add(this.btnC);
-            this.Name = "NormalTestForm";
+            this.Name = "HazirlikTestForm";
             this.Text = "NormalTestForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NormalTestForm_FormClosing);
+            this.Load += new System.EventHandler(this.HazirlikTestForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picSoruResmi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,7 +233,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         #endregion
 
-        private System.Windows.Forms.Label lblSayi;
+        private System.Windows.Forms.Label lblSoruNo;
         private System.Windows.Forms.Label lblE;
         private System.Windows.Forms.Button btnE;
         private System.Windows.Forms.Label lblSoruGovde;
@@ -203,5 +246,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.Button btnB;
         private System.Windows.Forms.Button btnD;
         private System.Windows.Forms.Button btnC;
+        private System.Windows.Forms.Button btnOgrenciEkraninaDon;
+        private System.Windows.Forms.Button btnBasla;
+        private System.Windows.Forms.Button btnCikis;
     }
 }

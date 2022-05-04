@@ -81,11 +81,12 @@
     </Compile>
     <Compile Include="Kullanici.cs" />
     <Compile Include="LoginHareketleri.cs" />
-    <Compile Include="NormalTestForm.cs">
+    <Compile Include="Hazirlik.cs" />
+    <Compile Include="HazirlikTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NormalTestForm.Designer.cs">
-      <DependentUpon>NormalTestForm.cs</DependentUpon>
+    <Compile Include="HazirlikTestForm.Designer.cs">
+      <DependentUpon>HazirlikTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Ogrenci.cs" />
     <Compile Include="OgrenciForm.cs">
@@ -103,7 +104,7 @@
     <Compile Include="SifreKurtarmaForm.Designer.cs">
       <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SigmaTest.cs" />
+    <Compile Include="Sigma.cs" />
     <Compile Include="SinavSorumlusu.cs" />
     <Compile Include="Soru.cs" />
     <Compile Include="SSorumluForm.cs">
@@ -132,8 +133,8 @@
     <EmbeddedResource Include="KayitForm.resx">
       <DependentUpon>KayitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NormalTestForm.resx">
-      <DependentUpon>NormalTestForm.cs</DependentUpon>
+    <EmbeddedResource Include="HazirlikTestForm.resx">
+      <DependentUpon>HazirlikTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OgrenciForm.resx">
       <DependentUpon>OgrenciForm.cs</DependentUpon>

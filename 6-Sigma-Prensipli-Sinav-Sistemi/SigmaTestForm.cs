@@ -18,57 +18,54 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             InitializeComponent();
         }
         Ogrenci ogrenci = new Ogrenci();
-        SigmaTest sigma = new SigmaTest();
         private void SigmaTestForm_Load(object sender, EventArgs e)
         {
             testinGorunurlugunuDegistir();
-            sigma.bugunSorulacakSorulariCek();
-            ogrenci.cozulecekSorularinIDleriniCek(sigma.bugunSorulacakSorular);
-            //d=ogrenci.TestteCozecegiSoruSayisi;
-            d = 1;
+            ogrenci.SigmaTestiIslemleri.bugunSorulacakSorulariVeritabanindanCek();
+            //dakika=ogrenci.SigmaTestiIslemleri.bugunSorulacakSorularinIDleri.Count;
+            dakika = 1;
+
         }
         private void btnBasla_Click(object sender, EventArgs e)
-        {
-            
+        {           
             testinGorunurlugunuDegistir();
             siradakiSoru();
             timer.Start();
             btnBasla.Enabled = false;
-
         }
 
         private void btnA_Click(object sender, EventArgs e)
         {
-            sigma.dogruYanlisKontroluYap(ogrenci, lblA);
-            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblA);
+            ogrenci.SigmaTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblA);
+            ogrenci.SigmaTestiIslemleri.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblA);
             siradakiSoru();
         }
 
         private void btnB_Click(object sender, EventArgs e)
         {
-            sigma.dogruYanlisKontroluYap(ogrenci, lblB);
-            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblB);
+            ogrenci.SigmaTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblB);
+            ogrenci.SigmaTestiIslemleri.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblB);
             siradakiSoru();
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
-            sigma.dogruYanlisKontroluYap(ogrenci, lblC);
-            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblC);
+            ogrenci.SigmaTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblC);
+            ogrenci.SigmaTestiIslemleri.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblC);
             siradakiSoru();
         }
 
         private void btnD_Click(object sender, EventArgs e)
         {
-            sigma.dogruYanlisKontroluYap(ogrenci, lblD);
-            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblD);
+            ogrenci.SigmaTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblD);
+            ogrenci.SigmaTestiIslemleri.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblD);
             siradakiSoru();
         }
 
         private void btnE_Click(object sender, EventArgs e)
         {
-            sigma.dogruYanlisKontroluYap(ogrenci, lblE);
-            sigma.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblE);
+            ogrenci.SigmaTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblE);
+            ogrenci.SigmaTestiIslemleri.sigmaCevabaGoreVeritabaniIslemleriniYap(ogrenci.IslemYapilacakSoru, lblE);
             siradakiSoru();
         }
         private void SigmaTestForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -78,64 +75,82 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
+            ogrenci.DogruCozduguSorularinIDleri.Clear();
+            ogrenci.YanlisCozduguSorularinIDleri.Clear();
             formGecis.formlarArasıGecisYap(this, "girisForm");
         }
         
         public void siradakiSoru()
         {
             Label[] seceneklerArray = { lblA, lblB, lblC, lblD, lblE };
-            while (ogrenci.TestteCozecegiSorularinIDleri.Count != 0)
+            while (ogrenci.SigmaTestiIslemleri.bugunSorulacakSorularinIDleri.Count != 0)
             {
-                ogrenci.IslemYapilacakSoru.secenekleriVeBilgileriAta(ogrenci.TestteCozecegiSorularinIDleri[0]);
-                sigma.soruyuFormaRandomSeceneklerleYansıt(ogrenci.IslemYapilacakSoru, lblSoruGovde, seceneklerArray, picSoruResmi);
-                ogrenci.TestteCozecegiSorularinIDleri.RemoveAt(0);
+                ogrenci.SigmaTestiIslemleri.siradakiSoru(ogrenci, lblSoruGovde, lblSoruNo, seceneklerArray, picSoruResmi);
                 return;
             }
-            if (ogrenci.TestteCozecegiSorularinIDleri.Count == 0)
-            {
-                MessageBox.Show("Tebrikler testi tamamladınız!\nDoğru sayiniz :" + ogrenci.DogruSayisi + "\nYanlış sayınız :" + ogrenci.YanlisSayisi +
-                    "\nAnaliz butonu ile testin analizini görebilirsiniz...");
-                testinGorunurlugunuDegistir();
-                picSoruResmi.Visible = false;
-            }
+            timer.Stop();
+            ogrenci.SigmaTestiIslemleri.siradakiSoru(ogrenci, lblSoruGovde, lblSoruNo, seceneklerArray, picSoruResmi);
+            testinGorunurlugunuDegistir();
         }
         
         private void btnAyarlar_Click(object sender, EventArgs e)
         {
             formGecis.formlarArasıGecisYap(this, "ayarlar");
-            sigma.soruCikmaSikliginiDegistir(AyarlarForm.ayarlardanDegistirilenSayilar);
+            ogrenci.SigmaTestiIslemleri.soruCikmaSikliginiDegistir(AyarlarForm.ayarlardanDegistirilenSayilar);
 
         }
 
         public void testinGorunurlugunuDegistir()
         {
-            Label[] labellar = { lblA, lblB, lblC, lblD, lblE, lblSayi, lblSoruGovde };
-            Button[] butonlar = { btnA, btnB, btnC, btnD, btnE };
-            sigma.testEkraniniGizle(labellar, butonlar, picSoruResmi);
+            Label[] labellar = { lblA, lblB, lblC, lblD, lblE, lblSoruNo, lblSoruGovde };
+            Button[] butonlar = { btnA, btnB, btnC, btnD, btnE, btnAnaliz };
+            ogrenci.SigmaTestiIslemleri.testOgelerininGorunurlugunuDegistir(labellar, butonlar, picSoruResmi);
+            if (ogrenci.SigmaTestiIslemleri.bugunSorulacakSorularinIDleri.Count != 0)
+            {
+                btnAnaliz.Visible = false;
+                btnOgrenciEkraninaDon.Enabled = false;
+                return;
+            }
+            btnOgrenciEkraninaDon.Enabled = true;
+            picSoruResmi.Visible = false;
         }
         
-        int s;
-        int d;
+        int saniye=0;
+        int dakika;
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (lblGeriSayim.Text != "00:01")
+            if (lblGeriSayim.Text != "00:00")
             {
-                if (s==00)
+                if (saniye==00)
                 {
-                    s = 60;
-                    d--;
+                    saniye = 60;
+                    dakika--;
                 }
-                s--;
+                saniye--;
+                lblGeriSayim.Text = string.Format("{0}:{1}", dakika, saniye.ToString().PadLeft(2, '0'));
+                return;
             }
-            if (s==0 && d ==0)
+            if (saniye==0 && dakika ==0)
             {
-                timer.Enabled = false;
                 timer.Stop();
-                MessageBox.Show("Süreniz Doldu!\nDoğru Sayınız :" + ogrenci.DogruSayisi + "\nYanlış sayınız :"+ ogrenci.YanlisSayisi);
+                timer.Enabled = false;
+                MessageBox.Show("Süreniz Doldu!\nDoğru Sayınız :" + ogrenci.DogruSayisi + "\nYanlış sayınız :"+ ogrenci.YanlisSayisi +
+                    "\nAnaliz butonu ile testin analizini görebilirsiniz...");
                 testinGorunurlugunuDegistir();
             }
-            lblGeriSayim.Text = string.Format("{0}:{1}", d, s.ToString().PadLeft(2, '0'));
+        }
+
+        private void btnAnaliz_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnOgrenciEkraninaDon_Click(object sender, EventArgs e)
+        {
+            ogrenci.DogruCozduguSorularinIDleri.Clear();
+            ogrenci.YanlisCozduguSorularinIDleri.Clear();
+            formGecis.formlarArasıGecisYap(this, "ogrenciForm");
         }
     }
 }

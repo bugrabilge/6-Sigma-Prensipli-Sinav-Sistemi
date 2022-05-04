@@ -12,12 +12,17 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
     public class TestIslemleri
     {
         public int KullaniciID { get; set; }
+        public List<int> bugunSorulacakSorularinIDleri { get; set; }
         public veriTabaniBaglanti Veritabani { get; set; }
+
         public TestIslemleri()
         {
-            veriTabaniBaglanti vt = new veriTabaniBaglanti();
-            this.Veritabani = vt;
+            //veriTabaniBaglanti vt = new veriTabaniBaglanti();
+            //this.Veritabani = vt;
+            this.Veritabani = new veriTabaniBaglanti();
             this.KullaniciID = Giris.girisYapanKullaniciID;
+            bugunSorulacakSorularinIDleri = new List<int>();
+
         }
         public void soruyuFormaRandomSeceneklerleYansıt(Soru soru, Label lblGovde, Label[] seceneklerArray , PictureBox box)
         {
@@ -33,7 +38,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     randomSecenekler.Add(x);
                 }
             }
-
+            
             lblGovde.Text = soru.Govde;
             randomSecenekler[0].Text = soru.DogruCevap;
             randomSecenekler[1].Text = soru.YanlisCevap1;
@@ -59,16 +64,18 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             if (secenek.Text == ogrenci.IslemYapilacakSoru.DogruCevap) // secenegin labelinda yazan sorunun dogru cevabiysa
             {
                 ogrenci.DogruSayisi++;
-                MessageBox.Show("dogru");              
+                ogrenci.DogruCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);
+                //MessageBox.Show("dogru");              
             }
             else // secenegin labelinda yazan sorunun yanlis cevabiysa
             {
                 ogrenci.YanlisSayisi++;
-                MessageBox.Show("yanlis");               
+                ogrenci.YanlisCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);
+                //MessageBox.Show("yanlis");               
             }          
         }
         
-        public void testEkraniniGizle(Label[] labellar, Button[] butonlar, PictureBox box)
+        public void testOgelerininGorunurlugunuDegistir(Label[] labellar, Button[] butonlar, PictureBox box)
         {
             foreach (Label l in labellar)
             {
@@ -81,6 +88,43 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }
 
             box.Visible = !box.Visible;
+        }
+
+        public virtual void bugunSorulacakSorulariVeritabanindanCek()
+        {
+            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.Komut.CommandText = "SELECT QuestionID FROM dbo.Questions WHERE NOT (QuestionStatus = '" + 0 + "') ORDER BY NEWID()";
+            Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
+            int sayac = 0;
+            while (Veritabani.VeriOkuyucu.Read())
+            {
+                if (!bugunSorulacakSorularinIDleri.Contains(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"])) && sayac < 20)
+                {
+                    bugunSorulacakSorularinIDleri.Add(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
+                    sayac++;
+                }
+            }
+            Veritabani.baglantiyiKes();
+        }
+
+        public void siradakiSoru(Ogrenci ogrenci, Label govde, Label no, Label[] secenekler, PictureBox box)
+        {
+            
+            while (bugunSorulacakSorularinIDleri.Count != 0)
+            {
+                ogrenci.IslemYapilacakSoru.secenekleriVeBilgileriAta(bugunSorulacakSorularinIDleri[0]);
+                soruyuFormaRandomSeceneklerleYansıt(ogrenci.IslemYapilacakSoru, govde, secenekler, box);
+                bugunSorulacakSorularinIDleri.RemoveAt(0);
+                no.Text = (ogrenci.DogruSayisi + ogrenci.YanlisSayisi + 1).ToString() + ")";
+                return;
+            }
+            if (bugunSorulacakSorularinIDleri.Count == 0)
+            {
+                MessageBox.Show("Tebrikler testi tamamladınız!\nDoğru sayiniz :" + ogrenci.DogruSayisi + "\nYanlış sayınız :" + ogrenci.YanlisSayisi +
+                    "\nAnaliz butonu ile testin analizini görebilirsiniz...");
+                //testOgelerininGorunurlugunuDegistir();
+                box.Visible = false;
+            }
         }
     }
 }

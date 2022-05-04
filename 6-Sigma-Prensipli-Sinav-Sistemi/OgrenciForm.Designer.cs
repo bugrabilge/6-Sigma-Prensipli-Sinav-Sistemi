@@ -31,7 +31,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnSigma = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNormalTest = new System.Windows.Forms.Button();
             this.lblHosgeldin = new System.Windows.Forms.Label();
             this.lblOgrenciIsım = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,14 +57,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnSigma.UseVisualStyleBackColor = true;
             this.btnSigma.Click += new System.EventHandler(this.btnSigma_Click);
             // 
-            // button1
+            // btnNormalTest
             // 
-            this.button1.Location = new System.Drawing.Point(406, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(149, 53);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Eksik Giderme Testi";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNormalTest.Location = new System.Drawing.Point(406, 303);
+            this.btnNormalTest.Name = "btnNormalTest";
+            this.btnNormalTest.Size = new System.Drawing.Size(149, 53);
+            this.btnNormalTest.TabIndex = 5;
+            this.btnNormalTest.Text = "Eksik Giderme Testi";
+            this.btnNormalTest.UseVisualStyleBackColor = true;
+            this.btnNormalTest.Click += new System.EventHandler(this.btnNormalTest_Click);
             // 
             // lblHosgeldin
             // 
@@ -101,7 +102,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblOgrenciIsım);
             this.Controls.Add(this.lblHosgeldin);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnNormalTest);
             this.Controls.Add(this.btnSigma);
             this.Controls.Add(this.btnCikis);
             this.Name = "OgrenciForm";
@@ -116,7 +117,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private System.Windows.Forms.Button btnCikis;
         private System.Windows.Forms.Button btnSigma;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNormalTest;
         private System.Windows.Forms.Label lblHosgeldin;
         private System.Windows.Forms.Label lblOgrenciIsım;
         private System.Windows.Forms.Label label1;
