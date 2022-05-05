@@ -64,20 +64,18 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             if (secenek.Text == ogrenci.IslemYapilacakSoru.DogruCevap) // secenegin labelinda yazan sorunun dogru cevabiysa
             {
                 ogrenci.DogruSayisi++;
-                ogrenci.DogruCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);
-                //MessageBox.Show("dogru");              
+                ogrenci.DogruCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);              
             }
             else // secenegin labelinda yazan sorunun yanlis cevabiysa
             {
                 ogrenci.YanlisSayisi++;
-                ogrenci.YanlisCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);
-                //MessageBox.Show("yanlis");               
+                ogrenci.YanlisCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);           
             }          
         }
         
         public void testOgelerininGorunurlugunuDegistir(Label[] labellar, Button[] butonlar, PictureBox box)
         {
-            foreach (Label l in labellar)
+            foreach (Label l in labellar) // gelen tüm ögelerin görünürlügünü tersine ceviriyoruz
             {
                 l.Visible = !l.Visible;
             }
@@ -93,6 +91,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public virtual void bugunSorulacakSorulariVeritabanindanCek()
         {
             Veritabani.baglantiYoksaYeniBaglantiAc();
+            /* virtual metot olarak veritabanından 20 tane onaylanmış soru çekiyoruz
+             * bu metot hazırlık sınıfında direkt kullanılıyor
+             * sigma sınıfında ise override ediliyor */
             Veritabani.Komut.CommandText = "SELECT QuestionID FROM dbo.Questions WHERE NOT (QuestionStatus = '" + 0 + "') ORDER BY NEWID()";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
             int sayac = 0;
@@ -109,7 +110,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         public void siradakiSoru(Ogrenci ogrenci, Label govde, Label no, Label[] secenekler, PictureBox box)
         {
-            
+            /* veritabanından çektiğimiz soruların id'lerini tuttuğumuz listenin countu 0 olana kadar
+             * soruları her bu fonksiyon çağrıldığında birer birer soru nesnemize atıyoruz ve
+             * bu nesneyi form ögelerine yansıtıyoruz
+             */
             while (bugunSorulacakSorularinIDleri.Count != 0)
             {
                 ogrenci.IslemYapilacakSoru.secenekleriVeBilgileriAta(bugunSorulacakSorularinIDleri[0]);

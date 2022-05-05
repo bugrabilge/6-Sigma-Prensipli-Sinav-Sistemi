@@ -22,9 +22,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             testinGorunurlugunuDegistir();
             ogrenci.SigmaTestiIslemleri.bugunSorulacakSorulariVeritabanindanCek();
-            //dakika=ogrenci.SigmaTestiIslemleri.bugunSorulacakSorularinIDleri.Count;
-            dakika = 1;
-
+            dakika=ogrenci.SigmaTestiIslemleri.bugunSorulacakSorularinIDleri.Count;
         }
         private void btnBasla_Click(object sender, EventArgs e)
         {           
@@ -128,8 +126,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     dakika--;
                 }
                 saniye--;
-                lblGeriSayim.Text = string.Format("{0}:{1}", dakika, saniye.ToString().PadLeft(2, '0'));
-                return;
             }
             if (saniye==0 && dakika ==0)
             {
@@ -139,6 +135,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     "\nAnaliz butonu ile testin analizini görebilirsiniz...");
                 testinGorunurlugunuDegistir();
             }
+            lblGeriSayim.Text = string.Format("{0}:{1}", dakika, saniye.ToString().PadLeft(2, '0'));
         }
 
         private void btnAnaliz_Click(object sender, EventArgs e)
