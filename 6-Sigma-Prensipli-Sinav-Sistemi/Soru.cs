@@ -64,13 +64,13 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {           
             this.ID = id;
             Veritabani.baglantiYoksaYeniBaglantiAc();
-            //Veritabani.VeriOkuyucu.Close();
+            Veritabani.VeriOkuyucu.Close();
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionID = '" + this.ID + "'";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
 
             while (Veritabani.VeriOkuyucu.Read())
             {                
-                this.Govde = govdeSatirUzunlugunuLimitle(Veritabani.VeriOkuyucu["QuestionText"].ToString(), 120);
+                this.Govde = Veritabani.VeriOkuyucu["QuestionText"].ToString();
                 this.DogruCevap = Veritabani.VeriOkuyucu["RightAnswer"].ToString();
                 this.YanlisCevap1 = Veritabani.VeriOkuyucu["WrongAnswer1"].ToString();
                 this.YanlisCevap2 = Veritabani.VeriOkuyucu["WrongAnswer2"].ToString();
@@ -98,7 +98,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         }
 
 
-
+        /*
         private string govdeSatirUzunlugunuLimitle(string govde, int maksimumUzunluk)
         {   // Sorunun govdesi istenen uzunluga gore alt satira gecirilerek return ediliyor
             int index = 0;
@@ -119,5 +119,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 return govde;
             }
         }
+        */
     }
 }

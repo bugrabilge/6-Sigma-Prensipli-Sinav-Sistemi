@@ -47,6 +47,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnOnayla = new System.Windows.Forms.Button();
             this.btnReddet = new System.Windows.Forms.Button();
             this.btnCikis = new System.Windows.Forms.Button();
+            this.lblDogruCevap = new System.Windows.Forms.Label();
+            this.lblDcevap = new System.Windows.Forms.Label();
             this.grpSoru.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSoruResmi)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +80,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.grpSoru.Controls.Add(this.picSoruResmi);
             this.grpSoru.Location = new System.Drawing.Point(31, 32);
             this.grpSoru.Name = "grpSoru";
-            this.grpSoru.Size = new System.Drawing.Size(657, 414);
+            this.grpSoru.Size = new System.Drawing.Size(293, 414);
             this.grpSoru.TabIndex = 5;
             this.grpSoru.TabStop = false;
             this.grpSoru.Text = "Onay Bekleyen Sorular";
@@ -104,7 +106,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // lblSoruGovde
             // 
             this.lblSoruGovde.AutoSize = true;
-            this.lblSoruGovde.Location = new System.Drawing.Point(34, 32);
+            this.lblSoruGovde.Location = new System.Drawing.Point(21, 25);
+            this.lblSoruGovde.MaximumSize = new System.Drawing.Size(250, 0);
             this.lblSoruGovde.Name = "lblSoruGovde";
             this.lblSoruGovde.Size = new System.Drawing.Size(71, 13);
             this.lblSoruGovde.TabIndex = 2;
@@ -184,16 +187,16 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // picSoruResmi
             // 
-            this.picSoruResmi.Location = new System.Drawing.Point(24, 96);
+            this.picSoruResmi.Location = new System.Drawing.Point(15, 101);
             this.picSoruResmi.Name = "picSoruResmi";
-            this.picSoruResmi.Size = new System.Drawing.Size(557, 109);
+            this.picSoruResmi.Size = new System.Drawing.Size(145, 109);
             this.picSoruResmi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSoruResmi.TabIndex = 1;
             this.picSoruResmi.TabStop = false;
             // 
             // btnSiradaki
             // 
-            this.btnSiradaki.Location = new System.Drawing.Point(708, 83);
+            this.btnSiradaki.Location = new System.Drawing.Point(363, 88);
             this.btnSiradaki.Name = "btnSiradaki";
             this.btnSiradaki.Size = new System.Drawing.Size(75, 46);
             this.btnSiradaki.TabIndex = 6;
@@ -203,7 +206,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // btnOnayla
             // 
-            this.btnOnayla.Location = new System.Drawing.Point(708, 171);
+            this.btnOnayla.Location = new System.Drawing.Point(363, 176);
             this.btnOnayla.Name = "btnOnayla";
             this.btnOnayla.Size = new System.Drawing.Size(75, 23);
             this.btnOnayla.TabIndex = 7;
@@ -213,7 +216,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // btnReddet
             // 
-            this.btnReddet.Location = new System.Drawing.Point(708, 214);
+            this.btnReddet.Location = new System.Drawing.Point(363, 219);
             this.btnReddet.Name = "btnReddet";
             this.btnReddet.Size = new System.Drawing.Size(75, 23);
             this.btnReddet.TabIndex = 8;
@@ -223,7 +226,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // btnCikis
             // 
-            this.btnCikis.Location = new System.Drawing.Point(708, 386);
+            this.btnCikis.Location = new System.Drawing.Point(363, 391);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(75, 23);
             this.btnCikis.TabIndex = 9;
@@ -231,11 +234,31 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnCikis.UseVisualStyleBackColor = true;
             this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
+            // lblDogruCevap
+            // 
+            this.lblDogruCevap.AutoSize = true;
+            this.lblDogruCevap.Location = new System.Drawing.Point(365, 265);
+            this.lblDogruCevap.Name = "lblDogruCevap";
+            this.lblDogruCevap.Size = new System.Drawing.Size(73, 13);
+            this.lblDogruCevap.TabIndex = 11;
+            this.lblDogruCevap.Text = "Doğru Cevap:";
+            // 
+            // lblDcevap
+            // 
+            this.lblDcevap.AutoSize = true;
+            this.lblDcevap.Location = new System.Drawing.Point(365, 290);
+            this.lblDcevap.Name = "lblDcevap";
+            this.lblDcevap.Size = new System.Drawing.Size(41, 13);
+            this.lblDcevap.TabIndex = 12;
+            this.lblDcevap.Text = "Cevap:";
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.lblDcevap);
+            this.Controls.Add(this.lblDogruCevap);
             this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.btnReddet);
             this.Controls.Add(this.btnOnayla);
@@ -274,5 +297,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.Button btnOnayla;
         private System.Windows.Forms.Button btnReddet;
         private System.Windows.Forms.Button btnCikis;
+        private System.Windows.Forms.Label lblDogruCevap;
+        private System.Windows.Forms.Label lblDcevap;
     }
 }

@@ -67,5 +67,35 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Veritabani.Komut.ExecuteNonQuery();
             Veritabani.baglantiyiKes();
         }
+
+        public void uniteVeyaKonuIsmiCek(string islemYapilacakTur, string gelenID, Label isimYazdirilacakLabel, Label uniteLabel)
+        {
+            if (gelenID != "")
+            {
+                int aranacakID = Convert.ToInt32(gelenID);
+                Veritabani.baglantiYoksaYeniBaglantiAc();
+                
+                if (islemYapilacakTur == "Unit") // ünite ismi ya da konu ismi aramamıza göre CommandText atamamızı değiştiriyoruz sadece
+                {
+                    Veritabani.Komut.CommandText = "SELECT UnitName FROM dbo.UnitsAndSections WHERE UnitID = '" + aranacakID + "'";
+                }
+                else
+                {
+                    Veritabani.Komut.CommandText = "SELECT SectionName FROM dbo.UnitsAndSections WHERE UnitName = '"+ uniteLabel.Text +"' AND SectionID = '"+ aranacakID +"'";
+                }
+
+                Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
+                if (Veritabani.VeriOkuyucu.Read())
+                {
+                    isimYazdirilacakLabel.Text = Veritabani.VeriOkuyucu["" + islemYapilacakTur + "Name"].ToString();
+                    isimYazdirilacakLabel.Visible = true;
+                }
+                Veritabani.baglantiyiKes();
+            }
+            else
+            {
+                isimYazdirilacakLabel.Visible = false;
+            }
+        }
     }
 }

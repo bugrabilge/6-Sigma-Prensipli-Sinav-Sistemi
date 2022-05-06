@@ -131,5 +131,17 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             formGecis.formlarArasıGecisYap(this, "girisForm");
         }
+
+        private void txtUniteNo_TextChanged(object sender, EventArgs e)
+        {
+                SinavSorumlusu ss = new SinavSorumlusu();
+                ss.uniteVeyaKonuIsmiCek("Unit", txtUniteNo.Text, lblUIsim, lblUIsim);
+        }
+
+        private void txtKonuNo_TextChanged(object sender, EventArgs e)
+        {
+                SinavSorumlusu ss = new SinavSorumlusu();
+                ss.uniteVeyaKonuIsmiCek("Section", txtKonuNo.Text, lblKIsim, lblUIsim);
+        }
     }
 }

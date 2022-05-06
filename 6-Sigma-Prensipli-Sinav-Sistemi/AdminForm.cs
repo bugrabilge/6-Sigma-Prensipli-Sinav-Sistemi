@@ -68,10 +68,14 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 Label[] seceneklerArray = { lblA, lblB, lblC, lblD, lblE };
                 TestIslemleri testIslemleri = new TestIslemleri();
                 testIslemleri.soruyuFormaRandomSeceneklerleYansıt(admin.IslemYapilacakSoru, lblSoruGovde, seceneklerArray, picSoruResmi);
+                lblDcevap.Text = admin.IslemYapilacakSoru.DogruCevap;
             }
             else
             {
                 grpSoru.Visible = false;
+                lblDcevap.Visible = false;
+                btnOnayla.Enabled = false;
+                btnReddet.Enabled = false;
             }
         }
        
