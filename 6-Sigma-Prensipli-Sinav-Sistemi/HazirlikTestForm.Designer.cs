@@ -45,6 +45,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnOgrenciEkraninaDon = new System.Windows.Forms.Button();
             this.btnBasla = new System.Windows.Forms.Button();
             this.btnCikis = new System.Windows.Forms.Button();
+            this.btnAnaliz = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picSoruResmi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,11 +201,22 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.btnCikis.UseVisualStyleBackColor = true;
             this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
+            // btnAnaliz
+            // 
+            this.btnAnaliz.Location = new System.Drawing.Point(301, 176);
+            this.btnAnaliz.Name = "btnAnaliz";
+            this.btnAnaliz.Size = new System.Drawing.Size(102, 49);
+            this.btnAnaliz.TabIndex = 30;
+            this.btnAnaliz.Text = "Testin Analizini Gör";
+            this.btnAnaliz.UseVisualStyleBackColor = true;
+            this.btnAnaliz.Click += new System.EventHandler(this.btnAnaliz_Click);
+            // 
             // HazirlikTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAnaliz);
             this.Controls.Add(this.btnOgrenciEkraninaDon);
             this.Controls.Add(this.btnBasla);
             this.Controls.Add(this.btnCikis);
@@ -249,5 +261,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.Button btnOgrenciEkraninaDon;
         private System.Windows.Forms.Button btnBasla;
         private System.Windows.Forms.Button btnCikis;
+        private System.Windows.Forms.Button btnAnaliz;
     }
 }

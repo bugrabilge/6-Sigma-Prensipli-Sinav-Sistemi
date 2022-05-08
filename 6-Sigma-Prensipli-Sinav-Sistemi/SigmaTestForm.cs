@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
@@ -138,15 +139,19 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             lblGeriSayim.Text = string.Format("{0}:{1}", dakika, saniye.ToString().PadLeft(2, '0'));
         }
 
-        private void btnAnaliz_Click(object sender, EventArgs e)
+        public void btnAnaliz_Click(object sender, EventArgs e)
         {
-           
+            string dogruAnalizi = ogrenci.SigmaTestiIslemleri.AnalizYap(ogrenci.DogruCozulenKonular, "Doğru");
+            string yanlisAnalizi = ogrenci.SigmaTestiIslemleri.AnalizYap(ogrenci.YanlisCozulenKonular, "Yanlış");
+
+            string tumAnaliz = "Doğru Yapılanlar :\n" + dogruAnalizi + "\n\nYanlış Yapılanlar :\n" + yanlisAnalizi;
+            ogrenci.SigmaTestiIslemleri.analiziGosterVePrintEt(tumAnaliz);
         }
 
         private void btnOgrenciEkraninaDon_Click(object sender, EventArgs e)
         {
-            ogrenci.DogruCozduguSorularinIDleri.Clear();
-            ogrenci.YanlisCozduguSorularinIDleri.Clear();
+            ogrenci.DogruCozulenKonular.Clear();
+            ogrenci.YanlisCozulenKonular.Clear();
             formGecis.formlarArasıGecisYap(this, "ogrenciForm");
         }
     }

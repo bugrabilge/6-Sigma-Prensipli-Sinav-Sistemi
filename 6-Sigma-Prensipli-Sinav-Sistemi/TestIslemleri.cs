@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
+using System.Drawing;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
@@ -64,12 +66,14 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             if (secenek.Text == ogrenci.IslemYapilacakSoru.DogruCevap) // secenegin labelinda yazan sorunun dogru cevabiysa
             {
                 ogrenci.DogruSayisi++;
-                ogrenci.DogruCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);              
+                //ogrenci.DogruCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);
+                soruIDlerineGoreUniteIsımleriCek(ogrenci.IslemYapilacakSoru.ID, ogrenci.DogruCozulenKonular);
             }
             else // secenegin labelinda yazan sorunun yanlis cevabiysa
             {
                 ogrenci.YanlisSayisi++;
-                ogrenci.YanlisCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);           
+                //ogrenci.YanlisCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);
+                soruIDlerineGoreUniteIsımleriCek(ogrenci.IslemYapilacakSoru.ID, ogrenci.YanlisCozulenKonular);
             }          
         }
         
@@ -128,6 +132,62 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     "\nAnaliz butonu ile testin analizini görebilirsiniz...");
                 //testOgelerininGorunurlugunuDegistir();
                 box.Visible = false;
+            }
+        }
+
+        private void soruIDlerineGoreUniteIsımleriCek(int ID, List<string> konularinIslenecegiList)
+        {
+            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.Komut.CommandText = "SELECT U.UnitName FROM dbo.UnitsAndSections U, dbo.Questions Q WHERE U.UnitID = Q.UnitID AND Q.QuestionID = '" + ID + "'";
+            Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
+            if (Veritabani.VeriOkuyucu.Read())
+            {
+                string konu = Veritabani.VeriOkuyucu["Unitname"].ToString();
+                konularinIslenecegiList.Add(konu);
+            }
+            Veritabani.baglantiyiKes();
+        }
+
+        public string AnalizYap(List<string> analizEdilecekListe, string tur)
+        {
+            var q = from x in analizEdilecekListe
+                    group x by x into g
+                    let count = g.Count()
+                    orderby count descending
+                    select new { Value = g.Key, Count = count };
+            List<string> yanlisKonular = new List<string>();
+            foreach (var x in q)
+            {
+                yanlisKonular.Add("Ünite: " + x.Value + " "+tur+" Sayisi: " + x.Count);
+            }
+            var mesaj = string.Join(Environment.NewLine, yanlisKonular);
+            return mesaj;
+        }
+
+        public void analiziGosterVePrintEt(string a)
+        {
+            DialogResult result1 = MessageBox.Show(a + "\n\nAnalizi yazdırmak için evete, devam etmek için hayıra basınız...",
+                                                   "Analiz", MessageBoxButtons.YesNo);
+            if (result1 == DialogResult.Yes)
+            {
+                PrintDocument p = new PrintDocument();
+                p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
+                {
+                    e1.Graphics.DrawString(a, new Font("Times New Roman", 12), new SolidBrush(Color.Black), new RectangleF(0, 0, p.DefaultPageSettings.PrintableArea.Width, p.DefaultPageSettings.PrintableArea.Height));
+
+                };
+                try
+                {
+                    p.Print();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Exception Occured While Printing", ex);
+                }
+            }
+            else
+            {
+                return;
             }
         }
     }

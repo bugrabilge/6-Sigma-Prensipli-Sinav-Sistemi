@@ -19,7 +19,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Baglanti = new SqlConnection("Data Source=DESKTOP-HCML6IK;Initial Catalog=dbSigma;Integrated Security=True");
             this.Komut = new SqlCommand();
             Baglanti.Open();
-            this.Komut.Connection = Baglanti;
+            this.Komut.Connection = Baglanti;           
         }
 
         public void baglantiyiKes()

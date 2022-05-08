@@ -52,6 +52,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
             if (Veritabani.VeriOkuyucu.Read())
             {
+                //Veritabani.VeriOkuyucu.Close();
                 secenekleriVeBilgileriAta(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
                 siradaSoruVarMi = true;
             }
@@ -63,9 +64,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public void secenekleriVeBilgileriAta(int id)
         {           
             this.ID = id;
+            Veritabani.baglantiyiKes();
             Veritabani.baglantiYoksaYeniBaglantiAc();
-            Veritabani.VeriOkuyucu.Close();
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionID = '" + this.ID + "'";
+            
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
 
             while (Veritabani.VeriOkuyucu.Read())

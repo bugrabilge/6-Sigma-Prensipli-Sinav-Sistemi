@@ -147,6 +147,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SifreKurtarmaForm.resx">
       <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
@@ -180,6 +181,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\6sigma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\kullaniciAdi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\sifre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\emilston.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\sigmalogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\sigmalogin2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,6 +14,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         //public List<int> TestteCozecegiSorularinIDleri { get; set; }
         public List<int> DogruCozduguSorularinIDleri { get; set; }
         public List<int> YanlisCozduguSorularinIDleri { get; set; }
+
+        public List<string> DogruCozulenKonular { get; set; }
+        public List<string> YanlisCozulenKonular { get; set; }
         public List<int> SigmaSorulmaSikliklari { get; set; }
         public Sigma SigmaTestiIslemleri { get; set; }
         public Hazirlik HazirlikTestiIslemleri { get; set; }
@@ -21,8 +24,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public Ogrenci()
         {
             //TestteCozecegiSorularinIDleri = new List<int>();
-            DogruCozduguSorularinIDleri = new List<int>();
-            YanlisCozduguSorularinIDleri = new List<int>();
+            DogruCozulenKonular = new List<string>();
+            YanlisCozulenKonular = new List<string>();
             SigmaTestiIslemleri = new Sigma();
             HazirlikTestiIslemleri = new Hazirlik();
         }
