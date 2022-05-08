@@ -19,7 +19,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             dosya.ShowDialog();
             string dosyaYolu = dosya.FileName;
             box.ImageLocation = dosyaYolu;
-            _ = (box.ImageLocation == null) ? arttir.Enabled = azalt.Enabled = false : arttir.Enabled = azalt.Enabled = true;
+            _ = (box.ImageLocation == null) ? arttir.Visible = azalt.Visible = false : arttir.Visible = azalt.Visible = true;
         }
 
         public void resimGenislikDegistir(string islem, PictureBox box)

@@ -11,6 +11,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
     public class Giris : LoginHareketleri
     {
         public static int girisYapanKullaniciID { get; set; }
+        public static string girisYapanKullaniciAd { get; set; }
+        public static string girisYapanKullaniciSoyad { get; set; }
         
         public void kullaniciAdiKontrolVeGiris(string kullaniciAdi, string sifre, Form kapatilacakFormIsmi)
         {
@@ -38,7 +40,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public void girisYap(string kullaniciAdi, string sifre, Form kapatilacakFormIsmi)
         {
             
-            Veritabani.Komut.CommandText = "SELECT UserName, Password, UserTypeID, UserID FROM dbo.Users where UserName='" + kullaniciAdi + "' AND Password='" + sifre + "'";
+            Veritabani.Komut.CommandText = "SELECT UserName, Password, UserTypeID, UserID, Name, Surname FROM dbo.Users where UserName='" + kullaniciAdi + "' AND Password='" + sifre + "'";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
             if (Veritabani.VeriOkuyucu.Read()) // Kullanici adi ve sifre veritabani ile eslesiyorsa, kullanici türüne gore sayfasina yonlendiriyoruz
             {
@@ -47,17 +49,17 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 switch (Veritabani.VeriOkuyucu["UserTypeID"])
                 {
                     case 1: // ogrenci girisi
-                        girisYapanKullaniciID = Convert.ToInt32(Veritabani.VeriOkuyucu["UserID"]);
+                        adSoyadVeIDBilgileriniAta();
                         Veritabani.baglantiyiKes();
                         formGecis.formlarArasıGecisYap(kapatilacakFormIsmi, "ogrenciForm");
                         break;
                     case 2: // sinav sorumlusu girisi
-                        girisYapanKullaniciID = Convert.ToInt32(Veritabani.VeriOkuyucu["UserID"]);
+                        adSoyadVeIDBilgileriniAta();
                         Veritabani.baglantiyiKes();
                         formGecis.formlarArasıGecisYap(kapatilacakFormIsmi, "sSorumluForm");
                         break;
                     case 3: // admin girisi
-                        girisYapanKullaniciID = Convert.ToInt32(Veritabani.VeriOkuyucu["UserID"]);
+                        adSoyadVeIDBilgileriniAta();
                         Veritabani.baglantiyiKes();
                         formGecis.formlarArasıGecisYap(kapatilacakFormIsmi, "adminForm");
                         break;
@@ -70,6 +72,13 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 Veritabani.baglantiyiKes();
                 MessageBox.Show("Hatalı şifre girdiniz. Lütfen tekrar deneyiniz.");
             }
+        }
+
+        private void adSoyadVeIDBilgileriniAta()
+        {
+            girisYapanKullaniciID = Convert.ToInt32(Veritabani.VeriOkuyucu["UserID"]);
+            girisYapanKullaniciAd = Veritabani.VeriOkuyucu["Name"].ToString();
+            girisYapanKullaniciSoyad = Veritabani.VeriOkuyucu["Surname"].ToString();
         }
     }
 }

@@ -73,9 +73,39 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap emilston {
+        internal static System.Drawing.Bitmap admin3 {
             get {
-                object obj = ResourceManager.GetObject("emilston", resourceCulture);
+                object obj = ResourceManager.GetObject("admin3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap adminpanel {
+            get {
+                object obj = ResourceManager.GetObject("adminpanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap hazirlik2 {
+            get {
+                object obj = ResourceManager.GetObject("hazirlik2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap hazirliktest2 {
+            get {
+                object obj = ResourceManager.GetObject("hazirliktest2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,6 +123,36 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap nugo_sans_light__1_ {
+            get {
+                object obj = ResourceManager.GetObject("nugo-sans-light (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap ogrenci2 {
+            get {
+                object obj = ResourceManager.GetObject("ogrenci2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap ogrencisecim2 {
+            get {
+                object obj = ResourceManager.GetObject("ogrencisecim2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap sifre {
             get {
                 object obj = ResourceManager.GetObject("sifre", resourceCulture);
@@ -103,9 +163,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap sigmalogin {
+        internal static System.Drawing.Bitmap sigmaexam {
             get {
-                object obj = ResourceManager.GetObject("sigmalogin", resourceCulture);
+                object obj = ResourceManager.GetObject("sigmaexam", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +176,46 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi.Properties {
         internal static System.Drawing.Bitmap sigmalogin2 {
             get {
                 object obj = ResourceManager.GetObject("sigmalogin2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap sorumlu {
+            get {
+                object obj = ResourceManager.GetObject("sorumlu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap sorumlu1 {
+            get {
+                object obj = ResourceManager.GetObject("sorumlu1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap sorumlupanel {
+            get {
+                object obj = ResourceManager.GetObject("sorumlupanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap test {
+            get {
+                object obj = ResourceManager.GetObject("test", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

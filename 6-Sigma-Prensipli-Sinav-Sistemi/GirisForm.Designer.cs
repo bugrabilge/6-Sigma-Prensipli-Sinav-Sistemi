@@ -37,14 +37,14 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.lblSifremiUnuttum = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.picLoginYazi = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.picSigmaIcon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoginYazi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSigmaIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGiris
@@ -128,15 +128,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.panel2.Size = new System.Drawing.Size(236, 1);
             this.panel2.TabIndex = 9;
             // 
-            // pictureBox4
+            // picLoginYazi
             // 
-            this.pictureBox4.Image = global::_6_Sigma_Prensipli_Sinav_Sistemi.Properties.Resources.sigmalogin2;
-            this.pictureBox4.Location = new System.Drawing.Point(41, 145);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(210, 58);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 10;
-            this.pictureBox4.TabStop = false;
+            this.picLoginYazi.Image = global::_6_Sigma_Prensipli_Sinav_Sistemi.Properties.Resources.sigmalogin2;
+            this.picLoginYazi.Location = new System.Drawing.Point(41, 145);
+            this.picLoginYazi.Name = "picLoginYazi";
+            this.picLoginYazi.Size = new System.Drawing.Size(210, 58);
+            this.picLoginYazi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLoginYazi.TabIndex = 10;
+            this.picLoginYazi.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -158,15 +158,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // picSigmaIcon
             // 
-            this.pictureBox1.Image = global::_6_Sigma_Prensipli_Sinav_Sistemi.Properties.Resources._6sigma;
-            this.pictureBox1.Location = new System.Drawing.Point(67, 41);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 98);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.picSigmaIcon.Image = global::_6_Sigma_Prensipli_Sinav_Sistemi.Properties.Resources._6sigma;
+            this.picSigmaIcon.Location = new System.Drawing.Point(67, 41);
+            this.picSigmaIcon.Name = "picSigmaIcon";
+            this.picSigmaIcon.Size = new System.Drawing.Size(164, 98);
+            this.picSigmaIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSigmaIcon.TabIndex = 5;
+            this.picSigmaIcon.TabStop = false;
             // 
             // GirisForm
             // 
@@ -174,12 +174,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(292, 400);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.picLoginYazi);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picSigmaIcon);
             this.Controls.Add(this.lblSifremiUnuttum);
             this.Controls.Add(this.btnKayitOl);
             this.Controls.Add(this.txtSifre);
@@ -190,10 +190,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş Yap";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GirisForm_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoginYazi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSigmaIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,12 +206,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.TextBox txtSifre;
         private System.Windows.Forms.Button btnKayitOl;
         private System.Windows.Forms.LinkLabel lblSifremiUnuttum;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picSigmaIcon;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox picLoginYazi;
     }
 }
 

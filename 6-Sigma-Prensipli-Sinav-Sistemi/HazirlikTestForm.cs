@@ -23,6 +23,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             testinGorunurlugunuDegistir();
             siradakiSoru();
             btnBasla.Enabled = false;
+            picHazirlik.Visible = false;
         }
 
         private void HazirlikTestForm_Load(object sender, EventArgs e)

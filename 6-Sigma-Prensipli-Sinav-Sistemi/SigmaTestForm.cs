@@ -31,6 +31,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             siradakiSoru();
             timer.Start();
             btnBasla.Enabled = false;
+            picSigmaIcon.Visible = false;
         }
 
         private void btnA_Click(object sender, EventArgs e)

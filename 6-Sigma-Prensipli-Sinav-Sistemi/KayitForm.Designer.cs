@@ -29,6 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KayitForm));
             this.lblKullaniciAdi = new System.Windows.Forms.Label();
             this.lblSifre = new System.Windows.Forms.Label();
             this.lblAd = new System.Windows.Forms.Label();
@@ -45,13 +46,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.lblGuvenlikSorusu = new System.Windows.Forms.Label();
             this.txtGuvenlikCevap = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblKullaniciAdi
             // 
             this.lblKullaniciAdi.AutoSize = true;
             this.lblKullaniciAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblKullaniciAdi.Location = new System.Drawing.Point(159, 64);
+            this.lblKullaniciAdi.Location = new System.Drawing.Point(58, 80);
             this.lblKullaniciAdi.Name = "lblKullaniciAdi";
             this.lblKullaniciAdi.Size = new System.Drawing.Size(97, 20);
             this.lblKullaniciAdi.TabIndex = 0;
@@ -61,7 +64,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             this.lblSifre.AutoSize = true;
             this.lblSifre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSifre.Location = new System.Drawing.Point(159, 95);
+            this.lblSifre.Location = new System.Drawing.Point(58, 113);
             this.lblSifre.Name = "lblSifre";
             this.lblSifre.Size = new System.Drawing.Size(46, 20);
             this.lblSifre.TabIndex = 1;
@@ -71,7 +74,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             this.lblAd.AutoSize = true;
             this.lblAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblAd.Location = new System.Drawing.Point(159, 130);
+            this.lblAd.Location = new System.Drawing.Point(58, 148);
             this.lblAd.Name = "lblAd";
             this.lblAd.Size = new System.Drawing.Size(56, 20);
             this.lblAd.TabIndex = 2;
@@ -81,7 +84,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             this.lblSoyad.AutoSize = true;
             this.lblSoyad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSoyad.Location = new System.Drawing.Point(159, 162);
+            this.lblSoyad.Location = new System.Drawing.Point(58, 181);
             this.lblSoyad.Name = "lblSoyad";
             this.lblSoyad.Size = new System.Drawing.Size(81, 20);
             this.lblSoyad.TabIndex = 3;
@@ -91,7 +94,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             this.lblMail.AutoSize = true;
             this.lblMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblMail.Location = new System.Drawing.Point(159, 192);
+            this.lblMail.Location = new System.Drawing.Point(58, 211);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(110, 20);
             this.lblMail.TabIndex = 4;
@@ -99,61 +102,67 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // txtKullaniciAdi
             // 
-            this.txtKullaniciAdi.Location = new System.Drawing.Point(365, 64);
+            this.txtKullaniciAdi.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKullaniciAdi.Location = new System.Drawing.Point(205, 77);
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
-            this.txtKullaniciAdi.Size = new System.Drawing.Size(100, 20);
+            this.txtKullaniciAdi.Size = new System.Drawing.Size(174, 23);
             this.txtKullaniciAdi.TabIndex = 5;
             this.txtKullaniciAdi.Tag = "Kullanıcı Adı";
             // 
             // txtSifre
             // 
-            this.txtSifre.Location = new System.Drawing.Point(365, 97);
+            this.txtSifre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSifre.Location = new System.Drawing.Point(205, 110);
             this.txtSifre.Name = "txtSifre";
-            this.txtSifre.Size = new System.Drawing.Size(100, 20);
+            this.txtSifre.Size = new System.Drawing.Size(174, 23);
             this.txtSifre.TabIndex = 6;
             this.txtSifre.Tag = "Şifre";
             // 
             // txtAd
             // 
-            this.txtAd.Location = new System.Drawing.Point(365, 132);
+            this.txtAd.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAd.Location = new System.Drawing.Point(205, 145);
             this.txtAd.Name = "txtAd";
-            this.txtAd.Size = new System.Drawing.Size(100, 20);
+            this.txtAd.Size = new System.Drawing.Size(174, 23);
             this.txtAd.TabIndex = 7;
             this.txtAd.Tag = "Adınız";
             // 
             // txtSoyad
             // 
-            this.txtSoyad.Location = new System.Drawing.Point(365, 165);
+            this.txtSoyad.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoyad.Location = new System.Drawing.Point(205, 178);
             this.txtSoyad.Name = "txtSoyad";
-            this.txtSoyad.Size = new System.Drawing.Size(100, 20);
+            this.txtSoyad.Size = new System.Drawing.Size(174, 23);
             this.txtSoyad.TabIndex = 8;
             this.txtSoyad.Tag = "Soyadınız";
             // 
             // txtMail
             // 
-            this.txtMail.Location = new System.Drawing.Point(365, 195);
+            this.txtMail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMail.Location = new System.Drawing.Point(205, 208);
             this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(100, 20);
+            this.txtMail.Size = new System.Drawing.Size(174, 23);
             this.txtMail.TabIndex = 9;
             this.txtMail.Tag = "Mail Adresiniz";
             // 
             // cmbKullaniciTuru
             // 
+            this.cmbKullaniciTuru.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKullaniciTuru.FormattingEnabled = true;
             this.cmbKullaniciTuru.Items.AddRange(new object[] {
-            "Öğrenci",
+            "Ögrenci",
             "Sınav Sorumlusu",
             "Admin"});
-            this.cmbKullaniciTuru.Location = new System.Drawing.Point(365, 257);
+            this.cmbKullaniciTuru.Location = new System.Drawing.Point(257, 270);
             this.cmbKullaniciTuru.Name = "cmbKullaniciTuru";
-            this.cmbKullaniciTuru.Size = new System.Drawing.Size(121, 21);
+            this.cmbKullaniciTuru.Size = new System.Drawing.Size(122, 23);
             this.cmbKullaniciTuru.TabIndex = 10;
             // 
             // lblKullaniciTuru
             // 
             this.lblKullaniciTuru.AutoSize = true;
             this.lblKullaniciTuru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblKullaniciTuru.Location = new System.Drawing.Point(159, 255);
+            this.lblKullaniciTuru.Location = new System.Drawing.Point(58, 273);
             this.lblKullaniciTuru.Name = "lblKullaniciTuru";
             this.lblKullaniciTuru.Size = new System.Drawing.Size(179, 20);
             this.lblKullaniciTuru.TabIndex = 11;
@@ -161,19 +170,24 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // btnKayit
             // 
-            this.btnKayit.Location = new System.Drawing.Point(365, 294);
+            this.btnKayit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnKayit.FlatAppearance.BorderSize = 0;
+            this.btnKayit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKayit.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnKayit.ForeColor = System.Drawing.Color.White;
+            this.btnKayit.Location = new System.Drawing.Point(290, 299);
             this.btnKayit.Name = "btnKayit";
-            this.btnKayit.Size = new System.Drawing.Size(121, 23);
+            this.btnKayit.Size = new System.Drawing.Size(89, 35);
             this.btnKayit.TabIndex = 12;
             this.btnKayit.Text = "KAYIT OL!";
-            this.btnKayit.UseVisualStyleBackColor = true;
+            this.btnKayit.UseVisualStyleBackColor = false;
             this.btnKayit.Click += new System.EventHandler(this.btnKayit_Click);
             // 
             // lblGuvenlikSorusu
             // 
             this.lblGuvenlikSorusu.AutoSize = true;
             this.lblGuvenlikSorusu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblGuvenlikSorusu.Location = new System.Drawing.Point(159, 221);
+            this.lblGuvenlikSorusu.Location = new System.Drawing.Point(58, 239);
             this.lblGuvenlikSorusu.Name = "lblGuvenlikSorusu";
             this.lblGuvenlikSorusu.Size = new System.Drawing.Size(193, 20);
             this.lblGuvenlikSorusu.TabIndex = 13;
@@ -181,9 +195,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             // txtGuvenlikCevap
             // 
-            this.txtGuvenlikCevap.Location = new System.Drawing.Point(365, 223);
+            this.txtGuvenlikCevap.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuvenlikCevap.Location = new System.Drawing.Point(257, 237);
             this.txtGuvenlikCevap.Name = "txtGuvenlikCevap";
-            this.txtGuvenlikCevap.Size = new System.Drawing.Size(100, 20);
+            this.txtGuvenlikCevap.Size = new System.Drawing.Size(122, 23);
             this.txtGuvenlikCevap.TabIndex = 14;
             this.txtGuvenlikCevap.Tag = "Güvenlik Sorusu Cevabı";
             // 
@@ -191,17 +206,29 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label1.Location = new System.Drawing.Point(160, 329);
+            this.label1.Location = new System.Drawing.Point(59, 337);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(320, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "*Hesap kurtarma işlemlerinde kullanılır. Lütfen cevabınızı saklayınız.";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_6_Sigma_Prensipli_Sinav_Sistemi.Properties.Resources.nugo_sans_light__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(36, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(374, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
             // KayitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(444, 374);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtGuvenlikCevap);
             this.Controls.Add(this.lblGuvenlikSorusu);
@@ -218,9 +245,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Controls.Add(this.lblAd);
             this.Controls.Add(this.lblSifre);
             this.Controls.Add(this.lblKullaniciAdi);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KayitForm";
-            this.Text = "KayitForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Kayıt Ol";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KayitForm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +274,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private System.Windows.Forms.Label lblGuvenlikSorusu;
         private System.Windows.Forms.TextBox txtGuvenlikCevap;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

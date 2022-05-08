@@ -29,6 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SifreKurtarmaForm));
             this.lblSifreKurtarmaA = new System.Windows.Forms.Label();
             this.lblKullaniciAdi = new System.Windows.Forms.Label();
             this.txtKullaniciAdi = new System.Windows.Forms.TextBox();
@@ -40,67 +41,80 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // lblSifreKurtarmaA
             // 
             this.lblSifreKurtarmaA.AutoSize = true;
-            this.lblSifreKurtarmaA.Location = new System.Drawing.Point(185, 69);
+            this.lblSifreKurtarmaA.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSifreKurtarmaA.Location = new System.Drawing.Point(22, 23);
             this.lblSifreKurtarmaA.Name = "lblSifreKurtarmaA";
-            this.lblSifreKurtarmaA.Size = new System.Drawing.Size(284, 13);
+            this.lblSifreKurtarmaA.Size = new System.Drawing.Size(405, 18);
             this.lblSifreKurtarmaA.TabIndex = 0;
             this.lblSifreKurtarmaA.Text = "Lütfen kullanıcı adınızı ve güvenlik sorusu cevabınızı giriniz.";
             // 
             // lblKullaniciAdi
             // 
             this.lblKullaniciAdi.AutoSize = true;
-            this.lblKullaniciAdi.Location = new System.Drawing.Point(185, 93);
+            this.lblKullaniciAdi.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblKullaniciAdi.Location = new System.Drawing.Point(22, 61);
             this.lblKullaniciAdi.Name = "lblKullaniciAdi";
-            this.lblKullaniciAdi.Size = new System.Drawing.Size(80, 13);
+            this.lblKullaniciAdi.Size = new System.Drawing.Size(113, 18);
             this.lblKullaniciAdi.TabIndex = 1;
             this.lblKullaniciAdi.Text = "Kullanıcı Adınız:";
             // 
             // txtKullaniciAdi
             // 
-            this.txtKullaniciAdi.Location = new System.Drawing.Point(321, 90);
+            this.txtKullaniciAdi.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKullaniciAdi.Location = new System.Drawing.Point(235, 58);
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
-            this.txtKullaniciAdi.Size = new System.Drawing.Size(100, 20);
+            this.txtKullaniciAdi.Size = new System.Drawing.Size(133, 26);
             this.txtKullaniciAdi.TabIndex = 2;
             // 
             // lblSoru
             // 
             this.lblSoru.AutoSize = true;
-            this.lblSoru.Location = new System.Drawing.Point(185, 118);
+            this.lblSoru.Font = new System.Drawing.Font("Bahnschrift SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSoru.Location = new System.Drawing.Point(22, 89);
             this.lblSoru.Name = "lblSoru";
-            this.lblSoru.Size = new System.Drawing.Size(119, 13);
+            this.lblSoru.Size = new System.Drawing.Size(170, 18);
             this.lblSoru.TabIndex = 3;
             this.lblSoru.Text = "En sevdiğiniz film nedir?";
             // 
             // txtCevap
             // 
-            this.txtCevap.Location = new System.Drawing.Point(321, 118);
+            this.txtCevap.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCevap.Location = new System.Drawing.Point(235, 86);
             this.txtCevap.Name = "txtCevap";
-            this.txtCevap.Size = new System.Drawing.Size(100, 20);
+            this.txtCevap.Size = new System.Drawing.Size(133, 26);
             this.txtCevap.TabIndex = 4;
             // 
             // btnGonder
             // 
-            this.btnGonder.Location = new System.Drawing.Point(330, 158);
+            this.btnGonder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnGonder.FlatAppearance.BorderSize = 0;
+            this.btnGonder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGonder.Font = new System.Drawing.Font("Bahnschrift", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGonder.ForeColor = System.Drawing.Color.White;
+            this.btnGonder.Location = new System.Drawing.Point(265, 125);
             this.btnGonder.Name = "btnGonder";
-            this.btnGonder.Size = new System.Drawing.Size(75, 23);
+            this.btnGonder.Size = new System.Drawing.Size(133, 31);
             this.btnGonder.TabIndex = 5;
-            this.btnGonder.Text = "Gönder";
-            this.btnGonder.UseVisualStyleBackColor = true;
+            this.btnGonder.Text = "Şifremi Kurtar";
+            this.btnGonder.UseVisualStyleBackColor = false;
             this.btnGonder.Click += new System.EventHandler(this.btnGonder_Click);
             // 
             // SifreKurtarmaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(436, 170);
             this.Controls.Add(this.btnGonder);
             this.Controls.Add(this.txtCevap);
             this.Controls.Add(this.lblSoru);
             this.Controls.Add(this.txtKullaniciAdi);
             this.Controls.Add(this.lblKullaniciAdi);
             this.Controls.Add(this.lblSifreKurtarmaA);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SifreKurtarmaForm";
-            this.Text = "SifreKurtarmaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Şifremi Kurtar!";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SifreKurtarmaForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();

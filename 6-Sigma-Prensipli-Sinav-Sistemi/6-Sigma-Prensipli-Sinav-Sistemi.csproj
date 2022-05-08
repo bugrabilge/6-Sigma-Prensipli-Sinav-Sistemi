@@ -97,6 +97,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SifreKurtarma.cs" />
     <Compile Include="SifreKurtarmaForm.cs">
       <SubType>Form</SubType>
@@ -141,14 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SifreKurtarmaForm.resx">
       <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +199,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Tasarım\sigmalogin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\nugo-sans-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\nugo-sans-light %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\adminpanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\admin3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\sorumlu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\sorumlupanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\ogrencisecim2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\ogrenci2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\sigmaexam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\hazirliktest2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tasarım\hazirlik2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

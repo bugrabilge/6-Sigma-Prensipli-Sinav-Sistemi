@@ -35,5 +35,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             formGecis.formlarArasıGecisYap(this, "normalTestForm");
         }
+
+        private void OgrenciForm_Load(object sender, EventArgs e)
+        {
+            lblOgrenciIsım.Text = Giris.girisYapanKullaniciAd + " " + Giris.girisYapanKullaniciSoyad;
+        }
     }
 }

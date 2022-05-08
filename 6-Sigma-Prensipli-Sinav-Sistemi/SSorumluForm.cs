@@ -62,7 +62,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         public void SSorumluForm_Load(object sender, EventArgs e)
         {
-            btnArttır.Enabled = btnAzalt.Enabled = false;
+            btnArttır.Visible = btnAzalt.Visible = false;
         }
 
         private void SSorumluForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -122,8 +122,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }
             picSoruResmi.Image = null;
             picSoruResmi.ImageLocation = null;
-            btnArttır.Enabled = false;
-            btnAzalt.Enabled = false;
+            btnArttır.Visible = false;
+            btnAzalt.Visible = false;
             
         }
 
