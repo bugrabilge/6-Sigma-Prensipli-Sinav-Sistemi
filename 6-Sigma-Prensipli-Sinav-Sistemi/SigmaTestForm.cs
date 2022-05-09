@@ -75,8 +75,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
-            ogrenci.DogruCozduguSorularinIDleri.Clear();
-            ogrenci.YanlisCozduguSorularinIDleri.Clear();
+            ogrenci.DogruCozulenKonular.Clear();
+            ogrenci.YanlisCozulenKonular.Clear();
             formGecis.formlarArasıGecisYap(this, "girisForm");
         }
         

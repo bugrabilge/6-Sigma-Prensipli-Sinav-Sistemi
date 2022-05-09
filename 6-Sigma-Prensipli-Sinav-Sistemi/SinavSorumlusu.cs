@@ -36,7 +36,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             box.Size = boyut;
         }
 
-        public void soruVerileriniVeritabanınaIsle()
+        public void soruVerileriniVeritabanınaIsle() // eklenen soru verileri veritabanına aktarılıyor
         {
             Veritabani.baglantiYoksaYeniBaglantiAc();
             Veritabani.Komut.CommandText = "insert into dbo.Questions (QuestionText, SectionID, UnitID, PicturePath, PictureWidth, PictureHeight, RightAnswer, " +

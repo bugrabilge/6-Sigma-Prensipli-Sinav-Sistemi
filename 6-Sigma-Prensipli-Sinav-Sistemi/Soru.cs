@@ -50,9 +50,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionStatus = '" + questionStatus + "' ORDER BY NEWID()";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
 
-            if (Veritabani.VeriOkuyucu.Read())
+            if (Veritabani.VeriOkuyucu.Read()) // veritabanından istenen question statuse rastgele bir soru çekiyoruz
             {
-                //Veritabani.VeriOkuyucu.Close();
                 secenekleriVeBilgileriAta(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
                 siradaSoruVarMi = true;
             }
@@ -69,7 +68,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionID = '" + this.ID + "'";
             
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
-
+            // soru id'si ile mevcut sorunun bilgilerini testlerde kullanılmak üzere soru nesnesinin alanlarına atıyoruz
             while (Veritabani.VeriOkuyucu.Read())
             {                
                 this.Govde = Veritabani.VeriOkuyucu["QuestionText"].ToString();
@@ -98,29 +97,5 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }
             Veritabani.baglantiyiKes();
         }
-
-
-        /*
-        private string govdeSatirUzunlugunuLimitle(string govde, int maksimumUzunluk)
-        {   // Sorunun govdesi istenen uzunluga gore alt satira gecirilerek return ediliyor
-            int index = 0;
-            string yeniGovde = null;
-            if (index + maksimumUzunluk < govde.Length)
-            {
-                while (index + maksimumUzunluk < govde.Length)
-                {
-                    yeniGovde += govde.Substring(index, maksimumUzunluk) + "-\n";
-                    index += maksimumUzunluk;
-                }
-                yeniGovde += govde.Substring(index, govde.Length - index);
-                return yeniGovde;
-            }
-
-            else
-            {
-                return govde;
-            }
-        }
-        */
     }
 }

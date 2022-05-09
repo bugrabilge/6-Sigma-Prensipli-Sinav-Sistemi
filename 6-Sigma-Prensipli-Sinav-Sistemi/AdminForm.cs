@@ -24,7 +24,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             admin.IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(0);
             soruBilgileriniFormaYansit();
-
         }
 
 

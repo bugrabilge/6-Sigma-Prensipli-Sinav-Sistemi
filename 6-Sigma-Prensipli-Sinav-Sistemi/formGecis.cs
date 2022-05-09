@@ -11,6 +11,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
     {
         public static void formlarArasıGecisYap(Form kapatılacakFormIsmi, string acilacakFormIsmi)
         {
+            // gelen parametrelere göre form yönlendirme işlemleri gerçekleşiyor
             switch (acilacakFormIsmi)
             {
                 case "adminForm":

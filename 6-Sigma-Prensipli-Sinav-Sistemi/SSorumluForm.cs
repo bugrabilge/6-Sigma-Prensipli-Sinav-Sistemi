@@ -70,6 +70,18 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Environment.Exit(0);
         }
 
+        private void txtUniteNo_TextChanged(object sender, EventArgs e)
+        {
+            SinavSorumlusu ss = new SinavSorumlusu();
+            ss.uniteVeyaKonuIsmiCek("Unit", txtUniteNo.Text, lblUIsim, lblUIsim);
+        }
+
+        private void txtKonuNo_TextChanged(object sender, EventArgs e)
+        {
+            SinavSorumlusu ss = new SinavSorumlusu();
+            ss.uniteVeyaKonuIsmiCek("Section", txtKonuNo.Text, lblKIsim, lblUIsim);
+        }
+
         private void btnSoruyuGonder_Click(object sender, EventArgs e)
         {
             
@@ -130,18 +142,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void btnCikisYap_Click(object sender, EventArgs e)
         {
             formGecis.formlarArasıGecisYap(this, "girisForm");
-        }
-
-        private void txtUniteNo_TextChanged(object sender, EventArgs e)
-        {
-                SinavSorumlusu ss = new SinavSorumlusu();
-                ss.uniteVeyaKonuIsmiCek("Unit", txtUniteNo.Text, lblUIsim, lblUIsim);
-        }
-
-        private void txtKonuNo_TextChanged(object sender, EventArgs e)
-        {
-                SinavSorumlusu ss = new SinavSorumlusu();
-                ss.uniteVeyaKonuIsmiCek("Section", txtKonuNo.Text, lblKIsim, lblUIsim);
         }
     }
 }

@@ -10,11 +10,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
     {
         public int DogruSayisi { get; set; }
         public int YanlisSayisi { get; set; }
-        //public int TestteCozecegiSoruSayisi { get; set; }
-        //public List<int> TestteCozecegiSorularinIDleri { get; set; }
-        public List<int> DogruCozduguSorularinIDleri { get; set; }
-        public List<int> YanlisCozduguSorularinIDleri { get; set; }
-
         public List<string> DogruCozulenKonular { get; set; }
         public List<string> YanlisCozulenKonular { get; set; }
         public List<int> SigmaSorulmaSikliklari { get; set; }
@@ -23,22 +18,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         public Ogrenci()
         {
-            //TestteCozecegiSorularinIDleri = new List<int>();
             DogruCozulenKonular = new List<string>();
             YanlisCozulenKonular = new List<string>();
             SigmaTestiIslemleri = new Sigma();
             HazirlikTestiIslemleri = new Hazirlik();
         }
-        /*
-        public void cozulecekSorularinIDleriniCek()
-        {
-            TestIslemleri.bugunSorulacakSorulariVeritabanindanCek();
-            if (TestIslemleri.bugunSorulacakSorularinIDleri.Count>0)
-            {
-                TestteCozecegiSorularinIDleri.AddRange(TestIslemleri.bugunSorulacakSorularinIDleri);
-            }
-            TestteCozecegiSoruSayisi = TestteCozecegiSorularinIDleri.Count;
-        }
-        */
     }
 }

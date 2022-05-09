@@ -19,12 +19,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         public TestIslemleri()
         {
-            //veriTabaniBaglanti vt = new veriTabaniBaglanti();
-            //this.Veritabani = vt;
             this.Veritabani = new veriTabaniBaglanti();
             this.KullaniciID = Giris.girisYapanKullaniciID;
             bugunSorulacakSorularinIDleri = new List<int>();
-
         }
         public void soruyuFormaRandomSeceneklerleYansıt(Soru soru, Label lblGovde, Label[] seceneklerArray , PictureBox box)
         {
@@ -66,13 +63,11 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             if (secenek.Text == ogrenci.IslemYapilacakSoru.DogruCevap) // secenegin labelinda yazan sorunun dogru cevabiysa
             {
                 ogrenci.DogruSayisi++;
-                //ogrenci.DogruCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);
                 soruIDlerineGoreUniteIsımleriCek(ogrenci.IslemYapilacakSoru.ID, ogrenci.DogruCozulenKonular);
             }
             else // secenegin labelinda yazan sorunun yanlis cevabiysa
             {
                 ogrenci.YanlisSayisi++;
-                //ogrenci.YanlisCozduguSorularinIDleri.Add(ogrenci.IslemYapilacakSoru.ID);
                 soruIDlerineGoreUniteIsımleriCek(ogrenci.IslemYapilacakSoru.ID, ogrenci.YanlisCozulenKonular);
             }          
         }
@@ -155,12 +150,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     let count = g.Count()
                     orderby count descending
                     select new { Value = g.Key, Count = count };
-            List<string> yanlisKonular = new List<string>();
+            List<string> konular = new List<string>();
             foreach (var x in q)
             {
-                yanlisKonular.Add("Ünite: " + x.Value + " "+tur+" Sayisi: " + x.Count);
+                konular.Add("Ünite: " + x.Value + " "+tur+" Sayisi: " + x.Count);
             }
-            var mesaj = string.Join(Environment.NewLine, yanlisKonular);
+            var mesaj = string.Join(Environment.NewLine, konular);
             return mesaj;
         }
 

@@ -12,7 +12,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
     {
         public void cevaplariKontrolEtVeSonucVer(string girilenKullaniciAdi, string girilenCevap, Form kapatilacakForm)
         {
-            
+            // kullanıcı adı ve gizli soru eşleşirse unuttuğu şifresini kullanıcıya veriyoruz
             if (girilenKullaniciAdi != "" && girilenCevap != "")
             {
                 Veritabani.baglantiYoksaYeniBaglantiAc();
