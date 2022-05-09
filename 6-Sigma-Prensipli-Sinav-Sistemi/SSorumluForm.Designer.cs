@@ -182,6 +182,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // btnSoruyuGonder
             // 
             this.btnSoruyuGonder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnSoruyuGonder.FlatAppearance.BorderSize = 0;
+            this.btnSoruyuGonder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoruyuGonder.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSoruyuGonder.ForeColor = System.Drawing.Color.White;
             this.btnSoruyuGonder.Location = new System.Drawing.Point(384, 498);
@@ -195,6 +197,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // btnResimYukle
             // 
             this.btnResimYukle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnResimYukle.FlatAppearance.BorderSize = 0;
+            this.btnResimYukle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResimYukle.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnResimYukle.ForeColor = System.Drawing.Color.White;
             this.btnResimYukle.Location = new System.Drawing.Point(384, 287);
@@ -208,6 +212,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // btnArttır
             // 
             this.btnArttır.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnArttır.FlatAppearance.BorderSize = 0;
+            this.btnArttır.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnArttır.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnArttır.ForeColor = System.Drawing.Color.White;
             this.btnArttır.Location = new System.Drawing.Point(384, 367);
@@ -221,6 +227,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // btnAzalt
             // 
             this.btnAzalt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnAzalt.FlatAppearance.BorderSize = 0;
+            this.btnAzalt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAzalt.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnAzalt.ForeColor = System.Drawing.Color.White;
             this.btnAzalt.Location = new System.Drawing.Point(384, 408);
@@ -296,6 +304,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // btnCikisYap
             // 
             this.btnCikisYap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnCikisYap.FlatAppearance.BorderSize = 0;
+            this.btnCikisYap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCikisYap.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCikisYap.ForeColor = System.Drawing.Color.White;
             this.btnCikisYap.Location = new System.Drawing.Point(417, 561);

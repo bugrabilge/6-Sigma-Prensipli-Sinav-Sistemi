@@ -45,6 +45,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // btnCikis
             // 
             this.btnCikis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnCikis.FlatAppearance.BorderSize = 0;
+            this.btnCikis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCikis.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCikis.ForeColor = System.Drawing.Color.White;
             this.btnCikis.Location = new System.Drawing.Point(355, 303);
@@ -58,6 +60,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // btnSigma
             // 
             this.btnSigma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnSigma.FlatAppearance.BorderSize = 0;
+            this.btnSigma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSigma.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSigma.ForeColor = System.Drawing.Color.White;
             this.btnSigma.Location = new System.Drawing.Point(69, 236);
@@ -71,6 +75,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             // btnNormalTest
             // 
             this.btnNormalTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(214)))));
+            this.btnNormalTest.FlatAppearance.BorderSize = 0;
+            this.btnNormalTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNormalTest.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnNormalTest.ForeColor = System.Drawing.Color.White;
             this.btnNormalTest.Location = new System.Drawing.Point(238, 237);
