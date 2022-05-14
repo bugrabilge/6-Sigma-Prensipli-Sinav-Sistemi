@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class AyarlarForm
+    partial class frmAyarlar
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AyarlarForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAyarlar));
             this.txtIlk = new System.Windows.Forms.TextBox();
             this.txtIkinci = new System.Windows.Forms.TextBox();
             this.txtUcuncu = new System.Windows.Forms.TextBox();

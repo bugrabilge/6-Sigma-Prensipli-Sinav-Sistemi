@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public partial class SSorumluForm : Form
+    public partial class frmSinavSorumlusu : Form
     {
-        public SSorumluForm()
+        public frmSinavSorumlusu()
         {
             InitializeComponent();
         }
@@ -21,18 +21,18 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void btnResimYukle_Click(object sender, EventArgs e)
         {
             SinavSorumlusu ss = new SinavSorumlusu();
-            ss.resimYukle(picSoruResmi, btnArttır, btnAzalt);
+            ss.ResimYukle(picSoruResmi, btnArttır, btnAzalt);
         }
 
         private void btnArttır_Click(object sender, EventArgs e)
         {
             if (rdbGenislik.Checked == true)
             {               
-                resimGenislikDegistir("+");
+                ResimGenislikDegistir("+");
             }
             if (rdbYukseklik.Checked == true)
             {
-                resimYukseklikDegistir("+");
+                ResimYukseklikDegistir("+");
             }
         }
 
@@ -40,24 +40,24 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             if (rdbGenislik.Checked == true)
             {
-                resimGenislikDegistir("-");
+                ResimGenislikDegistir("-");
             }
             if (rdbYukseklik.Checked == true)
             {
-                resimYukseklikDegistir("-");
+                ResimYukseklikDegistir("-");
             }
         }
 
-        public void resimGenislikDegistir(string islem)
+        public void ResimGenislikDegistir(string islem)
         {
             SinavSorumlusu ss = new SinavSorumlusu();
-            ss.resimGenislikDegistir(islem, picSoruResmi);
+            ss.ResimGenislikDegistir(islem, picSoruResmi);
         }
 
-        public void resimYukseklikDegistir(string islem)
+        public void ResimYukseklikDegistir(string islem)
         {
             SinavSorumlusu ss = new SinavSorumlusu();
-            ss.resimYukseklikDegistir(islem, picSoruResmi);
+            ss.ResimYukseklikDegistir(islem, picSoruResmi);
         }
 
         public void SSorumluForm_Load(object sender, EventArgs e)
@@ -73,13 +73,13 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void txtUniteNo_TextChanged(object sender, EventArgs e)
         {
             SinavSorumlusu ss = new SinavSorumlusu();
-            ss.uniteVeyaKonuIsmiCek("Unit", txtUniteNo.Text, lblUIsim, lblUIsim);
+            ss.UniteVeyaKonuIsmiCek("Unit", txtUniteNo.Text, lblUIsim, lblUIsim);
         }
 
         private void txtKonuNo_TextChanged(object sender, EventArgs e)
         {
             SinavSorumlusu ss = new SinavSorumlusu();
-            ss.uniteVeyaKonuIsmiCek("Section", txtKonuNo.Text, lblKIsim, lblUIsim);
+            ss.UniteVeyaKonuIsmiCek("Section", txtKonuNo.Text, lblKIsim, lblUIsim);
         }
 
         private void btnSoruyuGonder_Click(object sender, EventArgs e)
@@ -97,18 +97,18 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     else
                     {
                         SinavSorumlusu ss = new SinavSorumlusu();
-                        girilenVerileriNesneyeAta(ss);
+                        GirilenVerileriNesneyeAta(ss);
                         //soruVerileriniVeritabanınaIsle();
-                        ss.soruVerileriniVeritabanınaIsle();
+                        ss.SoruVerileriniVeritabanınaIsle();
                         MessageBox.Show("Sorunuz Gönderildi.\nAdmin onayından sonra sistemde gözükecektir.");
-                        textboxlarıTemizle();
+                        TextboxlarıTemizle();
                         break;
                     }
                 }
             }       
         }
 
-        private void girilenVerileriNesneyeAta(SinavSorumlusu ss)
+        private void GirilenVerileriNesneyeAta(SinavSorumlusu ss)
         {
             ss.IslemYapilacakSoru.Govde = txtSoruGovde.Text;
             ss.IslemYapilacakSoru.SectionID = Convert.ToInt32(txtKonuNo.Text);
@@ -123,7 +123,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             ss.IslemYapilacakSoru.YanlisCevap4 = txtYanlisCevap4.Text;
         }
 
-        public void textboxlarıTemizle()
+        public void TextboxlarıTemizle()
         {
             foreach (Control ctl in this.Controls)
             {
@@ -141,7 +141,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnCikisYap_Click(object sender, EventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "girisForm");
+            formGecis.FormlarArasıGecisYap(this, "girisForm");
         }
     }
 }

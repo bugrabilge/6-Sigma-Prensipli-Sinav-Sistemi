@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class SifreKurtarmaForm
+    partial class frmSifreKurtarma
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SifreKurtarmaForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSifreKurtarma));
             this.lblSifreKurtarmaA = new System.Windows.Forms.Label();
             this.lblKullaniciAdi = new System.Windows.Forms.Label();
             this.txtKullaniciAdi = new System.Windows.Forms.TextBox();

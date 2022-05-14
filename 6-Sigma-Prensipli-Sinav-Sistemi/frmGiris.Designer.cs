@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class GirisForm
+    partial class frmGiris
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.
@@ -29,7 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GirisForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGiris));
             this.btnGiris = new System.Windows.Forms.Button();
             this.txtKullaniciAdi = new System.Windows.Forms.TextBox();
             this.txtSifre = new System.Windows.Forms.TextBox();
@@ -84,6 +84,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.txtSifre.Name = "txtSifre";
             this.txtSifre.Size = new System.Drawing.Size(198, 24);
             this.txtSifre.TabIndex = 1;
+            this.txtSifre.TextChanged += new System.EventHandler(this.txtSifre_TextChanged);
             // 
             // btnKayitOl
             // 
@@ -168,7 +169,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.picSigmaIcon.TabIndex = 5;
             this.picSigmaIcon.TabStop = false;
             // 
-            // GirisForm
+            // frmGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,7 +187,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Controls.Add(this.txtKullaniciAdi);
             this.Controls.Add(this.btnGiris);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "GirisForm";
+            this.Name = "frmGiris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giriş Yap";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GirisForm_FormClosing);

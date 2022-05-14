@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public partial class OgrenciForm : Form
+    public partial class frmOgrenci : Form
     {
-        public OgrenciForm()
+        public frmOgrenci()
         {
             InitializeComponent();
         }
         private void btnSigma_Click(object sender, EventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "sigmaTestForm");
+            formGecis.FormlarArasıGecisYap(this, "sigmaTestForm");
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "girisForm");
+            formGecis.FormlarArasıGecisYap(this, "girisForm");
         }
 
         private void OgrenciForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -33,12 +33,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnNormalTest_Click(object sender, EventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "normalTestForm");
+            formGecis.FormlarArasıGecisYap(this, "normalTestForm");
         }
 
         private void OgrenciForm_Load(object sender, EventArgs e)
         {
-            lblOgrenciIsım.Text = Giris.girisYapanKullaniciAd + " " + Giris.girisYapanKullaniciSoyad;
+            lblOgrenciIsım.Text = Giris.GirisYapanKullaniciAd + " " + Giris.GirisYapanKullaniciSoyad;
         }
     }
 }

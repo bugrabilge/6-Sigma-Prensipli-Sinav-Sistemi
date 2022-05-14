@@ -16,7 +16,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GirisForm());
+            Application.Run(new frmGiris());
         }
     }
 }

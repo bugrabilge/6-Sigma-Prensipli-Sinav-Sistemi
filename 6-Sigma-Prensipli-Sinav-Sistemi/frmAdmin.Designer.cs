@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class AdminForm
+    partial class frmAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdmin));
             this.label1 = new System.Windows.Forms.Label();
             this.grpSoru = new System.Windows.Forms.GroupBox();
             this.lblE = new System.Windows.Forms.Label();

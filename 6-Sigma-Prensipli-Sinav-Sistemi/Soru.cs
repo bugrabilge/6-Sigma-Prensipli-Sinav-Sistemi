@@ -39,32 +39,32 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public GroupBox Grup { get; set; }
         
         
-        public void siradakiSoruBilgileriniCekVeAta(int questionStatus) 
+        public void SiradakiSoruBilgileriniCekVeAta(int questionStatus) 
         {
             /* QuestionStatus = 0 -> Henuz admin tarafindan onaylanmamis sorular
             * QuestionStatus = 1 -> Admin tarafindan onaylanip soru havuzuna eklenmis sorular
             * QuestionStatus = 2 -> 6 kez üst üste bilinip test havuzundan cikarilmis sorular
             */
-            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.BaglantiYoksaYeniBaglantiAc();
             siradaSoruVarMi = false;
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionStatus = '" + questionStatus + "' ORDER BY NEWID()";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
 
             if (Veritabani.VeriOkuyucu.Read()) // veritabanından istenen question statuse rastgele bir soru çekiyoruz
             {
-                secenekleriVeBilgileriAta(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
+                SecenekleriVeBilgileriAta(Convert.ToInt32(Veritabani.VeriOkuyucu["QuestionID"]));
                 siradaSoruVarMi = true;
             }
 
-            Veritabani.baglantiyiKes();
+            Veritabani.BaglantiyiKes();
 
         }
 
-        public void secenekleriVeBilgileriAta(int id)
+        public void SecenekleriVeBilgileriAta(int id)
         {           
             this.ID = id;
-            Veritabani.baglantiyiKes();
-            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.BaglantiyiKes();
+            Veritabani.BaglantiYoksaYeniBaglantiAc();
             Veritabani.Komut.CommandText = "SELECT * FROM dbo.Questions WHERE QuestionID = '" + this.ID + "'";
             
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
@@ -95,7 +95,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 }
                 break;
             }
-            Veritabani.baglantiyiKes();
+            Veritabani.BaglantiyiKes();
         }
     }
 }

@@ -8,5 +8,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public class Hazirlik : TestIslemleri
     {
+        public int Analiz { get; set; }
     }
 }

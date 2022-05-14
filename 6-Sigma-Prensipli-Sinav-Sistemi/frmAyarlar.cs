@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public partial class AyarlarForm : Form
+    public partial class frmAyarlar : Form
     {
-        public AyarlarForm()
+        public frmAyarlar()
         {
             InitializeComponent();
         }

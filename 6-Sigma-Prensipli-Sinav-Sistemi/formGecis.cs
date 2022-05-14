@@ -9,52 +9,52 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public static class formGecis
     {
-        public static void formlarArasıGecisYap(Form kapatılacakFormIsmi, string acilacakFormIsmi)
+        public static void FormlarArasıGecisYap(Form kapatılacakFormIsmi, string acilacakFormIsmi)
         {
             // gelen parametrelere göre form yönlendirme işlemleri gerçekleşiyor
             switch (acilacakFormIsmi)
             {
                 case "adminForm":
-                    AdminForm adminForm = new AdminForm();
+                    frmAdmin adminForm = new frmAdmin();
                     kapatılacakFormIsmi.Hide();
                     adminForm.Show();
                     break;
                 case "ogrenciForm":
-                    OgrenciForm ogrenciForm = new OgrenciForm();
+                    frmOgrenci ogrenciForm = new frmOgrenci();
                     kapatılacakFormIsmi.Hide();
                     ogrenciForm.Show();
                     break;
                 case "sSorumluForm":
-                    SSorumluForm sSorumluForm = new SSorumluForm();
+                    frmSinavSorumlusu sSorumluForm = new frmSinavSorumlusu();
                     kapatılacakFormIsmi.Hide();
                     sSorumluForm.Show();
                     break;
                 case "sifreKurtarmaForm":
-                    SifreKurtarmaForm sifreKurtarmaForm = new SifreKurtarmaForm();
+                    frmSifreKurtarma sifreKurtarmaForm = new frmSifreKurtarma();
                     kapatılacakFormIsmi.Hide();
                     sifreKurtarmaForm.Show();
                     break;
                 case "kayitForm":
-                    KayitForm kayitForm = new KayitForm();
+                    frmKayit kayitForm = new frmKayit();
                     kapatılacakFormIsmi.Hide();
                     kayitForm.Show();
                     break;
                 case "girisForm":
-                    GirisForm girisForm = new GirisForm();
+                    frmGiris girisForm = new frmGiris();
                     kapatılacakFormIsmi.Hide();
                     girisForm.Show();
                     break;
                 case "sigmaTestForm":
-                    SigmaTestForm sigmaForm = new SigmaTestForm();
+                    frmSigmaTest sigmaForm = new frmSigmaTest();
                     kapatılacakFormIsmi.Hide();
                     sigmaForm.Show();
                     break;
                 case "ayarlar":
-                    AyarlarForm ayarlarForm = new AyarlarForm();
+                    frmAyarlar ayarlarForm = new frmAyarlar();
                     ayarlarForm.ShowDialog();
                     break;
                 case "normalTestForm":
-                    HazirlikTestForm normalForm = new HazirlikTestForm();
+                    frmHazirlikTest normalForm = new frmHazirlikTest();
                     kapatılacakFormIsmi.Hide();
                     normalForm.Show();
                     break;

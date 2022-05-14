@@ -10,11 +10,11 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public class Giris : LoginHareketleri
     {
-        public static int girisYapanKullaniciID { get; set; }
-        public static string girisYapanKullaniciAd { get; set; }
-        public static string girisYapanKullaniciSoyad { get; set; }
+        public static int GirisYapanKullaniciID { get; set; }
+        public static string GirisYapanKullaniciAd { get; set; }
+        public static string GirisYapanKullaniciSoyad { get; set; }
         
-        public void kullaniciAdiKontrolVeGiris(string kullaniciAdi, string sifre, Form kapatilacakFormIsmi)
+        public void KullaniciAdiKontrolVeGiris(string kullaniciAdi, string sifre, Form kapatilacakFormIsmi)
         {
             if (kullaniciAdi != "" && sifre != "")
             {
@@ -23,7 +23,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 if (Veritabani.VeriOkuyucu.Read()) // Kullanici adinin bulunup bulunmadigina bakiyoruz, bulunuyorsa sifre kontrolu yapıp giris yapıyoruz
                 {
                     Veritabani.VeriOkuyucu.Close();
-                    girisYap(kullaniciAdi, sifre, kapatilacakFormIsmi);
+                    GirisYap(kullaniciAdi, sifre, kapatilacakFormIsmi);
                 }
                 else
                 {
@@ -37,7 +37,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         }
 
 
-        public void girisYap(string kullaniciAdi, string sifre, Form kapatilacakFormIsmi)
+        public void GirisYap(string kullaniciAdi, string sifre, Form kapatilacakFormIsmi)
         {
             
             Veritabani.Komut.CommandText = "SELECT UserName, Password, UserTypeID, UserID, Name, Surname FROM dbo.Users where UserName='" + kullaniciAdi + "' AND Password='" + sifre + "'";
@@ -49,19 +49,19 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 switch (Veritabani.VeriOkuyucu["UserTypeID"])
                 {
                     case 1: // ogrenci girisi
-                        adSoyadVeIDBilgileriniAta();
-                        Veritabani.baglantiyiKes();
-                        formGecis.formlarArasıGecisYap(kapatilacakFormIsmi, "ogrenciForm");
+                        AdSoyadVeIDBilgileriniAta();
+                        Veritabani.BaglantiyiKes();
+                        formGecis.FormlarArasıGecisYap(kapatilacakFormIsmi, "ogrenciForm");
                         break;
                     case 2: // sinav sorumlusu girisi
-                        adSoyadVeIDBilgileriniAta();
-                        Veritabani.baglantiyiKes();
-                        formGecis.formlarArasıGecisYap(kapatilacakFormIsmi, "sSorumluForm");
+                        AdSoyadVeIDBilgileriniAta();
+                        Veritabani.BaglantiyiKes();
+                        formGecis.FormlarArasıGecisYap(kapatilacakFormIsmi, "sSorumluForm");
                         break;
                     case 3: // admin girisi
-                        adSoyadVeIDBilgileriniAta();
-                        Veritabani.baglantiyiKes();
-                        formGecis.formlarArasıGecisYap(kapatilacakFormIsmi, "adminForm");
+                        AdSoyadVeIDBilgileriniAta();
+                        Veritabani.BaglantiyiKes();
+                        formGecis.FormlarArasıGecisYap(kapatilacakFormIsmi, "adminForm");
                         break;
                     default:
                         break;
@@ -69,16 +69,16 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }
             else
             {
-                Veritabani.baglantiyiKes();
+                Veritabani.BaglantiyiKes();
                 MessageBox.Show("Hatalı şifre girdiniz. Lütfen tekrar deneyiniz.");
             }
         }
 
-        private void adSoyadVeIDBilgileriniAta()
+        private void AdSoyadVeIDBilgileriniAta()
         {
-            girisYapanKullaniciID = Convert.ToInt32(Veritabani.VeriOkuyucu["UserID"]);
-            girisYapanKullaniciAd = Veritabani.VeriOkuyucu["Name"].ToString();
-            girisYapanKullaniciSoyad = Veritabani.VeriOkuyucu["Surname"].ToString();
+            GirisYapanKullaniciID = Convert.ToInt32(Veritabani.VeriOkuyucu["UserID"]);
+            GirisYapanKullaniciAd = Veritabani.VeriOkuyucu["Name"].ToString();
+            GirisYapanKullaniciSoyad = Veritabani.VeriOkuyucu["Surname"].ToString();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class OgrenciForm
+    partial class frmOgrenci
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OgrenciForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOgrenci));
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnSigma = new System.Windows.Forms.Button();
             this.btnNormalTest = new System.Windows.Forms.Button();

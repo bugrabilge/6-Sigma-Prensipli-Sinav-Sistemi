@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class SSorumluForm
+    partial class frmSinavSorumlusu
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SSorumluForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSinavSorumlusu));
             this.txtSoruGovde = new System.Windows.Forms.TextBox();
             this.txtDogruCevap = new System.Windows.Forms.TextBox();
             this.txtYanlisCevap1 = new System.Windows.Forms.TextBox();

@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class KayitForm
+    partial class frmKayit
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KayitForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKayit));
             this.lblKullaniciAdi = new System.Windows.Forms.Label();
             this.lblSifre = new System.Windows.Forms.Label();
             this.lblAd = new System.Windows.Forms.Label();

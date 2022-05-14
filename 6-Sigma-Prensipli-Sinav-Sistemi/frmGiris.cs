@@ -12,10 +12,10 @@ using System.Data.SqlClient;
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
 
-    public partial class GirisForm : Form
+    public partial class frmGiris : Form
     {
 
-        public GirisForm()
+        public frmGiris()
         {
             InitializeComponent();
         }
@@ -24,12 +24,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
 
             Giris giris = new Giris();
-            giris.kullaniciAdiKontrolVeGiris(txtKullaniciAdi.Text, txtSifre.Text, this);
+            giris.KullaniciAdiKontrolVeGiris(txtKullaniciAdi.Text, txtSifre.Text, this);
         }
 
         private void btnKayitOl_Click(object sender, EventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "kayitForm");
+            formGecis.FormlarArasıGecisYap(this, "kayitForm");
         }
 
         private void GirisForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -40,7 +40,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void lblSifremiUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "sifreKurtarmaForm");
+            formGecis.FormlarArasıGecisYap(this, "sifreKurtarmaForm");
+        }
+
+        private void txtSifre_TextChanged(object sender, EventArgs e)
+        {
+            txtSifre.PasswordChar = '*';
         }
     }
 }

@@ -18,7 +18,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public string GuvenlikSorusuCevabi { get; set; }
         public int KullaniciTuru { get; set; }
 
-        public void verileriVeritabaninaKayitEt() // Kayit ekraninda girilen veriler veritabanina ekleniyor
+        public void VerileriVeritabaninaKayitEt() // Kayit ekraninda girilen veriler veritabanina ekleniyor
         {
             Veritabani.Komut.CommandText = "insert into dbo.Users(UserName, Name, Surname, Mail, Password, SecurityAnswer, UserTypeID) " +
                                             "values('" + KayitOlanKullaniciAdi + "','" +
@@ -36,7 +36,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                                             "WHERE UserName = '" + KayitOlanKullaniciAdi + "'";
             }
             Veritabani.Komut.ExecuteNonQuery();
-            Veritabani.baglantiyiKes();
+            Veritabani.BaglantiyiKes();
             MessageBox.Show("Kayıt İşleminiz Başarıyla Gerçekleşmiştir!");
         }
 

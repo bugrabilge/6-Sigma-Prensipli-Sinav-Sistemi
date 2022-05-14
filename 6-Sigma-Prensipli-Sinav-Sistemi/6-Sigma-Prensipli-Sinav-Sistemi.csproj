@@ -47,17 +47,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
-    <Compile Include="AdminForm.cs">
+    <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="AyarlarForm.cs">
+    <Compile Include="frmAyarlar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AyarlarForm.Designer.cs">
-      <DependentUpon>AyarlarForm.cs</DependentUpon>
+    <Compile Include="frmAyarlar.Designer.cs">
+      <DependentUpon>frmAyarlar.cs</DependentUpon>
     </Compile>
     <Compile Include="dbSigmaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -66,34 +66,34 @@
     </Compile>
     <Compile Include="formGecis.cs" />
     <Compile Include="Giris.cs" />
-    <Compile Include="GirisForm.cs">
+    <Compile Include="frmGiris.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GirisForm.Designer.cs">
-      <DependentUpon>GirisForm.cs</DependentUpon>
+    <Compile Include="frmGiris.Designer.cs">
+      <DependentUpon>frmGiris.cs</DependentUpon>
     </Compile>
     <Compile Include="Kayit.cs" />
-    <Compile Include="KayitForm.cs">
+    <Compile Include="frmKayit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KayitForm.Designer.cs">
-      <DependentUpon>KayitForm.cs</DependentUpon>
+    <Compile Include="frmKayit.Designer.cs">
+      <DependentUpon>frmKayit.cs</DependentUpon>
     </Compile>
     <Compile Include="Kullanici.cs" />
     <Compile Include="LoginHareketleri.cs" />
     <Compile Include="Hazirlik.cs" />
-    <Compile Include="HazirlikTestForm.cs">
+    <Compile Include="frmHazirlikTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HazirlikTestForm.Designer.cs">
-      <DependentUpon>HazirlikTestForm.cs</DependentUpon>
+    <Compile Include="frmHazirlikTest.Designer.cs">
+      <DependentUpon>frmHazirlikTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Ogrenci.cs" />
-    <Compile Include="OgrenciForm.cs">
+    <Compile Include="frmOgrenci.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OgrenciForm.Designer.cs">
-      <DependentUpon>OgrenciForm.cs</DependentUpon>
+    <Compile Include="frmOgrenci.Designer.cs">
+      <DependentUpon>frmOgrenci.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,60 +103,60 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="SifreKurtarma.cs" />
-    <Compile Include="SifreKurtarmaForm.cs">
+    <Compile Include="frmSifreKurtarma.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SifreKurtarmaForm.Designer.cs">
-      <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
+    <Compile Include="frmSifreKurtarma.Designer.cs">
+      <DependentUpon>frmSifreKurtarma.cs</DependentUpon>
     </Compile>
     <Compile Include="Sigma.cs" />
     <Compile Include="SinavSorumlusu.cs" />
     <Compile Include="Soru.cs" />
-    <Compile Include="SSorumluForm.cs">
+    <Compile Include="frmSinavSorumlusu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SSorumluForm.Designer.cs">
-      <DependentUpon>SSorumluForm.cs</DependentUpon>
+    <Compile Include="frmSinavSorumlusu.Designer.cs">
+      <DependentUpon>frmSinavSorumlusu.cs</DependentUpon>
     </Compile>
-    <Compile Include="SigmaTestForm.cs">
+    <Compile Include="frmSigmaTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SigmaTestForm.Designer.cs">
-      <DependentUpon>SigmaTestForm.cs</DependentUpon>
+    <Compile Include="frmSigmaTest.Designer.cs">
+      <DependentUpon>frmSigmaTest.cs</DependentUpon>
     </Compile>
     <Compile Include="TestIslemleri.cs" />
     <Compile Include="veriTabaniBaglanti.cs" />
-    <EmbeddedResource Include="AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AyarlarForm.resx">
-      <DependentUpon>AyarlarForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmAyarlar.resx">
+      <DependentUpon>frmAyarlar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GirisForm.resx">
-      <DependentUpon>GirisForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmGiris.resx">
+      <DependentUpon>frmGiris.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KayitForm.resx">
-      <DependentUpon>KayitForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmKayit.resx">
+      <DependentUpon>frmKayit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HazirlikTestForm.resx">
-      <DependentUpon>HazirlikTestForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmHazirlikTest.resx">
+      <DependentUpon>frmHazirlikTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OgrenciForm.resx">
-      <DependentUpon>OgrenciForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmOgrenci.resx">
+      <DependentUpon>frmOgrenci.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SifreKurtarmaForm.resx">
-      <DependentUpon>SifreKurtarmaForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmSifreKurtarma.resx">
+      <DependentUpon>frmSifreKurtarma.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SSorumluForm.resx">
-      <DependentUpon>SSorumluForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmSinavSorumlusu.resx">
+      <DependentUpon>frmSinavSorumlusu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SigmaTestForm.resx">
-      <DependentUpon>SigmaTestForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmSigmaTest.resx">
+      <DependentUpon>frmSigmaTest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dbSigmaDataSet.xsc">
       <DependentUpon>dbSigmaDataSet.xsd</DependentUpon>

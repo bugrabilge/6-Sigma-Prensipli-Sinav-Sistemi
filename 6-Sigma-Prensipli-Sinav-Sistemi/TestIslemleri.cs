@@ -20,10 +20,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         public TestIslemleri()
         {
             this.Veritabani = new veriTabaniBaglanti();
-            this.KullaniciID = Giris.girisYapanKullaniciID;
+            this.KullaniciID = Giris.GirisYapanKullaniciID;
             bugunSorulacakSorularinIDleri = new List<int>();
         }
-        public void soruyuFormaRandomSeceneklerleYansıt(Soru soru, Label lblGovde, Label[] seceneklerArray , PictureBox box)
+        public void SoruyuFormaRandomSeceneklerleYansıt(Soru soru, Label lblGovde, Label[] seceneklerArray , PictureBox box)
         {
             var rnd = new Random();
             List<Label> randomSecenekler = new List<Label>();
@@ -58,21 +58,21 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }
         }
 
-        public void dogruYanlisKontroluYap(Ogrenci ogrenci, Label secenek)
+        public void DogruYanlisKontroluYap(Ogrenci ogrenci, Label secenek)
         {
             if (secenek.Text == ogrenci.IslemYapilacakSoru.DogruCevap) // secenegin labelinda yazan sorunun dogru cevabiysa
             {
                 ogrenci.DogruSayisi++;
-                soruIDlerineGoreUniteIsımleriCek(ogrenci.IslemYapilacakSoru.ID, ogrenci.DogruCozulenKonular);
+                SoruIDlerineGoreUniteIsımleriCek(ogrenci.IslemYapilacakSoru.ID, ogrenci.DogruCozulenKonular);
             }
             else // secenegin labelinda yazan sorunun yanlis cevabiysa
             {
                 ogrenci.YanlisSayisi++;
-                soruIDlerineGoreUniteIsımleriCek(ogrenci.IslemYapilacakSoru.ID, ogrenci.YanlisCozulenKonular);
+                SoruIDlerineGoreUniteIsımleriCek(ogrenci.IslemYapilacakSoru.ID, ogrenci.YanlisCozulenKonular);
             }          
         }
         
-        public void testOgelerininGorunurlugunuDegistir(Label[] labellar, Button[] butonlar, PictureBox box)
+        public void TestOgelerininGorunurlugunuDegistir(Label[] labellar, Button[] butonlar, PictureBox box)
         {
             foreach (Label l in labellar) // gelen tüm ögelerin görünürlügünü tersine ceviriyoruz
             {
@@ -87,9 +87,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             box.Visible = !box.Visible;
         }
 
-        public virtual void bugunSorulacakSorulariVeritabanindanCek()
+        public virtual void BugunSorulacakSorulariVeritabanindanCek()
         {
-            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.BaglantiYoksaYeniBaglantiAc();
             /* virtual metot olarak veritabanından 20 tane onaylanmış soru çekiyoruz
              * bu metot hazırlık sınıfında direkt kullanılıyor
              * sigma sınıfında ise override ediliyor */
@@ -104,10 +104,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     sayac++;
                 }
             }
-            Veritabani.baglantiyiKes();
+            Veritabani.BaglantiyiKes();
         }
 
-        public void siradakiSoru(Ogrenci ogrenci, Label govde, Label no, Label[] secenekler, PictureBox box)
+        public void SiradakiSoru(Ogrenci ogrenci, Label govde, Label no, Label[] secenekler, PictureBox box)
         {
             /* veritabanından çektiğimiz soruların id'lerini tuttuğumuz listenin countu 0 olana kadar
              * soruları her bu fonksiyon çağrıldığında birer birer soru nesnemize atıyoruz ve
@@ -115,8 +115,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
              */
             while (bugunSorulacakSorularinIDleri.Count != 0)
             {
-                ogrenci.IslemYapilacakSoru.secenekleriVeBilgileriAta(bugunSorulacakSorularinIDleri[0]);
-                soruyuFormaRandomSeceneklerleYansıt(ogrenci.IslemYapilacakSoru, govde, secenekler, box);
+                ogrenci.IslemYapilacakSoru.SecenekleriVeBilgileriAta(bugunSorulacakSorularinIDleri[0]);
+                SoruyuFormaRandomSeceneklerleYansıt(ogrenci.IslemYapilacakSoru, govde, secenekler, box);
                 bugunSorulacakSorularinIDleri.RemoveAt(0);
                 no.Text = (ogrenci.DogruSayisi + ogrenci.YanlisSayisi + 1).ToString() + ")";
                 return;
@@ -130,9 +130,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             }
         }
 
-        private void soruIDlerineGoreUniteIsımleriCek(int ID, List<string> konularinIslenecegiList)
+        private void SoruIDlerineGoreUniteIsımleriCek(int ID, List<string> konularinIslenecegiList)
         {
-            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.BaglantiYoksaYeniBaglantiAc();
             Veritabani.Komut.CommandText = "SELECT U.UnitName FROM dbo.UnitsAndSections U, dbo.Questions Q WHERE U.UnitID = Q.UnitID AND Q.QuestionID = '" + ID + "'";
             Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
             if (Veritabani.VeriOkuyucu.Read())
@@ -140,7 +140,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 string konu = Veritabani.VeriOkuyucu["Unitname"].ToString();
                 konularinIslenecegiList.Add(konu);
             }
-            Veritabani.baglantiyiKes();
+            Veritabani.BaglantiyiKes();
         }
 
         public string AnalizYap(List<string> analizEdilecekListe, string tur)
@@ -159,7 +159,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             return mesaj;
         }
 
-        public void analiziGosterVePrintEt(string a)
+        public void AnaliziGosterVePrintEt(string a)
         {
             DialogResult result1 = MessageBox.Show(a + "\n\nAnalizi yazdırmak için evete, devam etmek için hayıra basınız...",
                                                    "Analiz", MessageBoxButtons.YesNo);

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public partial class HazirlikTestForm : Form
+    public partial class frmHazirlikTest : Form
     {
-        public HazirlikTestForm()
+        public frmHazirlikTest()
         {
             InitializeComponent();
         }
@@ -20,46 +20,46 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         Ogrenci ogrenci = new Ogrenci();
         private void btnBasla_Click(object sender, EventArgs e)
         {
-            testinGorunurlugunuDegistir();
-            siradakiSoru();
+            TestinGorunurlugunuDegistir();
+            SiradakiSoru();
             btnBasla.Enabled = false;
             picHazirlik.Visible = false;
         }
 
         private void HazirlikTestForm_Load(object sender, EventArgs e)
         {
-            testinGorunurlugunuDegistir();
-            ogrenci.HazirlikTestiIslemleri.bugunSorulacakSorulariVeritabanindanCek();
+            TestinGorunurlugunuDegistir();
+            ogrenci.HazirlikTestiIslemleri.BugunSorulacakSorulariVeritabanindanCek();
         }
 
         private void btnA_Click(object sender, EventArgs e)
         {
-            ogrenci.HazirlikTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblA);
-            siradakiSoru();
+            ogrenci.HazirlikTestiIslemleri.DogruYanlisKontroluYap(ogrenci, lblA);
+            SiradakiSoru();
         }
 
         private void btnB_Click(object sender, EventArgs e)
         {
-            ogrenci.HazirlikTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblB);
-            siradakiSoru();
+            ogrenci.HazirlikTestiIslemleri.DogruYanlisKontroluYap(ogrenci, lblB);
+            SiradakiSoru();
         }
 
         private void btnC_Click(object sender, EventArgs e)
         {
-            ogrenci.HazirlikTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblC);
-            siradakiSoru();
+            ogrenci.HazirlikTestiIslemleri.DogruYanlisKontroluYap(ogrenci, lblC);
+            SiradakiSoru();
         }
 
         private void btnD_Click(object sender, EventArgs e)
         {
-            ogrenci.HazirlikTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblD);
-            siradakiSoru();
+            ogrenci.HazirlikTestiIslemleri.DogruYanlisKontroluYap(ogrenci, lblD);
+            SiradakiSoru();
         }
 
         private void btnE_Click(object sender, EventArgs e)
         {
-            ogrenci.HazirlikTestiIslemleri.dogruYanlisKontroluYap(ogrenci, lblE);
-            siradakiSoru();
+            ogrenci.HazirlikTestiIslemleri.DogruYanlisKontroluYap(ogrenci, lblE);
+            SiradakiSoru();
         }
 
         private void btnAnaliz_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             string yanlisAnalizi = ogrenci.HazirlikTestiIslemleri.AnalizYap(ogrenci.YanlisCozulenKonular, "Yanlış");
 
             string tumAnaliz = "Doğru Yapılanlar :\n" + dogruAnalizi + "\n\nYanlış Yapılanlar :\n" + yanlisAnalizi;
-            ogrenci.SigmaTestiIslemleri.analiziGosterVePrintEt(tumAnaliz);
+            ogrenci.SigmaTestiIslemleri.AnaliziGosterVePrintEt(tumAnaliz);
         }
 
         private void NormalTestForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -80,32 +80,32 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         {
             ogrenci.DogruCozulenKonular.Clear();
             ogrenci.YanlisCozulenKonular.Clear();
-            formGecis.formlarArasıGecisYap(this, "ogrenciForm");
+            formGecis.FormlarArasıGecisYap(this, "ogrenciForm");
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "girisForm");
+            formGecis.FormlarArasıGecisYap(this, "girisForm");
         }
 
-        public void siradakiSoru()
+        public void SiradakiSoru()
         {
             Label[] seceneklerArray = { lblA, lblB, lblC, lblD, lblE };
             while (ogrenci.HazirlikTestiIslemleri.bugunSorulacakSorularinIDleri.Count != 0)
             {
-                ogrenci.HazirlikTestiIslemleri.siradakiSoru(ogrenci, lblSoruGovde, lblSoruNo, seceneklerArray, picSoruResmi);
+                ogrenci.HazirlikTestiIslemleri.SiradakiSoru(ogrenci, lblSoruGovde, lblSoruNo, seceneklerArray, picSoruResmi);
                 return;
             }
-            ogrenci.HazirlikTestiIslemleri.siradakiSoru(ogrenci, lblSoruGovde, lblSoruNo, seceneklerArray, picSoruResmi);
-            testinGorunurlugunuDegistir();
+            ogrenci.HazirlikTestiIslemleri.SiradakiSoru(ogrenci, lblSoruGovde, lblSoruNo, seceneklerArray, picSoruResmi);
+            TestinGorunurlugunuDegistir();
             picSoruResmi.Visible = false;
         }
 
-        public void testinGorunurlugunuDegistir()
+        public void TestinGorunurlugunuDegistir()
         {
             Label[] labellar = { lblA, lblB, lblC, lblD, lblE, lblSoruNo, lblSoruGovde };
             Button[] butonlar = { btnA, btnB, btnC, btnD, btnE, btnAnaliz };
-            ogrenci.HazirlikTestiIslemleri.testOgelerininGorunurlugunuDegistir(labellar, butonlar, picSoruResmi);
+            ogrenci.HazirlikTestiIslemleri.TestOgelerininGorunurlugunuDegistir(labellar, butonlar, picSoruResmi);
             if (ogrenci.HazirlikTestiIslemleri.bugunSorulacakSorularinIDleri.Count != 0)
             {
                 btnAnaliz.Visible = false;

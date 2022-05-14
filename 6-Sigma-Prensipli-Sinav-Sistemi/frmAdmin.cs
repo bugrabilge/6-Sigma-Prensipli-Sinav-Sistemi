@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public partial class AdminForm : Form
+    public partial class frmAdmin : Form
     {
-        public AdminForm()
+        public frmAdmin()
         {
             InitializeComponent();
         }
@@ -22,15 +22,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            admin.IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(0);
-            soruBilgileriniFormaYansit();
+            admin.IslemYapilacakSoru.SiradakiSoruBilgileriniCekVeAta(0);
+            SoruBilgileriniFormaYansit();
         }
 
 
         private void btnSiradaki_Click(object sender, EventArgs e)
         {
-            admin.IslemYapilacakSoru.siradakiSoruBilgileriniCekVeAta(0);
-            soruBilgileriniFormaYansit();
+            admin.IslemYapilacakSoru.SiradakiSoruBilgileriniCekVeAta(0);
+            SoruBilgileriniFormaYansit();
             if (!admin.IslemYapilacakSoru.siradaSoruVarMi)
             {
                 MessageBox.Show("Onay Bekleyen Soru Bulunmamaktadır.\nÇıkış Yapabilirsiniz.");
@@ -39,14 +39,14 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnOnayla_Click(object sender, EventArgs e)
         {
-            admin.soruyuOnayla();
-            soruBilgileriniFormaYansit();
+            admin.SoruyuOnayla();
+            SoruBilgileriniFormaYansit();
         }
 
         private void btnReddet_Click(object sender, EventArgs e)
         {
-            admin.soruyuReddet();
-            soruBilgileriniFormaYansit();
+            admin.SoruyuReddet();
+            SoruBilgileriniFormaYansit();
         }
 
         private void AdminForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -56,17 +56,17 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void btnCikis_Click(object sender, EventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "girisForm");
+            formGecis.FormlarArasıGecisYap(this, "girisForm");
         }
 
-         public void soruBilgileriniFormaYansit()
+         public void SoruBilgileriniFormaYansit()
         {
             if (admin.IslemYapilacakSoru.siradaSoruVarMi)
             {
                 grpSoru.Visible = true;
                 Label[] seceneklerArray = { lblA, lblB, lblC, lblD, lblE };
                 TestIslemleri testIslemleri = new TestIslemleri();
-                testIslemleri.soruyuFormaRandomSeceneklerleYansıt(admin.IslemYapilacakSoru, lblSoruGovde, seceneklerArray, picSoruResmi);
+                testIslemleri.SoruyuFormaRandomSeceneklerleYansıt(admin.IslemYapilacakSoru, lblSoruGovde, seceneklerArray, picSoruResmi);
                 lblDcevap.Text = admin.IslemYapilacakSoru.DogruCevap;
             }
             else

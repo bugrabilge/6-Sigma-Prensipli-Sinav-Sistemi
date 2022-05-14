@@ -10,12 +10,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public class SifreKurtarma : LoginHareketleri
     {
-        public void cevaplariKontrolEtVeSonucVer(string girilenKullaniciAdi, string girilenCevap, Form kapatilacakForm)
+        public void CevaplariKontrolEtVeSonucVer(string girilenKullaniciAdi, string girilenCevap, Form kapatilacakForm)
         {
             // kullanıcı adı ve gizli soru eşleşirse unuttuğu şifresini kullanıcıya veriyoruz
             if (girilenKullaniciAdi != "" && girilenCevap != "")
             {
-                Veritabani.baglantiYoksaYeniBaglantiAc();
+                Veritabani.BaglantiYoksaYeniBaglantiAc();
                 string sifre;
                 Veritabani.Komut.CommandText = "SELECT UserName, Password, SecurityAnswer FROM dbo.Users where UserName='" + girilenKullaniciAdi + "' AND SecurityAnswer='" + girilenCevap + "'";
                 Veritabani.VeriOkuyucu = Veritabani.Komut.ExecuteReader();
@@ -23,7 +23,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                 {
                     sifre = Veritabani.VeriOkuyucu["Password"].ToString();
                     MessageBox.Show("Cevabınız doğru! Şifreniz : " + sifre + "\nGiriş yapabilirsiniz.");
-                    formGecis.formlarArasıGecisYap(kapatilacakForm, "girisForm");
+                    formGecis.FormlarArasıGecisYap(kapatilacakForm, "girisForm");
                 }
                 else
                 {
@@ -34,7 +34,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             {
                 MessageBox.Show("Lütfen tüm alanları doldurunuz.");
             }
-            Veritabani.baglantiyiKes();
+            Veritabani.BaglantiyiKes();
         }
     }
 }

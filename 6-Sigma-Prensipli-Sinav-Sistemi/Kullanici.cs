@@ -19,9 +19,9 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Veritabani = vt;
             Soru soru = new Soru();
             this.IslemYapilacakSoru = soru;
-            this.ID = Giris.girisYapanKullaniciID;
-            this.Ad = Giris.girisYapanKullaniciAd;
-            this.Soyad = Giris.girisYapanKullaniciSoyad;
+            this.ID = Giris.GirisYapanKullaniciID;
+            this.Ad = Giris.GirisYapanKullaniciAd;
+            this.Soyad = Giris.GirisYapanKullaniciSoyad;
         }
     }
 }

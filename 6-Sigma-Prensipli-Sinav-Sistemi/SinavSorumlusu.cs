@@ -11,7 +11,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
     public class SinavSorumlusu : Kullanici
     {
-        public void resimYukle(PictureBox box, Button arttir, Button azalt)
+        public void ResimYukle(PictureBox box, Button arttir, Button azalt)
         {
             OpenFileDialog dosya = new OpenFileDialog();
             dosya.Filter = "Resim Dosyası |*.jpg;*.nef;*.png";
@@ -22,23 +22,23 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             _ = (box.ImageLocation == null) ? arttir.Visible = azalt.Visible = false : arttir.Visible = azalt.Visible = true;
         }
 
-        public void resimGenislikDegistir(string islem, PictureBox box)
+        public void ResimGenislikDegistir(string islem, PictureBox box)
         {
             Size boyut = box.Size;
             _ = (islem == "+") ? boyut.Width += 5 : boyut.Width -= 5;
             box.Size = boyut;
         }
 
-        public void resimYukseklikDegistir(string islem, PictureBox box)
+        public void ResimYukseklikDegistir(string islem, PictureBox box)
         {
             Size boyut = box.Size;
             _ = (islem == "+") ? boyut.Height += 5 : boyut.Height -= 5;
             box.Size = boyut;
         }
 
-        public void soruVerileriniVeritabanınaIsle() // eklenen soru verileri veritabanına aktarılıyor
+        public void SoruVerileriniVeritabanınaIsle() // eklenen soru verileri veritabanına aktarılıyor
         {
-            Veritabani.baglantiYoksaYeniBaglantiAc();
+            Veritabani.BaglantiYoksaYeniBaglantiAc();
             Veritabani.Komut.CommandText = "insert into dbo.Questions (QuestionText, SectionID, UnitID, PicturePath, PictureWidth, PictureHeight, RightAnswer, " +
                 "WrongAnswer1, WrongAnswer2, WrongAnswer3, WrongAnswer4,QuestionStatus) " +
                 "values (@soruText, @konuID, @uniteID, @resimYolu, @resimGenisligi, @resimYuksekligi, @dogruCevap," +
@@ -65,15 +65,15 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Veritabani.Komut.Parameters.AddWithValue("@yanlisCevap4", IslemYapilacakSoru.YanlisCevap4);
             Veritabani.Komut.Parameters.AddWithValue("@soruDurumu", 0);
             Veritabani.Komut.ExecuteNonQuery();
-            Veritabani.baglantiyiKes();
+            Veritabani.BaglantiyiKes();
         }
 
-        public void uniteVeyaKonuIsmiCek(string islemYapilacakTur, string gelenID, Label isimYazdirilacakLabel, Label uniteLabel)
+        public void UniteVeyaKonuIsmiCek(string islemYapilacakTur, string gelenID, Label isimYazdirilacakLabel, Label uniteLabel)
         {
             if (gelenID != "")
             {
                 int aranacakID = Convert.ToInt32(gelenID);
-                Veritabani.baglantiYoksaYeniBaglantiAc();
+                Veritabani.BaglantiYoksaYeniBaglantiAc();
                 
                 if (islemYapilacakTur == "Unit") // ünite ismi ya da konu ismi aramamıza göre CommandText atamamızı değiştiriyoruz sadece
                 {
@@ -90,7 +90,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     isimYazdirilacakLabel.Text = Veritabani.VeriOkuyucu["" + islemYapilacakTur + "Name"].ToString();
                     isimYazdirilacakLabel.Visible = true;
                 }
-                Veritabani.baglantiyiKes();
+                Veritabani.BaglantiyiKes();
             }
             else
             {

@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public partial class KayitForm : Form
+    public partial class frmKayit : Form
     {
-        public KayitForm()
+        public frmKayit()
         {
             InitializeComponent();
         }
@@ -42,8 +42,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
                     }
                     else
                     {
-                        kayit.verileriVeritabaninaKayitEt(); // kayıt nesnesi uzerinden bilgiler veritabanina isleniyor
-                        formGecis.formlarArasıGecisYap(this, "girisForm");
+                        kayit.VerileriVeritabaninaKayitEt(); // kayıt nesnesi uzerinden bilgiler veritabanina isleniyor
+                        formGecis.FormlarArasıGecisYap(this, "girisForm");
                         break;
                     }
                 }
@@ -52,7 +52,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
 
         private void KayitForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "girisForm");
+            formGecis.FormlarArasıGecisYap(this, "girisForm");
         }
 
 

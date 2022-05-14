@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    public partial class SifreKurtarmaForm : Form
+    public partial class frmSifreKurtarma : Form
     {
-        public SifreKurtarmaForm()
+        public frmSifreKurtarma()
         {
             InitializeComponent();
         }
@@ -21,12 +21,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void btnGonder_Click(object sender, EventArgs e)
         {
             SifreKurtarma sifreKurtarma = new SifreKurtarma();
-            sifreKurtarma.cevaplariKontrolEtVeSonucVer(txtKullaniciAdi.Text, txtCevap.Text, this);
+            sifreKurtarma.CevaplariKontrolEtVeSonucVer(txtKullaniciAdi.Text, txtCevap.Text, this);
         }
 
         private void SifreKurtarmaForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            formGecis.formlarArasıGecisYap(this, "girisForm");
+            formGecis.FormlarArasıGecisYap(this, "girisForm");
         }
     }
 }

@@ -22,12 +22,12 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Komut.Connection = Baglanti;           
         }
 
-        public void baglantiyiKes()
+        public void BaglantiyiKes()
         {
             Baglanti.Close();
         }
 
-        public void baglantiYoksaYeniBaglantiAc()
+        public void BaglantiYoksaYeniBaglantiAc()
         {
             if (Baglanti != null && Baglanti.State == ConnectionState.Closed)
             {

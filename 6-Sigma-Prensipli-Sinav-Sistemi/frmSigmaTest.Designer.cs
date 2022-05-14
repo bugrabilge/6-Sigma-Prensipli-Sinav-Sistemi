@@ -1,7 +1,7 @@
 ﻿
 namespace _6_Sigma_Prensipli_Sinav_Sistemi
 {
-    partial class SigmaTestForm
+    partial class frmSigmaTest
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SigmaTestForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSigmaTest));
             this.btnAyarlar = new System.Windows.Forms.Button();
             this.btnCikis = new System.Windows.Forms.Button();
             this.btnBasla = new System.Windows.Forms.Button();
