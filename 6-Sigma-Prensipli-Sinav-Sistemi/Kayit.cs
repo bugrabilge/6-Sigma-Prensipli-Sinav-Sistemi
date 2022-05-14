@@ -34,11 +34,10 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             Veritabani.Komut.CommandText = "INSERT INTO dbo.UsersSigmaFrequency(UserID) " +
                                             "SELECT UserID FROM dbo.Users " +
                                             "WHERE UserName = '" + KayitOlanKullaniciAdi + "'";
-            }
             Veritabani.Komut.ExecuteNonQuery();
+            }
             Veritabani.BaglantiyiKes();
             MessageBox.Show("Kayıt İşleminiz Başarıyla Gerçekleşmiştir!");
         }
-
     }
 }

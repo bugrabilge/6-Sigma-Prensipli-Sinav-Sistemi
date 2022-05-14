@@ -165,7 +165,7 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.lblAlti.TabIndex = 14;
             this.lblAlti.Text = "6)";
             // 
-            // AyarlarForm
+            // frmAyarlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,7 +186,8 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             this.Controls.Add(this.txtIkinci);
             this.Controls.Add(this.txtIlk);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AyarlarForm";
+            this.Name = "frmAyarlar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ayarlar";
             this.ResumeLayout(false);
             this.PerformLayout();
