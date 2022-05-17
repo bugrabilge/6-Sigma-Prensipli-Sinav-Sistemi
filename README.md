@@ -24,7 +24,7 @@
 ![hazirlik2](https://user-images.githubusercontent.com/79867464/168445467-db51cfd3-ef56-4beb-9914-007d17e28876.PNG)
 
 - **Sınav Sorumlusu Paneli:** Sınav sorumluları admin onayına sunulmak üzere soru havuzuna soru gönderebilir.
-- ![sinavsorumlusu](https://user-images.githubusercontent.com/79867464/168895225-c9280156-1cd4-4853-9c48-5c26833db26f.PNG)
+![sinavsorumlusu](https://user-images.githubusercontent.com/79867464/168895225-c9280156-1cd4-4853-9c48-5c26833db26f.PNG)
 
 - **Admin Paneli:** Sınav sorumluları tarafından soru havuzuna gönderilmiş soruların kontrollerini sağlayıp, onaylama ya da reddetme işlemlerinin admin tarafından gerçekleştirilebileceği panel.
-- ![admin5](https://user-images.githubusercontent.com/79867464/168895713-8055a98c-46a9-46a4-a547-54700a775e93.PNG)
+![admin5](https://user-images.githubusercontent.com/79867464/168895713-8055a98c-46a9-46a4-a547-54700a775e93.PNG)
