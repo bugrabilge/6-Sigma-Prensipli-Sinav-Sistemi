@@ -125,7 +125,6 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             {
                 MessageBox.Show("Tebrikler testi tamamladınız!\nDoğru sayiniz :" + ogrenci.DogruSayisi + "\nYanlış sayınız :" + ogrenci.YanlisSayisi +
                     "\nAnaliz butonu ile testin analizini görebilirsiniz...");
-                //testOgelerininGorunurlugunuDegistir();
                 box.Visible = false;
             }
         }
@@ -159,16 +158,16 @@ namespace _6_Sigma_Prensipli_Sinav_Sistemi
             return mesaj;
         }
 
-        public void AnaliziGosterVePrintEt(string a)
+        public void AnaliziGosterVePrintEt(string yazdırılacakMetin)
         {
-            DialogResult result1 = MessageBox.Show(a + "\n\nAnalizi yazdırmak için evete, devam etmek için hayıra basınız...",
+            DialogResult result1 = MessageBox.Show(yazdırılacakMetin + "\n\nAnalizi yazdırmak için evete, devam etmek için hayıra basınız...",
                                                    "Analiz", MessageBoxButtons.YesNo);
             if (result1 == DialogResult.Yes)
             {
                 PrintDocument p = new PrintDocument();
                 p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
                 {
-                    e1.Graphics.DrawString(a, new Font("Times New Roman", 12), new SolidBrush(Color.Black), new RectangleF(0, 0, p.DefaultPageSettings.PrintableArea.Width, p.DefaultPageSettings.PrintableArea.Height));
+                    e1.Graphics.DrawString(yazdırılacakMetin, new Font("Times New Roman", 12), new SolidBrush(Color.Black), new RectangleF(0, 0, p.DefaultPageSettings.PrintableArea.Width, p.DefaultPageSettings.PrintableArea.Height));
 
                 };
                 try
